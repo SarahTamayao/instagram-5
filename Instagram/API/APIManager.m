@@ -18,6 +18,7 @@
     return sharedManager;
 }
 
+#pragma mark - User Authentication
 - (void)registerUser:(NSString *)username password:(NSString *)password completion:(void(^)(BOOL succeeded, NSError *error))completion{
     // initialize a user object
     PFUser *newUser = [PFUser user];
@@ -43,6 +44,13 @@
         } else {
             completion(user, nil);
         }
+    }];
+}
+
+- (void)logout:(void(^)(NSError *error))completion {
+    [PFUser logOutInBackgroundWithBlock:^(NSError *error) {
+        // PFUser.current() will now be nil
+        completion(error);
     }];
 }
 

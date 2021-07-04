@@ -13,8 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface APIManager : NSObject
 
 + (instancetype)shared;
+
+//User Authentication
 - (void)registerUser:(NSString *)username password:(NSString *)password completion:(void(^)(BOOL succeeded, NSError *error))completion;
 - (void)loginUser:(NSString *)username password:(NSString *)password completion:(void(^)(PFUser *user, NSError *error))completion;
+- (void)logout:(void(^)(NSError *error))completion;
 
 @end
 

@@ -46,7 +46,7 @@
             if (error != nil) {
                 NSLog(@"Error: %@", error.localizedDescription);
             } else {
-                NSLog(@"User registered successfully");
+                NSLog(@"User logged in successfully");
             
                 // manually segue to logged in view
                 [self performSegueWithIdentifier:@"login" sender:self];
