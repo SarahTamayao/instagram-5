@@ -29,10 +29,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8G-Or-Rhf">
                                 <rect key="frame" x="60" y="495" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="didTapLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nXk-TT-FJV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hou-OW-CXg">
                                 <rect key="frame" x="300" y="495" width="54" height="30"/>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="didTapSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aKz-kk-ldk"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mr4-Rc-mFY">
                                 <rect key="frame" x="151.5" y="283" width="111" height="60"/>
@@ -59,10 +65,30 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="lef-Kw-klt" secondAttribute="trailing" constant="60" id="vP4-uc-aqZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordField" destination="1hM-jD-Hvn" id="8ur-l3-vLJ"/>
+                        <outlet property="usernameField" destination="lef-Kw-klt" id="Y47-PD-D0V"/>
+                        <segue destination="iKY-NZ-A7B" kind="presentation" identifier="login" modalPresentationStyle="fullScreen" id="J8n-6i-WWa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-39.130434782608695" y="79.6875"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eRR-gF-pW7">
+            <objects>
+                <viewController id="iKY-NZ-A7B" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zAB-UA-ijc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Hh6-Rn-QIa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VTv-Ho-rps" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="871" y="80"/>
         </scene>
     </scenes>
     <resources>
