@@ -8,6 +8,7 @@
 #import "FeedViewController.h"
 #import "APIManager.h"
 #import "AppDelegate.h"
+#import "SceneDelegate.h"
 #import "UserAuthenticationViewController.h"
 
 @interface FeedViewController ()
@@ -22,14 +23,15 @@
 }
 
 - (IBAction)didTapLogout:(UIBarButtonItem *)sender {
-    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    SceneDelegate *sceneDelegate = (SceneDelegate *)[UIApplication sharedApplication].connectedScenes.allObjects[0].delegate;
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UserAuthenticationViewController *userAuthenticationViewController = [storyboard instantiateViewControllerWithIdentifier:@"UserAuthenticationViewController"];
-    appDelegate.window.rootViewController = userAuthenticationViewController;
+    sceneDelegate.window.rootViewController = userAuthenticationViewController;
     
     [[APIManager shared] logout:^(NSError *error){
         if(!error){
+            NSLog(@"Error logging out");
         }
     }];
 }
