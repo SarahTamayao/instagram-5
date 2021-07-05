@@ -82,8 +82,35 @@
                     <view key="view" contentMode="scaleToFill" id="Jnu-4a-Qft">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="241-Z0-hM6">
+                                <rect key="frame" x="20" y="110" width="140" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="TKV-mp-Ypd"/>
+                                    <constraint firstAttribute="height" constant="140" id="apL-CP-KsH"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iVr-zc-YiJ">
+                                <rect key="frame" x="174" y="110" width="220" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="jMj-08-QvV"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ouK-v5-0eF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="241-Z0-hM6" firstAttribute="leading" secondItem="ouK-v5-0eF" secondAttribute="leading" constant="20" id="CKq-7l-SpC"/>
+                            <constraint firstItem="iVr-zc-YiJ" firstAttribute="top" secondItem="ouK-v5-0eF" secondAttribute="top" constant="22" id="VCR-hN-Qnw"/>
+                            <constraint firstItem="iVr-zc-YiJ" firstAttribute="top" secondItem="241-Z0-hM6" secondAttribute="top" id="ajC-L1-s8Q"/>
+                            <constraint firstItem="241-Z0-hM6" firstAttribute="top" secondItem="ouK-v5-0eF" secondAttribute="top" constant="22" id="h3B-LC-feq"/>
+                            <constraint firstItem="ouK-v5-0eF" firstAttribute="trailing" secondItem="iVr-zc-YiJ" secondAttribute="trailing" constant="20" id="qqc-La-uEH"/>
+                            <constraint firstItem="iVr-zc-YiJ" firstAttribute="leading" secondItem="241-Z0-hM6" secondAttribute="trailing" constant="14" id="w0L-aq-M0K"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fHX-N6-WHz">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="UAH-Nh-qmL">
@@ -97,10 +124,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="captionTextView" destination="iVr-zc-YiJ" id="l2i-Av-3de"/>
+                        <outlet property="imagePreview" destination="241-Z0-hM6" id="AIQ-dd-ECk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLh-yo-FTt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3110" y="834"/>
+            <point key="canvasLocation" x="3108.6956521739135" y="833.70535714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ayg-ad-nHP">
@@ -221,6 +252,9 @@
         <image name="feed_tab" width="25" height="25"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="profile_tab" width="25" height="25"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
