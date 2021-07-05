@@ -169,7 +169,7 @@
         <!--Profile-->
         <scene sceneID="VCI-vD-3xm">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="hPm-cr-ofo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="hPm-cr-ofo" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PMH-9U-TSb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

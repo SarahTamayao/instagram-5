@@ -13,6 +13,8 @@
 
 @interface FeedViewController ()
 
+@property (strong, nonatomic) NSMutableArray *posts;
+
 @end
 
 @implementation FeedViewController
@@ -20,6 +22,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)fetchData {
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    query.limit = 20;
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            self.posts = posts;
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
 }
 
 - (IBAction)didTapLogout:(UIBarButtonItem *)sender {
