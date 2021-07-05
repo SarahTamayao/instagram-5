@@ -39,6 +39,10 @@
     }];
 }
 
+- (IBAction)didTapCompose:(UIBarButtonItem *)sender {
+    [self performSegueWithIdentifier:@"feedToCompose" sender:self];
+}
+
 /*
 #pragma mark - Navigation
 

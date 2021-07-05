@@ -75,6 +75,49 @@
             </objects>
             <point key="canvasLocation" x="-39.130434782608695" y="79.6875"/>
         </scene>
+        <!--Compose View Controller-->
+        <scene sceneID="igg-Gr-2m5">
+            <objects>
+                <viewController id="eBP-Zf-8wx" customClass="ComposeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jnu-4a-Qft">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ouK-v5-0eF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fHX-N6-WHz">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="UAH-Nh-qmL">
+                            <connections>
+                                <action selector="didTapCancel:" destination="eBP-Zf-8wx" id="Dma-YZ-Wcv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="DOX-Gp-cmx">
+                            <connections>
+                                <action selector="didTapShare:" destination="eBP-Zf-8wx" id="dr4-bf-wQg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gLh-yo-FTt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3110" y="834"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ayg-ad-nHP">
+            <objects>
+                <navigationController id="LgU-bV-cx2" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OkV-Pr-HV4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="eBP-Zf-8wx" kind="relationship" relationship="rootViewController" id="YtQ-X1-gSL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2DM-cE-sCQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2325" y="834"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="gOu-TQ-ELx">
             <objects>
@@ -90,7 +133,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7qM-u6-A9Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3880" y="834"/>
+            <point key="canvasLocation" x="4264" y="834"/>
         </scene>
         <!--Profile-->
         <scene sceneID="VCI-vD-3xm">
@@ -141,7 +184,15 @@
                                 <action selector="didTapLogout:" destination="VXL-S2-6fl" id="Ned-kO-HP8"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="insta_camera_btn" id="2Xx-L5-dKy">
+                            <connections>
+                                <action selector="didTapCompose:" destination="VXL-S2-6fl" id="hob-rw-zGA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="LgU-bV-cx2" kind="presentation" identifier="feedToCompose" modalPresentationStyle="fullScreen" id="JiM-RN-z9T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mnm-BW-QTC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,6 +219,7 @@
     </scenes>
     <resources>
         <image name="feed_tab" width="25" height="25"/>
+        <image name="insta_camera_btn" width="25" height="25"/>
         <image name="profile_tab" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
