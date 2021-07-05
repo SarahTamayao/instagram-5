@@ -232,7 +232,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="bvj-Iu-YOX">
             <objects>
-                <tabBarController id="fBy-Pt-naK" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" id="fBy-Pt-naK" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BU8-oJ-vcZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
