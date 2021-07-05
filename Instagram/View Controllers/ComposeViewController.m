@@ -7,6 +7,7 @@
 
 #import "ComposeViewController.h"
 #import "SceneDelegate.h"
+#import "Post.h"
 
 @interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imagePreview;
@@ -59,7 +60,16 @@
 }
 
 - (IBAction)didTapShare:(UIBarButtonItem *)sender {
-    [self returnToFeed];
+    UIImage *resizedImage = [self resizeImage:self.imagePreview.image withSize:CGSizeMake(500, 500)];
+    [Post postUserImage:resizedImage withCaption:self.captionTextView.text withCompletion:^(BOOL succeeded, NSError *_Nullable error){
+        if(succeeded) {
+            NSLog(@"Successfully uploaded post");
+            [self returnToFeed];
+        }
+        else {
+            NSLog(@"Error uploading post: %@", error.localizedDescription);
+        }
+    }];
 }
 
 - (void)returnToFeed {
