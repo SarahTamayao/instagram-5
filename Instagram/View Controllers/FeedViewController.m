@@ -30,8 +30,11 @@
     sceneDelegate.window.rootViewController = userAuthenticationViewController;
     
     [[APIManager shared] logout:^(NSError *error){
-        if(!error){
+        if(error){
             NSLog(@"Error logging out");
+        }
+        else {
+            NSLog(@"Logged out successfully");
         }
     }];
 }

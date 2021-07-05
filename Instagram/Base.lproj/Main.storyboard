@@ -111,7 +111,7 @@
         <!--Feed-->
         <scene sceneID="iqU-O5-lJ5">
             <objects>
-                <navigationController id="LJL-MS-m5M" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FeedNavigationController" id="LJL-MS-m5M" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" image="feed_tab" id="t2t-cf-TYz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fgw-lC-65Q">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
