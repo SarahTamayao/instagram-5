@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "SceneDelegate.h"
 #import "UserAuthenticationViewController.h"
-#import  "PostView.h"
+#import  "PostCollectionViewCell.h"
 
 @interface FeedViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -28,6 +28,11 @@
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"PostCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"PostCollectionViewCell"];
+    
+    UICollectionViewFlowLayout *layout = self.collectionView.collectionViewLayout;
+    layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize;
 }
 
 - (void)fetchData {
@@ -73,14 +78,19 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    PostView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostView" forIndexPath:indexPath];
+    PostCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionViewCell" forIndexPath:indexPath];
     
     if (cell == nil) {
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"PostView" owner:self options:nil];
+            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"PostCollectionViewCell" owner:self options:nil];
             cell = [topLevelObjects objectAtIndex:0];
     }
     
     return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(CGRectGetWidth(collectionView.frame), (CGRectGetHeight(collectionView.frame)));
 }
 
 /*

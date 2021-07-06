@@ -1,5 +1,5 @@
 //
-//  PostView.h
+//  PostCollectionViewCell.h
 //  Instagram
 //
 //  Created by Rigre Reinier Garciandia Larquin on 7/5/21.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PostView : UICollectionViewCell
+@interface PostCollectionViewCell : UICollectionViewCell
 
 @end
 
