@@ -38,7 +38,7 @@
     }];
 }
 
-- (void)createLike:(Post *)post completion:(void(^)(BOOL succeeded, NSError *error))completion {
+- (void)createLike:(Post *)post completion:(void(^)(BOOL succeeded, BOOL likeExisted, NSError *error))completion {
     //make sure that like does not already exist (same user and post id)
     PFQuery *query = [PFQuery queryWithClassName:@"Like"];
     [query whereKey:@"postId" equalTo:post.objectId];
@@ -54,6 +54,30 @@
             
             [like saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                 if(error) {
+                    completion(NO, NO, error);
+                }
+                else {
+                    completion(YES, NO, nil);
+                }
+            }];
+        }
+        else {
+            NSLog(@"Like already existed");
+            completion(NO, YES, nil);
+        }
+    }];
+}
+
+- (void)deleteLike:(Post *)post completion:(void(^)(BOOL succeeded, NSError *error))completion {
+    //getting the like object
+    PFQuery *query = [PFQuery queryWithClassName:@"Like"];
+    [query whereKey:@"postId" equalTo:post.objectId];
+    [query whereKey:@"userId" equalTo:[PFUser currentUser]];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *matchingLikes, NSError *error){
+        if(!error){
+            [PFObject deleteAllInBackground:matchingLikes block:^(BOOL succeeded, NSError *error){
+                if(error){
                     completion(NO, error);
                 }
                 else {
@@ -61,10 +85,8 @@
                 }
             }];
         }
-        else {
-            NSLog(@"Like already existed");
-        }
     }];
+
 }
 
 #pragma mark - User Authentication

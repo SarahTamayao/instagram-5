@@ -60,12 +60,29 @@
 
 - (IBAction)didTapLike:(UIButton *)sender {
     if(!self.post.isLikedByCurrentUser) {
-        [[APIManager shared] createLike:self.post completion:^(BOOL succeeded, NSError *error) {
+        self.post.isLikedByCurrentUser = YES;
+        
+        [[APIManager shared] createLike:self.post completion:^(BOOL succeeded, BOOL likeExisted, NSError *error) {
             if(error) {
                 NSLog(@"Error saving like: %@", error.localizedDescription);
             }
+            else if(likeExisted) {
+                
+            }
             else {
                 NSLog(@"Successfully saved like");
+            }
+        }];
+    }
+    else {
+        self.post.isLikedByCurrentUser = NO;
+        
+        [[APIManager shared] deleteLike:self.post completion:^(BOOL succeeded, NSError *error){
+            if(error){
+                NSLog(@"Error deleting like: %@", error.localizedDescription);
+            }
+            else {
+                NSLog(@"Successfully deleted like");
             }
         }];
     }
