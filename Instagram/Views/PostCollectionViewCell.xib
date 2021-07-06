@@ -61,7 +61,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hs-dX-TH4">
-                                <rect key="frame" x="8" y="819" width="484" height="325"/>
+                                <rect key="frame" x="28" y="819" width="464" height="325"/>
                                 <string key="text">Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Rigre</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -88,6 +88,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6hs-dX-TH4" firstAttribute="leading" secondItem="54z-ct-qB2" secondAttribute="leading" id="0az-Wg-C7I"/>
                             <constraint firstAttribute="bottom" secondItem="6hs-dX-TH4" secondAttribute="bottom" constant="14" id="6Yc-lr-Q58"/>
                             <constraint firstItem="BVV-AS-ZHy" firstAttribute="top" secondItem="dTN-2z-p4B" secondAttribute="top" constant="18" id="6rC-fE-QZ9"/>
                             <constraint firstItem="2iY-R8-hKR" firstAttribute="leading" secondItem="BVV-AS-ZHy" secondAttribute="trailing" constant="8" symbolic="YES" id="9E8-cJ-0KF"/>
@@ -103,7 +104,6 @@
                             <constraint firstItem="RIO-eE-We2" firstAttribute="leading" secondItem="54z-ct-qB2" secondAttribute="trailing" constant="8" id="d8T-C2-QEe"/>
                             <constraint firstAttribute="trailing" secondItem="Dp8-M0-MD6" secondAttribute="trailing" id="dV8-lS-dxq"/>
                             <constraint firstItem="Dp8-M0-MD6" firstAttribute="top" secondItem="BVV-AS-ZHy" secondAttribute="bottom" constant="8" id="eeV-4a-6nu"/>
-                            <constraint firstItem="6hs-dX-TH4" firstAttribute="leading" secondItem="dTN-2z-p4B" secondAttribute="leading" constant="8" id="fbn-0d-QdE"/>
                             <constraint firstItem="rSw-3z-xwJ" firstAttribute="leading" secondItem="BVV-AS-ZHy" secondAttribute="leading" id="iDd-1r-qNe"/>
                             <constraint firstAttribute="trailing" secondItem="6hs-dX-TH4" secondAttribute="trailing" constant="8" id="pb1-If-nbi"/>
                             <constraint firstItem="BVV-AS-ZHy" firstAttribute="leading" secondItem="dTN-2z-p4B" secondAttribute="leading" constant="24" id="sQL-jr-lN6"/>
