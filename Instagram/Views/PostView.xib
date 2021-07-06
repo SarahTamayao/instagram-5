@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PostView">
+        <view contentMode="scaleToFill" restorationIdentifier="PostView" id="iN0-l3-epB" customClass="PostView">
             <rect key="frame" x="0.0" y="0.0" width="585" height="660"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -52,6 +52,7 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <accessibility key="accessibilityConfiguration" identifier="PostView"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8GG-Yk-yZY" secondAttribute="trailing" constant="8" id="0DQ-Fb-tul"/>
                 <constraint firstItem="tau-o3-gv9" firstAttribute="top" secondItem="kh2-Z3-nej" secondAttribute="bottom" constant="8" symbolic="YES" id="5Fw-0v-Knq"/>

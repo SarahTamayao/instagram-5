@@ -173,8 +173,27 @@
                     <view key="view" contentMode="scaleToFill" id="PMH-9U-TSb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GAR-2p-qLL">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nKg-Uf-hWf">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="uwD-Wy-ROS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uwD-Wy-ROS" firstAttribute="trailing" secondItem="GAR-2p-qLL" secondAttribute="trailing" id="B9b-sr-h3B"/>
+                            <constraint firstItem="GAR-2p-qLL" firstAttribute="top" secondItem="uwD-Wy-ROS" secondAttribute="top" id="Y2n-Hl-C7n"/>
+                            <constraint firstItem="GAR-2p-qLL" firstAttribute="leading" secondItem="uwD-Wy-ROS" secondAttribute="leading" id="lD4-4p-08B"/>
+                            <constraint firstItem="uwD-Wy-ROS" firstAttribute="bottom" secondItem="GAR-2p-qLL" secondAttribute="bottom" id="uG3-cm-wrM"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="5dF-5G-gRh"/>
                 </viewController>
@@ -206,8 +225,27 @@
                     <view key="view" contentMode="scaleToFill" id="aNU-KL-UPA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7rt-U6-Xd3">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QjB-OK-gBB">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="nVA-gI-WcU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7rt-U6-Xd3" firstAttribute="leading" secondItem="nVA-gI-WcU" secondAttribute="leading" id="eqq-uM-uLs"/>
+                            <constraint firstItem="nVA-gI-WcU" firstAttribute="trailing" secondItem="7rt-U6-Xd3" secondAttribute="trailing" id="fjL-xn-6ye"/>
+                            <constraint firstItem="7rt-U6-Xd3" firstAttribute="top" secondItem="nVA-gI-WcU" secondAttribute="top" id="pbg-P0-WTC"/>
+                            <constraint firstItem="nVA-gI-WcU" firstAttribute="bottom" secondItem="7rt-U6-Xd3" secondAttribute="bottom" id="qrd-2s-I4t"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="33D-wM-GLd">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="iP3-uu-Wcy">
@@ -222,6 +260,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="collectionView" destination="7rt-U6-Xd3" id="fQg-aG-ihV"/>
                         <segue destination="LgU-bV-cx2" kind="presentation" identifier="feedToCompose" modalPresentationStyle="fullScreen" id="JiM-RN-z9T"/>
                     </connections>
                 </viewController>

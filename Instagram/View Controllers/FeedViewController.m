@@ -10,10 +10,13 @@
 #import "AppDelegate.h"
 #import "SceneDelegate.h"
 #import "UserAuthenticationViewController.h"
+#import  "PostView.h"
 
-@interface FeedViewController ()
+@interface FeedViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (strong, nonatomic) NSMutableArray *posts;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 
 @end
 
@@ -22,6 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
 }
 
 - (void)fetchData {
@@ -58,6 +64,23 @@
 
 - (IBAction)didTapCompose:(UIBarButtonItem *)sender {
     [self performSegueWithIdentifier:@"feedToCompose" sender:self];
+}
+
+#pragma mark - CollectionView methods
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 20; //TODO: use dependecy array
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    PostView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostView" forIndexPath:indexPath];
+    
+    if (cell == nil) {
+            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"PostView" owner:self options:nil];
+            cell = [topLevelObjects objectAtIndex:0];
+    }
+    
+    return cell;
 }
 
 /*
