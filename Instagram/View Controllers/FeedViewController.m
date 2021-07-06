@@ -37,9 +37,6 @@
 }
 
 - (void)fetchData {
-    
-    __block BOOL isFetchingPosts = YES;
-    
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
 
@@ -47,44 +44,35 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             self.posts = posts;
-            for(Post *post in posts){
-                post.isLikedByCurrentUser = false;
-            }
+            //set isLikedByCurrentUser for each post received
+            PFQuery *likesQuery = [PFQuery queryWithClassName:@"Like"];
+            [likesQuery whereKey:@"userId" equalTo:[PFUser currentUser]];
+
+            [likesQuery findObjectsInBackgroundWithBlock:^(NSArray *likes, NSError *error){
+                if(error) {
+                    NSLog(@"Error fetching likes");
+                }
+                else {
+                    for(Post *post in self.posts) {
+                        for(PFObject *like in likes) {
+                            if(post.objectId == like[@"postId"]){
+                                post.isLikedByCurrentUser = YES;
+                            }
+                            else {
+                                post.isLikedByCurrentUser = NO;
+                            }
+                        }
+                    }
+                }
+                [self.collectionView reloadData];
+            }];
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
         
         [self.collectionView reloadData];
-        [self.collectionView setContentOffset:CGPointMake(0, 1) animated:YES];
-        isFetchingPosts = NO;
         NSLog(@"done loading posts");
     }];
-    
-    //set isLikedByCurrentUser for each post received
-    PFQuery *likesQuery = [PFQuery queryWithClassName:@"Like"];
-    [likesQuery whereKey:@"userId" equalTo:[PFUser currentUser]];
-
-    [likesQuery findObjectsInBackgroundWithBlock:^(NSArray *likes, NSError *error){
-        if(error) {
-            NSLog(@"Error fetching likes");
-        }
-        else {
-//            while(isFetchingPosts) {}; //wait for post to be fetched if they are currently being fetched
-            for(Post *post in self.posts) {
-                for(PFObject *like in likes) {
-                    if(post.objectId == like[@"postId"]){
-                        post.isLikedByCurrentUser = YES;
-                        NSLog(@"///////////////////////////////////////////////////////// Liked post");
-                    }
-                    else {
-                        post.isLikedByCurrentUser = NO;
-                    }
-                }
-            }
-        }
-        [self.collectionView reloadData];
-    }];
-    
 }
 
 - (IBAction)didTapLogout:(UIBarButtonItem *)sender {
