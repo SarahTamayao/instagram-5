@@ -30,6 +30,10 @@
     
     self.captionWidth.constant = screenWidth - 50;
     self.captionLabel.text = post[@"caption"];
+    
+    //making profile image round
+    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
+    self.profileImage.clipsToBounds = YES;
 }
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
