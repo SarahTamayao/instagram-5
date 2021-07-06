@@ -83,6 +83,11 @@
                 <constraint firstAttribute="bottom" secondItem="dTN-2z-p4B" secondAttribute="bottom" id="e34-QA-Dt8"/>
             </constraints>
             <size key="customSize" width="538" height="665"/>
+            <connections>
+                <outlet property="postImage" destination="Dp8-M0-MD6" id="Cm6-db-cuT"/>
+                <outlet property="profileImage" destination="BVV-AS-ZHy" id="MAk-4z-rkl"/>
+                <outlet property="usernameLabel" destination="2iY-R8-hKR" id="b8U-sc-6cj"/>
+            </connections>
             <point key="canvasLocation" x="484.05797101449281" y="300.33482142857139"/>
         </collectionViewCell>
     </objects>

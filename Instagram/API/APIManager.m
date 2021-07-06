@@ -18,6 +18,24 @@
     return sharedManager;
 }
 
+- (void)getPostAuthor:(Post *)post completion:(void(^)(PFUser *user, NSError *error))completion {
+    PFUser *user = post[@"author"];
+    NSString *userId = user.objectId;
+    
+    //construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+    
+    [query getObjectInBackgroundWithId:@"ImynwQNg3z" block:^(PFObject *user, NSError *error) {
+        if (!error) {
+            // Success!
+            completion(user, nil);
+        } else {
+            // Failure!
+            completion(nil, error);
+        }
+    }];
+}
+
 #pragma mark - User Authentication
 - (void)registerUser:(NSString *)username password:(NSString *)password completion:(void(^)(BOOL succeeded, NSError *error))completion{
     // initialize a user object

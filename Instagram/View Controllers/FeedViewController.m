@@ -33,6 +33,8 @@
     
     UICollectionViewFlowLayout *layout = self.collectionView.collectionViewLayout;
     layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize;
+    
+    [self fetchData];
 }
 
 - (void)fetchData {
@@ -47,6 +49,8 @@
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
+        
+        [self.collectionView reloadData];
     }];
 }
 
@@ -74,7 +78,7 @@
 #pragma mark - CollectionView methods
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 20; //TODO: use dependecy array
+    return self.posts.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -85,6 +89,7 @@
             cell = [topLevelObjects objectAtIndex:0];
     }
     
+    [cell setCellWithPost:self.posts[indexPath.item]];
     return cell;
 }
 
