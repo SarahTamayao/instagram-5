@@ -20,9 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (strong, nonatomic) Post *post;
+@property (nonatomic, copy) void (^commentMethod)(Post *post);
 
 //methods
-- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth;
+- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth commentCode:(void(^)(Post *post))commentCode;
 
 @end
 

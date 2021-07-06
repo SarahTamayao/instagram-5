@@ -15,7 +15,7 @@
     // Initialization code
 }
 
-- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth {
+- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth commentCode:(void(^)(Post *post))commentCode {
     self.post = post;
     
     //get username
@@ -41,6 +41,8 @@
     //making profile image round
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
     self.profileImage.clipsToBounds = YES;
+    
+    self.commentMethod = commentCode;
 }
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
@@ -86,8 +88,14 @@
     [self refreshUI];
 }
 
+- (IBAction)didTapComment:(UIButton *)sender {
+    self.commentMethod(self.post);
+}
+
+
 - (void)refreshUI {
     [self.likeButton setSelected:self.post.isLikedByCurrentUser];
+    //TODO: COMPLETE THIS METHOD
 }
 
 

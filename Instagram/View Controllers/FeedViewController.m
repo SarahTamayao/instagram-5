@@ -107,12 +107,18 @@
     PostCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionViewCell" forIndexPath:indexPath];
     
     CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
-    [cell setCellWithPost:self.posts[indexPath.item] screenWidth:safeAreaWidth];
+    [cell setCellWithPost:self.posts[indexPath.item] screenWidth:safeAreaWidth commentCode:^(Post *post){
+        [self commentOnPost:post];
+    }];
     
     [cell setNeedsLayout];
     [cell layoutIfNeeded];
     
     return cell;
+}
+
+- (void)commentOnPost:(Post *)post {
+    NSLog(@"Comment called");
 }
 
 /*

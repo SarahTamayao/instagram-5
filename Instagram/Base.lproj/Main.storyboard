@@ -149,6 +149,21 @@
             </objects>
             <point key="canvasLocation" x="2325" y="834"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="uIZ-tJ-sGr">
+            <objects>
+                <viewController id="1te-Gm-W1R" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1za-g7-K8T">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="IAr-t5-NXZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z73-el-8XB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1483" y="1634"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="gOu-TQ-ELx">
             <objects>
@@ -262,6 +277,7 @@
                     <connections>
                         <outlet property="collectionView" destination="7rt-U6-Xd3" id="fQg-aG-ihV"/>
                         <segue destination="LgU-bV-cx2" kind="presentation" identifier="feedToCompose" modalPresentationStyle="fullScreen" id="JiM-RN-z9T"/>
+                        <segue destination="1te-Gm-W1R" kind="presentation" identifier="feedToComment" id="a1h-eg-hVa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mnm-BW-QTC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
