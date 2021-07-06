@@ -18,6 +18,8 @@
     return sharedManager;
 }
 
+#pragma  mark - Feed
+
 - (void)getPostAuthor:(Post *)post completion:(void(^)(PFUser *user, NSError *error))completion {
     PFUser *user = post[@"author"];
     NSString *userId = user.objectId;
@@ -32,6 +34,35 @@
         } else {
             // Failure!
             completion(nil, error);
+        }
+    }];
+}
+
+- (void)createLike:(Post *)post completion:(void(^)(BOOL succeeded, NSError *error))completion {
+    //make sure that like does not already exist (same user and post id)
+    PFQuery *query = [PFQuery queryWithClassName:@"Like"];
+    [query whereKey:@"postId" equalTo:post.objectId];
+    [query whereKey:@"userId" equalTo:[PFUser currentUser]];
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray *matchingLikes, NSError *error) {
+        if(matchingLikes == nil || matchingLikes.count == 0) {
+            NSLog(@"Did not find like and so adding it");
+            //saving the like
+            PFObject *like = [[PFObject alloc] initWithClassName:@"Like"];
+            like[@"userId"] = [PFUser currentUser];
+            like[@"postId"] = post.objectId;
+            
+            [like saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                if(error) {
+                    completion(NO, error);
+                }
+                else {
+                    completion(YES, nil);
+                }
+            }];
+        }
+        else {
+            NSLog(@"Like already existed");
         }
     }];
 }

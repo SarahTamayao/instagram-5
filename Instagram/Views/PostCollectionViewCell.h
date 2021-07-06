@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *captionWidth;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (strong, nonatomic) Post *post;
 
 //methods
 - (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth;

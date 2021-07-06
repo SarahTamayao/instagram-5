@@ -16,6 +16,8 @@
 }
 
 - (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth {
+    self.post = post;
+    
     //get username
     [[APIManager shared] getPostAuthor:post completion:^(PFUser *user, NSError *error) {
         self.usernameLabel.text = user[@"username"];
@@ -34,8 +36,8 @@
     //setting buttons
     //set cell buttons
     [self.likeButton setBackgroundImage: [UIImage systemImageNamed:@"heart"] forState: UIControlStateNormal];
-    [self.likeButton setBackgroundImage:[UIImage systemImageNamed:@"heart.filled"] forState: UIControlStateSelected];
-    [self.likeButton setSelected:NO]; //TODO: Check database to see if current user has liked this post
+    [self.likeButton setBackgroundImage:[UIImage systemImageNamed:@"heart.fill"] forState: UIControlStateSelected];
+    [self.likeButton setSelected:post.isLikedByCurrentUser];
     
     //making profile image round
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
@@ -57,6 +59,16 @@
 }
 
 - (IBAction)didTapLike:(UIButton *)sender {
+    if(!self.post.isLikedByCurrentUser) {
+        [[APIManager shared] createLike:self.post completion:^(BOOL succeeded, NSError *error) {
+            if(error) {
+                NSLog(@"Error saving like: %@", error.localizedDescription);
+            }
+            else {
+                NSLog(@"Successfully saved like");
+            }
+        }];
+    }
 }
 
 

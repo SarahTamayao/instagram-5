@@ -46,6 +46,9 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             self.posts = posts;
+            for(Post *post in posts){
+                post.isLikedByCurrentUser = false;
+            }
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
