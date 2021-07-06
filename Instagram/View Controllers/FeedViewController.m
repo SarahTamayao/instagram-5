@@ -58,7 +58,7 @@
                 if (error) {
                     NSLog(@"Error fetching likes");
                 } else {
-                    for(Post *post in self.posts) {
+                    for (Post *post in self.posts) {
                         for(PFObject *like in likes) {
                             if([post.objectId isEqualToString: like[@"postId"]]){
                                 post.isLikedByCurrentUser = YES;
@@ -85,10 +85,9 @@
     sceneDelegate.window.rootViewController = userAuthenticationViewController;
     
     [[APIManager shared] logout:^(NSError *error){
-        if(error){
+        if (error){
             NSLog(@"Error logging out");
-        }
-        else {
+        } else {
             NSLog(@"Logged out successfully");
         }
     }];

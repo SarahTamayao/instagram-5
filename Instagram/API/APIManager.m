@@ -45,7 +45,7 @@
     [query whereKey:@"userId" equalTo:[PFUser currentUser]];
 
     [query findObjectsInBackgroundWithBlock:^(NSArray *matchingLikes, NSError *error) {
-        if(matchingLikes == nil || matchingLikes.count == 0) {
+        if (matchingLikes == nil || matchingLikes.count == 0) {
             NSLog(@"Did not find like and so adding it");
             //saving the like
             PFObject *like = [[PFObject alloc] initWithClassName:@"Like"];
@@ -53,15 +53,13 @@
             like[@"postId"] = post.objectId;
             
             [like saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                if(error) {
+                if (error) {
                     completion(NO, NO, error);
-                }
-                else {
+                } else {
                     completion(YES, NO, nil);
                 }
             }];
-        }
-        else {
+        } else {
             NSLog(@"Like already existed");
             completion(NO, YES, nil);
         }
@@ -75,12 +73,11 @@
     [query whereKey:@"userId" equalTo:[PFUser currentUser]];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *matchingLikes, NSError *error){
-        if(!error){
+        if (!error){
             [PFObject deleteAllInBackground:matchingLikes block:^(BOOL succeeded, NSError *error){
-                if(error){
+                if (error){
                     completion(NO, error);
-                }
-                else {
+                } else {
                     completion(YES, nil);
                 }
             }];

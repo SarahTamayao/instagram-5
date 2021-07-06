@@ -25,7 +25,7 @@
     
     //setting post image
     [post[@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
-        if(!error) {
+        if (!error) {
             self.postImage.image = [self resizeImage:[UIImage imageWithData:data] withSize:CGSizeMake(screenWidth, screenWidth)];
         }
     }];
@@ -62,13 +62,11 @@
         self.post.isLikedByCurrentUser = YES;
         
         [[APIManager shared] createLike:self.post completion:^(BOOL succeeded, BOOL likeExisted, NSError *error) {
-            if(error) {
+            if (error) {
                 NSLog(@"Error saving like: %@", error.localizedDescription);
-            }
-            else if(likeExisted) {
+            } else if (likeExisted) {
                 
-            }
-            else {
+            } else {
                 NSLog(@"Successfully saved like");
             }
         }];
@@ -77,10 +75,9 @@
         self.post.isLikedByCurrentUser = NO;
         
         [[APIManager shared] deleteLike:self.post completion:^(BOOL succeeded, NSError *error){
-            if(error){
+            if (error){
                 NSLog(@"Error deleting like: %@", error.localizedDescription);
-            }
-            else {
+            } else {
                 NSLog(@"Successfully deleted like");
             }
         }];
