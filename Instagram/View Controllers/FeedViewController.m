@@ -17,7 +17,6 @@
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-
 @end
 
 @implementation FeedViewController
@@ -38,9 +37,11 @@
 }
 
 - (void)fetchData {
+    
+    __block BOOL isFetchingPosts = YES;
+    
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-    query.limit = 20;
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -55,7 +56,35 @@
         
         [self.collectionView reloadData];
         [self.collectionView setContentOffset:CGPointMake(0, 1) animated:YES];
+        isFetchingPosts = NO;
+        NSLog(@"done loading posts");
     }];
+    
+    //set isLikedByCurrentUser for each post received
+    PFQuery *likesQuery = [PFQuery queryWithClassName:@"Like"];
+    [likesQuery whereKey:@"userId" equalTo:[PFUser currentUser]];
+
+    [likesQuery findObjectsInBackgroundWithBlock:^(NSArray *likes, NSError *error){
+        if(error) {
+            NSLog(@"Error fetching likes");
+        }
+        else {
+//            while(isFetchingPosts) {}; //wait for post to be fetched if they are currently being fetched
+            for(Post *post in self.posts) {
+                for(PFObject *like in likes) {
+                    if(post.objectId == like[@"postId"]){
+                        post.isLikedByCurrentUser = YES;
+                        NSLog(@"///////////////////////////////////////////////////////// Liked post");
+                    }
+                    else {
+                        post.isLikedByCurrentUser = NO;
+                    }
+                }
+            }
+        }
+        [self.collectionView reloadData];
+    }];
+    
 }
 
 - (IBAction)didTapLogout:(UIBarButtonItem *)sender {
@@ -90,6 +119,9 @@
     
     CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
     [cell setCellWithPost:self.posts[indexPath.item] screenWidth:safeAreaWidth];
+    
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
     
     return cell;
 }

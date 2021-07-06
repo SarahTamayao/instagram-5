@@ -30,7 +30,6 @@
         }
     }];
     
-    self.captionWidth.constant = screenWidth - 50;
     self.captionLabel.text = post[@"caption"];
     
     //setting buttons
@@ -86,6 +85,12 @@
             }
         }];
     }
+    
+    [self refreshUI];
+}
+
+- (void)refreshUI {
+    [self.likeButton setSelected:self.post.isLikedByCurrentUser];
 }
 
 
