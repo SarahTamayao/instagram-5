@@ -51,6 +51,7 @@
         }
         
         [self.collectionView reloadData];
+        [self.collectionView setContentOffset:CGPointMake(0, 1) animated:YES];
     }];
 }
 
@@ -84,19 +85,10 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PostCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionViewCell" forIndexPath:indexPath];
     
-    if (cell == nil) {
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"PostCollectionViewCell" owner:self options:nil];
-            cell = [topLevelObjects objectAtIndex:0];
-    }
-    
     CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
     [cell setCellWithPost:self.posts[indexPath.item] screenWidth:safeAreaWidth];
+    
     return cell;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake(CGRectGetWidth(collectionView.frame), (CGRectGetHeight(collectionView.frame)));
 }
 
 /*

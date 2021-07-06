@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *captionWidth;
+@property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 
 //methods
 - (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth;

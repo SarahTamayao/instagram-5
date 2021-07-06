@@ -27,6 +27,9 @@
             self.postImage.image = [self resizeImage:[UIImage imageWithData:data] withSize:CGSizeMake(screenWidth, screenWidth)];
         }
     }];
+    
+    self.captionWidth.constant = screenWidth - 50;
+    self.captionLabel.text = post[@"caption"];
 }
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
