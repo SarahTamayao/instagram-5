@@ -44,22 +44,24 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             self.posts = posts;
+            
+            //resetting isLikedByCurrentUser
+            for (Post *post in posts) {
+                post.isLikedByCurrentUser = NO;
+            }
+            
             //set isLikedByCurrentUser for each post received
             PFQuery *likesQuery = [PFQuery queryWithClassName:@"Like"];
             [likesQuery whereKey:@"userId" equalTo:[PFUser currentUser]];
 
             [likesQuery findObjectsInBackgroundWithBlock:^(NSArray *likes, NSError *error){
-                if(error) {
+                if (error) {
                     NSLog(@"Error fetching likes");
-                }
-                else {
+                } else {
                     for(Post *post in self.posts) {
                         for(PFObject *like in likes) {
-                            if(post.objectId == like[@"postId"]){
+                            if([post.objectId isEqualToString: like[@"postId"]]){
                                 post.isLikedByCurrentUser = YES;
-                            }
-                            else {
-                                post.isLikedByCurrentUser = NO;
                             }
                         }
                     }
