@@ -28,10 +28,10 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHa-06-GtJ">
-                                <rect key="frame" x="92" y="101.5" width="40" height="39.5"/>
+                                <rect key="frame" x="82" y="111.5" width="30" height="29.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="FWv-PF-Jn5"/>
-                                    <constraint firstAttribute="width" constant="40" id="r8v-k1-Ycb"/>
+                                    <constraint firstAttribute="height" constant="30" id="FWv-PF-Jn5"/>
+                                    <constraint firstAttribute="width" constant="30" id="r8v-k1-Ycb"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="text.bubble" catalog="system"/>
@@ -46,16 +46,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dp8-M0-MD6">
-                                <rect key="frame" x="0.0" y="86" width="500" height="7.5"/>
+                                <rect key="frame" x="0.0" y="86" width="500" height="17.5"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSw-3z-xwJ">
-                                <rect key="frame" x="24" y="102.5" width="40" height="37.5"/>
+                                <rect key="frame" x="24" y="112.5" width="30" height="27.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="02W-ak-Cxb"/>
-                                    <constraint firstAttribute="height" constant="40" id="YcU-vX-2o6"/>
+                                    <constraint firstAttribute="width" constant="30" id="02W-ak-Cxb"/>
+                                    <constraint firstAttribute="height" constant="30" id="YcU-vX-2o6"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="heart" catalog="system"/>
+                                <connections>
+                                    <action selector="didTapLike:" destination="gTV-IL-0wX" eventType="touchUpInside" id="spX-IF-Y9i"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hs-dX-TH4">
                                 <rect key="frame" x="24" y="155" width="250" height="629"/>
@@ -100,6 +103,7 @@
             <connections>
                 <outlet property="captionLabel" destination="6hs-dX-TH4" id="cDJ-rn-kCF"/>
                 <outlet property="captionWidth" destination="5hi-JT-JoU" id="eWj-da-6qz"/>
+                <outlet property="likeButton" destination="rSw-3z-xwJ" id="NE2-42-zpd"/>
                 <outlet property="postImage" destination="Dp8-M0-MD6" id="Cm6-db-cuT"/>
                 <outlet property="profileImage" destination="BVV-AS-ZHy" id="MAk-4z-rkl"/>
                 <outlet property="usernameLabel" destination="2iY-R8-hKR" id="b8U-sc-6cj"/>
