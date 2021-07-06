@@ -89,7 +89,8 @@
             cell = [topLevelObjects objectAtIndex:0];
     }
     
-    [cell setCellWithPost:self.posts[indexPath.item]];
+    CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
+    [cell setCellWithPost:self.posts[indexPath.item] screenWidth:safeAreaWidth];
     return cell;
 }
 

@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
 
 //methods
-- (void)setCellWithPost:(Post *)post;
+- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth;
 
 @end
 
