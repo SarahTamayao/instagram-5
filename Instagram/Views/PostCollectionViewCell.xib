@@ -33,6 +33,7 @@
                                     <constraint firstAttribute="height" constant="40" id="FWv-PF-Jn5"/>
                                     <constraint firstAttribute="width" constant="40" id="r8v-k1-Ycb"/>
                                 </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="text.bubble" catalog="system"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2iY-R8-hKR">
@@ -53,6 +54,7 @@
                                     <constraint firstAttribute="width" constant="40" id="02W-ak-Cxb"/>
                                     <constraint firstAttribute="height" constant="40" id="YcU-vX-2o6"/>
                                 </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="heart" catalog="system"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hs-dX-TH4">
@@ -60,7 +62,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="5hi-JT-JoU"/>
                                 </constraints>
-                                <mutableString key="text">Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Rigre</mutableString>
+                                <string key="text">Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Rigre</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
