@@ -76,7 +76,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPB-pV-Rkr">
                         <rect key="frame" x="0.0" y="754.5" width="556" height="137.5"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
                         <string key="text">Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Rigre</string>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -121,9 +120,6 @@
         <image name="text.bubble" catalog="system" width="128" height="110"/>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

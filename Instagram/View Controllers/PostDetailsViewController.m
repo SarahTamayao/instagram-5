@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self.collectionView setAlpha:0.0];
+    [self.collectionView setAlpha:0.0];
     [self setupCollectionView];
 }
 
@@ -41,8 +41,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-//    [self.collectionView setContentOffset:CGPointMake(0, 1) animated:NO];
-//    [self.collectionView setAlpha:1.0];
+    [self.collectionView setContentOffset:CGPointMake(0, 1) animated:NO];
+    [self.collectionView setAlpha:1.0];
 }
 
 - (nonnull UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -68,7 +68,7 @@
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 1;
+    return 10;
 }
 
 @end
