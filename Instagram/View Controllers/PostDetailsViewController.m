@@ -34,7 +34,8 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"CommentCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"CommentCollectionViewCell"];
     
     UICollectionViewFlowLayout *layout = self.collectionView.collectionViewLayout;
-    layout.estimatedItemSize = CGSizeZero;
+//    layout.estimatedItemSize = CGSizeZero;
+    layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize;
     
 }
 
@@ -67,14 +68,7 @@
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 3;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout *)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
-    return CGSizeMake(safeAreaWidth, 1000);
+    return 1;
 }
 
 @end

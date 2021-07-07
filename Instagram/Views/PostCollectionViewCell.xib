@@ -20,7 +20,7 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="owf-bc-2qy">
                         <rect key="frame" x="38" y="32" width="60" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="60" id="DFz-UV-8Bg"/>
+                            <constraint firstAttribute="height" priority="999" constant="60" id="DFz-UV-8Bg"/>
                             <constraint firstAttribute="width" constant="60" id="Upr-3A-UWL"/>
                         </constraints>
                     </imageView>
@@ -47,14 +47,14 @@
                         <rect key="frame" x="0.0" y="114" width="556" height="556"/>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="cVU-a0-Nga" secondAttribute="height" multiplier="1:1" id="wZW-c3-akY"/>
+                            <constraint firstAttribute="width" secondItem="cVU-a0-Nga" secondAttribute="height" multiplier="1:1" priority="999" id="wZW-c3-akY"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwq-Oc-XqS">
                         <rect key="frame" x="0.0" y="695.5" width="30" height="27.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="9eG-Nm-oST"/>
-                            <constraint firstAttribute="height" constant="30" id="Ndg-EK-6VX"/>
+                            <constraint firstAttribute="height" priority="999" constant="30" id="Ndg-EK-6VX"/>
                         </constraints>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" backgroundImage="heart" catalog="system"/>
@@ -75,7 +75,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPB-pV-Rkr">
-                        <rect key="frame" x="0.0" y="754.5" width="556" height="127.5"/>
+                        <rect key="frame" x="0.0" y="754.5" width="556" height="137.5"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
                         <string key="text">Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Rigre</string>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -87,7 +88,7 @@
                     <constraint firstItem="LPB-pV-Rkr" firstAttribute="leading" secondItem="cVU-a0-Nga" secondAttribute="leading" id="4YL-E6-dIh"/>
                     <constraint firstItem="egx-JY-hhu" firstAttribute="leading" secondItem="xwq-Oc-XqS" secondAttribute="trailing" constant="96" id="EKk-ox-Ne1"/>
                     <constraint firstItem="owf-bc-2qy" firstAttribute="leading" secondItem="YWR-uB-u61" secondAttribute="leading" constant="38" id="HW9-ph-WVU"/>
-                    <constraint firstAttribute="bottom" secondItem="LPB-pV-Rkr" secondAttribute="bottom" constant="18" id="Nqk-mb-aCY"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LPB-pV-Rkr" secondAttribute="bottom" priority="999" constant="8" id="Nqk-mb-aCY"/>
                     <constraint firstItem="tKc-5K-SDa" firstAttribute="centerY" secondItem="egx-JY-hhu" secondAttribute="centerY" id="Y2y-2B-zRo"/>
                     <constraint firstItem="BYn-fR-NlC" firstAttribute="centerY" secondItem="xwq-Oc-XqS" secondAttribute="centerY" id="aLg-Ug-1Hy"/>
                     <constraint firstItem="LPB-pV-Rkr" firstAttribute="top" secondItem="xwq-Oc-XqS" secondAttribute="bottom" constant="30.5" id="dr0-Eb-CLU"/>
@@ -120,6 +121,9 @@
         <image name="text.bubble" catalog="system" width="128" height="110"/>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
