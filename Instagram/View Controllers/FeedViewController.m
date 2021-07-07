@@ -17,6 +17,7 @@
 
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -28,6 +29,10 @@
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchData) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView insertSubview:self.refreshControl atIndex:0];
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"PostCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"PostCollectionViewCell"];
     
@@ -78,7 +83,9 @@
             NSLog(@"%@", error.localizedDescription);
         }
         
+        [self.refreshControl endRefreshing];
         [self.collectionView reloadData];
+        
         NSLog(@"done loading posts");
     }];
 }
