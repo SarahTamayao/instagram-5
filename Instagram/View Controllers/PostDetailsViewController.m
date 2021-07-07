@@ -31,30 +31,15 @@
     
     UICollectionViewFlowLayout *layout = self.collectionView.collectionViewLayout;
     layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize;
-
+    
 }
 
-- (void)loadPostNib {
-    NSArray *postCellNibs = [[NSBundle mainBundle] loadNibNamed:@"PostCollectionViewCell" owner:self options:nil];
-    PostCollectionViewCell *postCell = [postCellNibs objectAtIndex:0];
-    
-    //initializing the cell
-    CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
-    [postCell setCellWithPost:self.post screenWidth:safeAreaWidth commentCode:^(PostCollectionViewCell *_Nonnull postCell){
-        
-    } didTapPostImage:nil];
-    
-    self.postCell = postCell;
-    [self.contentView addSubview:postCell];
-    
-    [self.contentView layoutSubviews];
-    NSLog(@"added post cell");
-
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.collectionView setContentOffset:CGPointMake(0, 1) animated:NO];
 }
 
-
-
-- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+- (nonnull UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PostCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionViewCell" forIndexPath:indexPath];
     
     CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
@@ -72,6 +57,13 @@
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 1;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
+    return CGSizeMake(safeAreaWidth, 1000);
 }
 
 @end

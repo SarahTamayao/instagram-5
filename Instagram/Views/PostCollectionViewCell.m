@@ -37,6 +37,8 @@
     [post[@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
         if (!error) {
             self.postImage.image = [[APIManager shared] resizeImage:[UIImage imageWithData:data] withSize:CGSizeMake(screenWidth, screenWidth)];
+        } else {
+            NSLog(@"Error loading image");
         }
     }];
     
