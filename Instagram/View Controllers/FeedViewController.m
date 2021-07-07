@@ -34,6 +34,11 @@
     UICollectionViewFlowLayout *layout = self.collectionView.collectionViewLayout;
     layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize;
     
+    //setting navbar image
+    UIImage *instagramLetterLogo = [[APIManager shared] resizeImage:[UIImage imageNamed:@"1200px-instagram_logo.svg"] withSize:CGSizeMake(150, 50)];
+    UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:instagramLetterLogo]];
+    self.navigationItem.leftBarButtonItem = item;
+    
     [self fetchData];
 }
 
@@ -75,22 +80,6 @@
         
         [self.collectionView reloadData];
         NSLog(@"done loading posts");
-    }];
-}
-
-- (IBAction)didTapLogout:(UIBarButtonItem *)sender {
-    SceneDelegate *sceneDelegate = (SceneDelegate *)[UIApplication sharedApplication].connectedScenes.allObjects[0].delegate;
-
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UserAuthenticationViewController *userAuthenticationViewController = [storyboard instantiateViewControllerWithIdentifier:@"UserAuthenticationViewController"];
-    sceneDelegate.window.rootViewController = userAuthenticationViewController;
-    
-    [[APIManager shared] logout:^(NSError *error){
-        if (error){
-            NSLog(@"Error logging out");
-        } else {
-            NSLog(@"Logged out successfully");
-        }
     }];
 }
 

@@ -8,6 +8,7 @@
 #import "ComposeViewController.h"
 #import "SceneDelegate.h"
 #import "Post.h"
+#import "APIManager.h"
 
 @interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imagePreview;
@@ -60,7 +61,7 @@
 }
 
 - (IBAction)didTapShare:(UIBarButtonItem *)sender {
-    UIImage *resizedImage = [self resizeImage:self.imagePreview.image withSize:CGSizeMake(500, 500)];
+    UIImage *resizedImage = [[APIManager shared] resizeImage:self.imagePreview.image withSize:CGSizeMake(500, 500)];
     [Post postUserImage:resizedImage withCaption:self.captionTextView.text withCompletion:^(BOOL succeeded, NSError *_Nullable error){
         if(succeeded) {
             NSLog(@"Successfully uploaded post");
@@ -78,20 +79,6 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *feedNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
     sceneDelegate.window.rootViewController = feedNavigationController;
-}
-
-- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
-    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    
-    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
-    resizeImageView.image = image;
-    
-    UIGraphicsBeginImageContext(size);
-    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return newImage;
 }
 
 /*

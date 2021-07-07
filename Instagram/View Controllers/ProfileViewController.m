@@ -7,6 +7,9 @@
 
 #import "ProfileViewController.h"
 #import <Parse/Parse.h>
+#import "SceneDelegate.h"
+#import "UserAuthenticationViewController.h"
+#import "APIManager.h"
 
 @interface ProfileViewController ()
 
@@ -34,6 +37,23 @@
         }
     }];
 }
+
+- (IBAction)didTapLogout:(UIBarButtonItem *)sender {
+    SceneDelegate *sceneDelegate = (SceneDelegate *)[UIApplication sharedApplication].connectedScenes.allObjects[0].delegate;
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UserAuthenticationViewController *userAuthenticationViewController = [storyboard instantiateViewControllerWithIdentifier:@"UserAuthenticationViewController"];
+    sceneDelegate.window.rootViewController = userAuthenticationViewController;
+    
+    [[APIManager shared] logout:^(NSError *error){
+        if (error){
+            NSLog(@"Error logging out");
+        } else {
+            NSLog(@"Logged out successfully");
+        }
+    }];
+}
+
 
 /*
 #pragma mark - Navigation

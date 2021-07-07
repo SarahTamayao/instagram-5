@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)createLike:(Post *)post completion:(void(^)(BOOL succeeded, BOOL likeExisted, NSError *error))completion;
 - (void)deleteLike:(Post *)post completion:(void(^)(BOOL succeeded, NSError *error))completion;
 
+//utility
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size;
+
 @end
 
 NS_ASSUME_NONNULL_END
