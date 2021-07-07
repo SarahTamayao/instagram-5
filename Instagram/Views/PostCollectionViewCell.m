@@ -13,9 +13,18 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    //adding a tap recoginzer to post image
+    UITapGestureRecognizer *postImageTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapPostImage:)];
+    [self.postImage addGestureRecognizer:postImageTapGestureRecognizer];
+    [self.postImage setUserInteractionEnabled:YES];
 }
 
-- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth commentCode:(void(^)(PostCollectionViewCell *post))commentCode {
+- (void)didTapPostImage:(UITapGestureRecognizer *)sender {
+    self.didTapPostImage(self);
+}
+
+- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth commentCode:(void(^)(PostCollectionViewCell *post))commentCode didTapPostImage:(void(^)(PostCollectionViewCell *postCell))didTapPostImage{
     self.post = post;
     
     //get username
@@ -43,6 +52,7 @@
     self.profileImage.clipsToBounds = YES;
     
     self.commentMethod = commentCode;
+    self.didTapPostImage = didTapPostImage;
     
     [self refreshUI];
 }

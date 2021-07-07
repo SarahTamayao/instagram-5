@@ -12,6 +12,7 @@
 #import "UserAuthenticationViewController.h"
 #import  "PostCollectionViewCell.h"
 #import  "ComposeCommentViewController.h"
+#import "PostDetailsViewController.h"
 
 @interface FeedViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -94,6 +95,8 @@
     [self performSegueWithIdentifier:@"feedToCompose" sender:self];
 }
 
+
+
 #pragma mark - CollectionView methods
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -106,6 +109,8 @@
     CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
     [cell setCellWithPost:self.posts[indexPath.item] screenWidth:safeAreaWidth commentCode:^(PostCollectionViewCell *postCell){
         [self commentOnPost:postCell];
+    } didTapPostImage:^(PostCollectionViewCell *postCell){
+        [self didTapPostImage:postCell];
     }];
     
     [cell setNeedsLayout];
@@ -115,9 +120,11 @@
 }
 
 - (void)commentOnPost:(PostCollectionViewCell *)postCell {
-    NSLog(@"Comment called");
-    
     [self performSegueWithIdentifier:@"feedToComment" sender:postCell];
+}
+
+- (void)didTapPostImage:(PostCollectionViewCell *)postCell {
+    [self performSegueWithIdentifier:@"feedToPostDetails" sender:postCell];
 }
 
 
@@ -129,10 +136,17 @@
     // Pass the selected object to the new view controller.
     
     if ([segue.identifier isEqualToString:@"feedToComment"]) {
+        
         PostCollectionViewCell *postCell = (PostCollectionViewCell *) sender;
         ComposeCommentViewController *destinationController = [segue destinationViewController];
-        
         destinationController.postCell = postCell;
+        
+    } else if ([segue.identifier isEqualToString:@"feedToPostDetails"]){
+        
+        PostCollectionViewCell *postCell = (PostCollectionViewCell *) sender;
+        PostDetailsViewController *postDetailsViewController = [segue destinationViewController];
+        postDetailsViewController.postContentsView = postCell;
+        
     }
 }
 

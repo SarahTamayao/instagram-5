@@ -149,6 +149,33 @@
             </objects>
             <point key="canvasLocation" x="2325" y="834"/>
         </scene>
+        <!--Post Details View Controller-->
+        <scene sceneID="ZXc-uv-tYR">
+            <objects>
+                <viewController id="VLY-LM-DA0" customClass="PostDetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mpx-We-kUY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3gp-PF-emo">
+                                <rect key="frame" x="0.0" y="88" width="414" height="248"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KNb-sA-NRR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="waq-Ih-q6Q"/>
+                    <connections>
+                        <outlet property="contentView" destination="Mpx-We-kUY" id="Q8K-ah-KIE"/>
+                        <outlet property="postView" destination="3gp-PF-emo" id="T27-zP-odi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aZX-O2-pfK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="463.768115942029" y="1633.9285714285713"/>
+        </scene>
         <!--Compose Comment View Controller-->
         <scene sceneID="uIZ-tJ-sGr">
             <objects>
@@ -320,6 +347,7 @@
                         <outlet property="collectionView" destination="7rt-U6-Xd3" id="fQg-aG-ihV"/>
                         <segue destination="LgU-bV-cx2" kind="presentation" identifier="feedToCompose" modalPresentationStyle="fullScreen" id="JiM-RN-z9T"/>
                         <segue destination="1te-Gm-W1R" kind="presentation" identifier="feedToComment" id="a1h-eg-hVa"/>
+                        <segue destination="VLY-LM-DA0" kind="show" identifier="feedToPostDetails" id="iZp-Xr-oGt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mnm-BW-QTC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

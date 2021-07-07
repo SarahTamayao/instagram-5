@@ -22,9 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (strong, nonatomic) Post *post;
 @property (nonatomic, copy) void (^commentMethod)(PostCollectionViewCell *postCell);
+@property (nonatomic, copy) void (^didTapPostImage)(PostCollectionViewCell *postCell);
 
 //methods
-- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth commentCode:(void(^)(PostCollectionViewCell *post))commentCode;
+- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth commentCode:(void(^)(PostCollectionViewCell *post))commentCode didTapPostImage:(void(^)(PostCollectionViewCell *postCell))didTapPostImage;
 - (void)refreshUI;
 
 @end
