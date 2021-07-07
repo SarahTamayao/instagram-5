@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    [self.collectionView setAlpha:0.0];
     [self setupCollectionView];
 }
 
@@ -33,13 +34,14 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"CommentCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"CommentCollectionViewCell"];
     
     UICollectionViewFlowLayout *layout = self.collectionView.collectionViewLayout;
-    layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize;
+    layout.estimatedItemSize = CGSizeZero;
     
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.collectionView setContentOffset:CGPointMake(0, 1) animated:NO];
+//    [self.collectionView setContentOffset:CGPointMake(0, 1) animated:NO];
+//    [self.collectionView setAlpha:1.0];
 }
 
 - (nonnull UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
