@@ -7,12 +7,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Post.h"
+#import "PostCollectionViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ComposeCommentViewController : UIViewController
 
-@property (nonatomic, strong) Post *post;
+@property (nonatomic, weak) PostCollectionViewCell *postCell;
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 
 @end

@@ -28,7 +28,7 @@
 - (IBAction)didTapSend:(UIButton *)sender {
     PFObject *newComment = [PFObject objectWithClassName:@"Comment"];
     newComment[@"userId"] = [PFUser currentUser];
-    newComment[@"postId"] = self.post.objectId;
+    newComment[@"postId"] = self.postCell.post.objectId;
     newComment[@"commentText"] = self.commentTextView.text;
     
     [newComment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
@@ -38,6 +38,14 @@
             NSLog(@"Successfully saved comment");
         }
     }];
+    
+    //TODO: UPDATE REMOTE COMMENT COUNT ON POST, CALL REFRESH DATA ON POSTCELL
+    //increasing comment count in Post object
+    NSExpression *ex = [NSExpression expressionWithFormat:@"(%@ + %@)", self.postCell.post.commentCount, @1];
+    self.postCell.post.commentCount = [ex expressionValueWithObject:nil context:nil];
+    [self.postCell.post saveInBackground];
+    
+    [self.postCell refreshUI];
     
     [self dismissViewControllerAnimated:true completion:nil];
 }

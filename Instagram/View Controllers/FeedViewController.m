@@ -108,8 +108,8 @@
     PostCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionViewCell" forIndexPath:indexPath];
     
     CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
-    [cell setCellWithPost:self.posts[indexPath.item] screenWidth:safeAreaWidth commentCode:^(Post *post){
-        [self commentOnPost:post];
+    [cell setCellWithPost:self.posts[indexPath.item] screenWidth:safeAreaWidth commentCode:^(PostCollectionViewCell *postCell){
+        [self commentOnPost:postCell];
     }];
     
     [cell setNeedsLayout];
@@ -118,10 +118,10 @@
     return cell;
 }
 
-- (void)commentOnPost:(Post *)post {
+- (void)commentOnPost:(PostCollectionViewCell *)postCell {
     NSLog(@"Comment called");
     
-    [self performSegueWithIdentifier:@"feedToComment" sender:post];
+    [self performSegueWithIdentifier:@"feedToComment" sender:postCell];
 }
 
 
@@ -133,10 +133,10 @@
     // Pass the selected object to the new view controller.
     
     if ([segue.identifier isEqualToString:@"feedToComment"]) {
-        Post *post = (Post *) sender;
+        PostCollectionViewCell *postCell = (PostCollectionViewCell *) sender;
         ComposeCommentViewController *destinationController = [segue destinationViewController];
         
-        destinationController.post = post;
+        destinationController.postCell = postCell;
     }
 }
 

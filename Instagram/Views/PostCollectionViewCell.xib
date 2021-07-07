@@ -126,7 +126,9 @@
             <size key="customSize" width="538" height="1158"/>
             <connections>
                 <outlet property="captionLabel" destination="6hs-dX-TH4" id="cDJ-rn-kCF"/>
+                <outlet property="commentCountLabel" destination="RIO-eE-We2" id="L10-e6-eJo"/>
                 <outlet property="likeButton" destination="rSw-3z-xwJ" id="NE2-42-zpd"/>
+                <outlet property="likeCountLabel" destination="54z-ct-qB2" id="aYQ-og-Eiz"/>
                 <outlet property="postImage" destination="Dp8-M0-MD6" id="Cm6-db-cuT"/>
                 <outlet property="profileImage" destination="BVV-AS-ZHy" id="MAk-4z-rkl"/>
                 <outlet property="usernameLabel" destination="2iY-R8-hKR" id="b8U-sc-6cj"/>

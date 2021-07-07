@@ -15,7 +15,7 @@
     // Initialization code
 }
 
-- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth commentCode:(void(^)(Post *post))commentCode {
+- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth commentCode:(void(^)(PostCollectionViewCell *post))commentCode {
     self.post = post;
     
     //get username
@@ -43,6 +43,8 @@
     self.profileImage.clipsToBounds = YES;
     
     self.commentMethod = commentCode;
+    
+    [self refreshUI];
 }
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
@@ -100,13 +102,14 @@
 }
 
 - (IBAction)didTapComment:(UIButton *)sender {
-    self.commentMethod(self.post);
+    self.commentMethod(self);
 }
 
 
 - (void)refreshUI {
     [self.likeButton setSelected:self.post.isLikedByCurrentUser];
-    //TODO: COMPLETE THIS METHOD
+    self.likeCountLabel.text = [NSString stringWithFormat:@"%@ Likes", self.post.likeCount];
+    self.commentCountLabel.text = [NSString stringWithFormat:@"%@ Comments", self.post.commentCount];
 }
 
 
