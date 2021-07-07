@@ -39,7 +39,6 @@
         }
     }];
     
-    //TODO: UPDATE REMOTE COMMENT COUNT ON POST, CALL REFRESH DATA ON POSTCELL
     //increasing comment count in Post object
     NSExpression *ex = [NSExpression expressionWithFormat:@"(%@ + %@)", self.postCell.post.commentCount, @1];
     self.postCell.post.commentCount = [ex expressionValueWithObject:nil context:nil];
