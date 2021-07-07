@@ -14,6 +14,8 @@
 		3B51DF492693DC520098073C /* PostCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B51DF472693DC520098073C /* PostCollectionViewCell.m */; };
 		3B51DF4A2693DC520098073C /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B51DF482693DC520098073C /* PostCollectionViewCell.xib */; };
 		3B5587F926961636000BAE40 /* PostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5587F826961636000BAE40 /* PostDetailsViewController.m */; };
+		3B5587FD26966156000BAE40 /* CommentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5587FB26966156000BAE40 /* CommentCollectionViewCell.m */; };
+		3B5587FE26966156000BAE40 /* CommentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B5587FC26966156000BAE40 /* CommentCollectionViewCell.xib */; };
 		3B57367E268FAEAD00A2C143 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B57367D268FAEAD00A2C143 /* AppDelegate.m */; };
 		3B573681268FAEAD00A2C143 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B573680268FAEAD00A2C143 /* SceneDelegate.m */; };
 		3B573687268FAEAD00A2C143 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B573685268FAEAD00A2C143 /* Main.storyboard */; };
@@ -60,6 +62,9 @@
 		3B51DF482693DC520098073C /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
 		3B5587F726961636000BAE40 /* PostDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostDetailsViewController.h; sourceTree = "<group>"; };
 		3B5587F826961636000BAE40 /* PostDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostDetailsViewController.m; sourceTree = "<group>"; };
+		3B5587FA26966156000BAE40 /* CommentCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCollectionViewCell.h; sourceTree = "<group>"; };
+		3B5587FB26966156000BAE40 /* CommentCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCollectionViewCell.m; sourceTree = "<group>"; };
+		3B5587FC26966156000BAE40 /* CommentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCollectionViewCell.xib; sourceTree = "<group>"; };
 		3B573679268FAEAD00A2C143 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B57367C268FAEAD00A2C143 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3B57367D268FAEAD00A2C143 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -188,6 +193,9 @@
 				3B51DF462693DC520098073C /* PostCollectionViewCell.h */,
 				3B51DF472693DC520098073C /* PostCollectionViewCell.m */,
 				3B51DF482693DC520098073C /* PostCollectionViewCell.xib */,
+				3B5587FA26966156000BAE40 /* CommentCollectionViewCell.h */,
+				3B5587FB26966156000BAE40 /* CommentCollectionViewCell.m */,
+				3B5587FC26966156000BAE40 /* CommentCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -361,6 +369,7 @@
 			files = (
 				3B57368C268FAEAE00A2C143 /* LaunchScreen.storyboard in Resources */,
 				3B573689268FAEAE00A2C143 /* Assets.xcassets in Resources */,
+				3B5587FE26966156000BAE40 /* CommentCollectionViewCell.xib in Resources */,
 				3B573687268FAEAD00A2C143 /* Main.storyboard in Resources */,
 				3B51DF4A2693DC520098073C /* PostCollectionViewCell.xib in Resources */,
 			);
@@ -493,6 +502,7 @@
 				3B9016342695259B0008BE5E /* ComposeCommentViewController.m in Sources */,
 				3B57367E268FAEAD00A2C143 /* AppDelegate.m in Sources */,
 				3B51DF492693DC520098073C /* PostCollectionViewCell.m in Sources */,
+				3B5587FD26966156000BAE40 /* CommentCollectionViewCell.m in Sources */,
 				3B414F3326930C2600E4F49C /* ProfileViewController.m in Sources */,
 				3B57368F268FAEAE00A2C143 /* main.m in Sources */,
 				3B5587F926961636000BAE40 /* PostDetailsViewController.m in Sources */,

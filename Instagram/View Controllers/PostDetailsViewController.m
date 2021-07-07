@@ -7,6 +7,7 @@
 
 #import "PostDetailsViewController.h"
 #import "PostCollectionViewCell.h"
+#import "CommentCollectionViewCell.h"
 
 @interface PostDetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -29,6 +30,8 @@
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"PostCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"PostCollectionViewCell"];
     
+    [self.collectionView registerNib:[UINib nibWithNibName:@"CommentCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"CommentCollectionViewCell"];
+    
     UICollectionViewFlowLayout *layout = self.collectionView.collectionViewLayout;
     layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize;
     
@@ -40,23 +43,29 @@
 }
 
 - (nonnull UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    PostCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionViewCell" forIndexPath:indexPath];
-    
-    CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
-    [cell setCellWithPost:self.post screenWidth:safeAreaWidth commentCode:^(PostCollectionViewCell *postCell){
-        //TODO: PERFORM SEGUE
-    } didTapPostImage:^(PostCollectionViewCell *postCell){
-        //TODO: PERFORM SEGUE
-    }];
-    
-    [cell setNeedsLayout];
-    [cell layoutIfNeeded];
-    
-    return cell;
+    if (indexPath.item == 0) {
+        PostCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionViewCell" forIndexPath:indexPath];
+        
+        CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
+        [cell setCellWithPost:self.post screenWidth:safeAreaWidth commentCode:^(PostCollectionViewCell *postCell){
+            //TODO: PERFORM SEGUE
+        } didTapPostImage:^(PostCollectionViewCell *postCell){
+            //TODO: PERFORM SEGUE
+        }];
+        
+        [cell setNeedsLayout];
+        [cell layoutIfNeeded];
+        
+        return cell;
+    } else {
+        CommentCollectionViewCell *commentCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CommentCollectionViewCell" forIndexPath:indexPath];
+        
+        return commentCell;
+    }
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 1;
+    return 3;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
