@@ -21,7 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)logout:(void(^)(NSError *error))completion;
 
 //feed
-- (void)getPostAuthor:(Post *)post completion:(void(^)(PFUser *user, NSError *error))completion;
 - (void)createLike:(Post *)post completion:(void(^)(BOOL succeeded, BOOL likeExisted, NSError *error))completion;
 - (void)deleteLike:(Post *)post completion:(void(^)(BOOL succeeded, NSError *error))completion;
 

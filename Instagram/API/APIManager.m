@@ -33,25 +33,6 @@
 }
 
 #pragma  mark - Feed
-
-- (void)getPostAuthor:(Post *)post completion:(void(^)(PFUser *user, NSError *error))completion {
-    PFUser *user = post[@"author"];
-    NSString *userId = user.objectId;
-    
-    //construct query
-    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
-    
-    [query getObjectInBackgroundWithId:@"ImynwQNg3z" block:^(PFObject *user, NSError *error) {
-        if (!error) {
-            // Success!
-            completion(user, nil);
-        } else {
-            // Failure!
-            completion(nil, error);
-        }
-    }];
-}
-
 - (void)createLike:(Post *)post completion:(void(^)(BOOL succeeded, BOOL likeExisted, NSError *error))completion {
     //make sure that like does not already exist (same user and post id)
     PFQuery *query = [PFQuery queryWithClassName:@"Like"];

@@ -9,7 +9,7 @@
 
 @interface PostDetailsViewController ()
 
-@property (strong, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
@@ -22,6 +22,9 @@
     [self.postView addSubview:self.postContentsView];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    self.contentView = nil;
+}
 /*
 #pragma mark - Navigation
 

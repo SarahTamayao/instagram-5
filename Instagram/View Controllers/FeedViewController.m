@@ -51,6 +51,7 @@
 - (void)fetchData {
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query includeKey:@"author"];
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {

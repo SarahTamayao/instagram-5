@@ -28,10 +28,9 @@
     self.post = post;
     
     //get username
-    [[APIManager shared] getPostAuthor:post completion:^(PFUser *user, NSError *error) {
-        self.usernameLabel.text = user[@"username"];
-    }];
-    
+    PFUser *user= self.post[@"author"];
+    self.usernameLabel.text = user[@"username"];
+
     //setting post image
     [post[@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
         if (!error) {
