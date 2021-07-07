@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
-@property (strong, nonatomic) Post *post;
+@property (weak, nonatomic) Post *post;
 @property (nonatomic, copy) void (^commentMethod)(PostCollectionViewCell *postCell);
 @property (nonatomic, copy) void (^didTapPostImage)(PostCollectionViewCell *postCell);
 

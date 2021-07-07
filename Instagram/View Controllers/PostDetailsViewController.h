@@ -6,13 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Post.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PostDetailsViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIView *postView;
-@property (weak, nonatomic) UIView *postContentsView;
+@property (weak, nonatomic) Post *post;
 
 @end
 

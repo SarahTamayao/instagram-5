@@ -6,10 +6,13 @@
 //
 
 #import "PostDetailsViewController.h"
+#import "PostCollectionViewCell.h"
 
-@interface PostDetailsViewController ()
+@interface PostDetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (strong, nonatomic) PostCollectionViewCell *postCell;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
@@ -17,22 +20,58 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setupCollectionView];
+}
+
+- (void)setupCollectionView {
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
     
-    [self.postView addSubview:self.postContentsView];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"PostCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"PostCollectionViewCell"];
+    
+    UICollectionViewFlowLayout *layout = self.collectionView.collectionViewLayout;
+    layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize;
+
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    self.contentView = nil;
-}
-/*
-#pragma mark - Navigation
+- (void)loadPostNib {
+    NSArray *postCellNibs = [[NSBundle mainBundle] loadNibNamed:@"PostCollectionViewCell" owner:self options:nil];
+    PostCollectionViewCell *postCell = [postCellNibs objectAtIndex:0];
+    
+    //initializing the cell
+    CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
+    [postCell setCellWithPost:self.post screenWidth:safeAreaWidth commentCode:^(PostCollectionViewCell *_Nonnull postCell){
+        
+    } didTapPostImage:nil];
+    
+    self.postCell = postCell;
+    [self.contentView addSubview:postCell];
+    
+    [self.contentView layoutSubviews];
+    NSLog(@"added post cell");
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
-*/
+
+
+
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    PostCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionViewCell" forIndexPath:indexPath];
+    
+    CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
+    [cell setCellWithPost:self.post screenWidth:safeAreaWidth commentCode:^(PostCollectionViewCell *postCell){
+        //TODO: PERFORM SEGUE
+    } didTapPostImage:^(PostCollectionViewCell *postCell){
+        //TODO: PERFORM SEGUE
+    }];
+    
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
+    
+    return cell;
+}
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 1;
+}
 
 @end

@@ -13,8 +13,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
-    //adding a tap recoginzer to post image
+    [self setupGestures];
+}
+
+- (void)setupGestures {
     UITapGestureRecognizer *postImageTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapPostImage:)];
     [self.postImage addGestureRecognizer:postImageTapGestureRecognizer];
     [self.postImage setUserInteractionEnabled:YES];
@@ -51,7 +53,12 @@
     self.profileImage.clipsToBounds = YES;
     
     self.commentMethod = commentCode;
-    self.didTapPostImage = didTapPostImage;
+    
+    if (didTapPostImage) {
+        self.didTapPostImage = didTapPostImage;
+    } else {
+        self.didTapPostImage = ^(PostCollectionViewCell *postCell){};
+    }
     
     [self refreshUI];
 }

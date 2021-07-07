@@ -157,19 +157,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3gp-PF-emo">
-                                <rect key="frame" x="0.0" y="88" width="414" height="248"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iHq-5P-Aj9">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v75-3E-5Sg">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KNb-sA-NRR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KNb-sA-NRR" firstAttribute="bottom" secondItem="iHq-5P-Aj9" secondAttribute="bottom" id="8Kt-0J-Cye"/>
+                            <constraint firstItem="iHq-5P-Aj9" firstAttribute="top" secondItem="KNb-sA-NRR" secondAttribute="top" id="Y4W-jE-TnO"/>
+                            <constraint firstItem="iHq-5P-Aj9" firstAttribute="leading" secondItem="KNb-sA-NRR" secondAttribute="leading" id="eRg-T2-YTr"/>
+                            <constraint firstItem="KNb-sA-NRR" firstAttribute="trailing" secondItem="iHq-5P-Aj9" secondAttribute="trailing" id="z1h-xs-eMg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="waq-Ih-q6Q"/>
                     <connections>
+                        <outlet property="collectionView" destination="iHq-5P-Aj9" id="Kxv-h0-sp7"/>
                         <outlet property="contentView" destination="Mpx-We-kUY" id="Q8K-ah-KIE"/>
-                        <outlet property="postView" destination="3gp-PF-emo" id="T27-zP-odi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZX-O2-pfK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

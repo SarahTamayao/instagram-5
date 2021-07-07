@@ -109,9 +109,9 @@
     
     CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
     [cell setCellWithPost:self.posts[indexPath.item] screenWidth:safeAreaWidth commentCode:^(PostCollectionViewCell *postCell){
-        [self commentOnPost:postCell];
+        [self performSegueWithIdentifier:@"feedToComment" sender:postCell];
     } didTapPostImage:^(PostCollectionViewCell *postCell){
-        [self didTapPostImage:postCell];
+        [self performSegueWithIdentifier:@"feedToPostDetails" sender:postCell.post];
     }];
     
     [cell setNeedsLayout];
@@ -119,15 +119,6 @@
     
     return cell;
 }
-
-- (void)commentOnPost:(PostCollectionViewCell *)postCell {
-    [self performSegueWithIdentifier:@"feedToComment" sender:postCell];
-}
-
-- (void)didTapPostImage:(PostCollectionViewCell *)postCell {
-    [self performSegueWithIdentifier:@"feedToPostDetails" sender:postCell];
-}
-
 
 #pragma mark - Navigation
 
@@ -144,9 +135,9 @@
         
     } else if ([segue.identifier isEqualToString:@"feedToPostDetails"]){
         
-        PostCollectionViewCell *postCell = (PostCollectionViewCell *) sender;
+        Post *post = (Post *) sender;
         PostDetailsViewController *postDetailsViewController = [segue destinationViewController];
-        postDetailsViewController.postContentsView = postCell;
+        postDetailsViewController.post = post;
         
     }
 }
