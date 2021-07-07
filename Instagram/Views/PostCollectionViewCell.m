@@ -63,6 +63,12 @@
     if(!self.post.isLikedByCurrentUser) {
         self.post.isLikedByCurrentUser = YES;
         
+        //increasing like count in Post object
+        NSExpression *ex = [NSExpression expressionWithFormat:@"(%@ + %@)", self.post.likeCount, @1];
+        self.post.likeCount = [ex expressionValueWithObject:nil context:nil];
+        [self.post saveInBackground];
+        
+        
         [[APIManager shared] createLike:self.post completion:^(BOOL succeeded, BOOL likeExisted, NSError *error) {
             if (error) {
                 NSLog(@"Error saving like: %@", error.localizedDescription);
@@ -75,6 +81,11 @@
     }
     else {
         self.post.isLikedByCurrentUser = NO;
+        
+        //decreasing like count in Post object
+        NSExpression *ex = [NSExpression expressionWithFormat:@"(%@ - %@)", self.post.likeCount, @1];
+        self.post.likeCount = [ex expressionValueWithObject:nil context:nil];
+        [self.post saveInBackground];
         
         [[APIManager shared] deleteLike:self.post completion:^(BOOL succeeded, NSError *error){
             if (error){
