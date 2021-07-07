@@ -6,6 +6,7 @@
 //
 
 #import "ComposeCommentViewController.h"
+#import <Parse/Parse.h>
 
 @interface ComposeCommentViewController ()
 
@@ -17,13 +18,29 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSLog(@"%@", self.post);
+    [self.commentTextView becomeFirstResponder];
 }
 
 - (IBAction)didTapCancel:(UIButton *)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
+- (IBAction)didTapSend:(UIButton *)sender {
+    PFObject *newComment = [PFObject objectWithClassName:@"Comment"];
+    newComment[@"userId"] = [PFUser currentUser];
+    newComment[@"postId"] = self.post.objectId;
+    newComment[@"commentText"] = self.commentTextView.text;
+    
+    [newComment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+        if (error) {
+            NSLog(@"Error saving comment: %@", error.localizedDescription);
+        } else {
+            NSLog(@"Successfully saved comment");
+        }
+    }];
+    
+    [self dismissViewControllerAnimated:true completion:nil];
+}
 
 /*
 #pragma mark - Navigation

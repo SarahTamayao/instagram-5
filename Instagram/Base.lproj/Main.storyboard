@@ -168,19 +168,42 @@
                                     <action selector="didTapCancel:" destination="1te-Gm-W1R" eventType="touchUpInside" id="AQe-YL-UKT"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SpV-Os-NXz">
+                                <rect key="frame" x="20" y="79" width="374" height="299"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgb-IF-UQ8">
+                                <rect key="frame" x="372" y="25" width="22" height="19.5"/>
+                                <state key="normal" backgroundImage="arrow.up.message.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="didTapSend:" destination="1te-Gm-W1R" eventType="touchUpInside" id="LAx-wB-y0F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IAr-t5-NXZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="25b-ZT-WyS" firstAttribute="top" secondItem="IAr-t5-NXZ" secondAttribute="top" constant="20" id="QfB-Wc-7NM"/>
                             <constraint firstItem="25b-ZT-WyS" firstAttribute="leading" secondItem="IAr-t5-NXZ" secondAttribute="leading" constant="20" id="YgS-KR-EvC"/>
+                            <constraint firstItem="SpV-Os-NXz" firstAttribute="top" secondItem="25b-ZT-WyS" secondAttribute="bottom" constant="29" id="cGK-GU-feZ"/>
+                            <constraint firstItem="SpV-Os-NXz" firstAttribute="leading" secondItem="IAr-t5-NXZ" secondAttribute="leading" constant="20" id="gVL-Vk-tmV"/>
+                            <constraint firstItem="IAr-t5-NXZ" firstAttribute="bottom" secondItem="SpV-Os-NXz" secondAttribute="bottom" constant="430" id="gXA-I7-RAX"/>
+                            <constraint firstItem="xgb-IF-UQ8" firstAttribute="centerY" secondItem="25b-ZT-WyS" secondAttribute="centerY" id="hGS-yL-Ov4"/>
+                            <constraint firstItem="IAr-t5-NXZ" firstAttribute="trailing" secondItem="xgb-IF-UQ8" secondAttribute="trailing" constant="20" id="n9c-JI-mgH"/>
+                            <constraint firstItem="IAr-t5-NXZ" firstAttribute="trailing" secondItem="SpV-Os-NXz" secondAttribute="trailing" constant="20" id="twf-28-yyB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Gat-HQ-j2T"/>
+                    <connections>
+                        <outlet property="commentTextView" destination="SpV-Os-NXz" id="wFY-lF-BR1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z73-el-8XB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1483" y="1634"/>
+            <point key="canvasLocation" x="1482.608695652174" y="1633.9285714285713"/>
         </scene>
         <!--Profile-->
         <scene sceneID="gOu-TQ-ELx">
@@ -322,6 +345,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.up.message.fill" catalog="system" width="128" height="113"/>
         <image name="feed_tab" width="25" height="25"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="profile_tab" width="25" height="25"/>
