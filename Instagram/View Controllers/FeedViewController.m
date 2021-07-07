@@ -11,6 +11,7 @@
 #import "SceneDelegate.h"
 #import "UserAuthenticationViewController.h"
 #import  "PostCollectionViewCell.h"
+#import  "ComposeCommentViewController.h"
 
 @interface FeedViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -119,16 +120,25 @@
 
 - (void)commentOnPost:(Post *)post {
     NSLog(@"Comment called");
+    
+    [self performSegueWithIdentifier:@"feedToComment" sender:post];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"feedToComment"]) {
+        Post *post = (Post *) sender;
+        ComposeCommentViewController *destinationController = [segue destinationViewController];
+        
+        destinationController.post = post;
+    }
 }
-*/
+
 
 @end

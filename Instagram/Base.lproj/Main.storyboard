@@ -149,16 +149,34 @@
             </objects>
             <point key="canvasLocation" x="2325" y="834"/>
         </scene>
-        <!--View Controller-->
+        <!--Compose Comment View Controller-->
         <scene sceneID="uIZ-tJ-sGr">
             <objects>
-                <viewController id="1te-Gm-W1R" sceneMemberID="viewController">
+                <viewController id="1te-Gm-W1R" customClass="ComposeCommentViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1za-g7-K8T">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25b-ZT-WyS">
+                                <rect key="frame" x="20" y="20" width="45" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Nuk-bn-7aV"/>
+                                    <constraint firstAttribute="width" constant="45" id="Pq0-wD-7mp"/>
+                                </constraints>
+                                <state key="normal" title="cancel"/>
+                                <connections>
+                                    <action selector="didTapCancel:" destination="1te-Gm-W1R" eventType="touchUpInside" id="AQe-YL-UKT"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="IAr-t5-NXZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="25b-ZT-WyS" firstAttribute="top" secondItem="IAr-t5-NXZ" secondAttribute="top" constant="20" id="QfB-Wc-7NM"/>
+                            <constraint firstItem="25b-ZT-WyS" firstAttribute="leading" secondItem="IAr-t5-NXZ" secondAttribute="leading" constant="20" id="YgS-KR-EvC"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Gat-HQ-j2T"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z73-el-8XB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
