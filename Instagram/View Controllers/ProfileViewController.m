@@ -10,8 +10,12 @@
 #import "SceneDelegate.h"
 #import "UserAuthenticationViewController.h"
 #import "APIManager.h"
+#import "UserProfilePostCollectionViewCell.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
 @end
 
@@ -19,7 +23,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setupCollectionView];
+}
+
+- (void)setupCollectionView {
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
 }
 
 - (void)fetchData {
@@ -54,8 +63,34 @@
     }];
 }
 
+#pragma mark - Collection View
 
-/*
+- (nonnull UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    UserProfilePostCollectionViewCell *postCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"userProfilePostCell" forIndexPath:indexPath];
+    
+    return postCell;
+}
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (void)viewDidLayoutSubviews {
+   [super viewDidLayoutSubviews];
+
+//    self.flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;//UICollectionViewScrollDirectionHorizontal;
+    self.flowLayout.minimumLineSpacing = 0;
+    self.flowLayout.minimumInteritemSpacing = 0;
+    self.flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 10);
+}
+
+// MARK: UICollectionViewDelegateFlowLayout methods
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    int totalwidth = self.collectionView.bounds.size.width;
+    int numberOfCellsPerRow = 3;
+    int dimensions = (CGFloat)(totalwidth / numberOfCellsPerRow);
+    return CGSizeMake(dimensions, dimensions);
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -63,6 +98,5 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
 
 @end

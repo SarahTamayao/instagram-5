@@ -271,23 +271,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GAR-2p-qLL">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GAR-2p-qLL">
                                 <rect key="frame" x="0.0" y="318.5" width="414" height="494.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nKg-Uf-hWf">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" sectionInsetReference="safeArea" id="nKg-Uf-hWf">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ga4-fQ-Hho">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="userProfilePostCell" id="Ga4-fQ-Hho" customClass="UserProfilePostCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wcn-EP-tQF">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fh2-ux-HM1">
+                                                    <rect key="frame" x="2" y="2" width="124" height="124"/>
+                                                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fh2-ux-HM1" firstAttribute="leading" secondItem="wcn-EP-tQF" secondAttribute="leading" constant="2" id="NmK-pJ-uEE"/>
+                                                <constraint firstItem="fh2-ux-HM1" firstAttribute="top" secondItem="wcn-EP-tQF" secondAttribute="top" constant="2" id="hhx-VR-VSd"/>
+                                                <constraint firstAttribute="trailing" secondItem="fh2-ux-HM1" secondAttribute="trailing" constant="2" id="n7D-nl-4f2"/>
+                                                <constraint firstAttribute="bottom" secondItem="fh2-ux-HM1" secondAttribute="bottom" constant="2" id="rf3-W9-dII"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.930317222" blue="0.02777995137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -316,6 +329,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="GAR-2p-qLL" id="Bdl-43-XBe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J4M-pv-MPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
