@@ -131,7 +131,9 @@
                 <outlet property="likeCountLabel" destination="BYn-fR-NlC" id="Ox3-FU-Zmg"/>
                 <outlet property="postImage" destination="cVU-a0-Nga" id="1pW-p2-ESl"/>
                 <outlet property="profileImage" destination="owf-bc-2qy" id="cof-Hh-UIY"/>
+                <outlet property="timeStampLabel" destination="ehQ-qc-eaI" id="FjR-0P-hw2"/>
                 <outlet property="usernameLabel" destination="dEx-6S-Qzh" id="qGj-CL-d1P"/>
+                <outlet property="viewCommentsLabel" destination="dYm-gg-Ht0" id="ROl-JO-CAL"/>
             </connections>
             <point key="canvasLocation" x="278.26086956521743" y="185.15625"/>
         </collectionViewCell>

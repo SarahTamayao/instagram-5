@@ -36,6 +36,11 @@
     [self.postImage addGestureRecognizer:postImageTapGestureRecognizer];
     [self.postImage setUserInteractionEnabled:YES];
     
+    //setup gesture for view comments label
+    UITapGestureRecognizer *viewCommentsLabelGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapPostImage:)]; //same action as tapping post image
+    [self.viewCommentsLabel addGestureRecognizer:viewCommentsLabelGestureRecognizer];
+    [self.viewCommentsLabel setUserInteractionEnabled:YES];
+    
     //gesture for profile image
     UITapGestureRecognizer *profileImageTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapProfileImage:)];
     [self.profileImage addGestureRecognizer:profileImageTapGestureRecognizer];
