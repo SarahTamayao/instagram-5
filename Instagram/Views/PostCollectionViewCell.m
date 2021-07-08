@@ -28,11 +28,9 @@
             self.profileImage.image = [UIImage imageWithData:data];
         }
     }];
-    
 }
 
 - (void)setupGestures {
-    
     //gesture for post image
     UITapGestureRecognizer *postImageTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapPostImage:)];
     [self.postImage addGestureRecognizer:postImageTapGestureRecognizer];

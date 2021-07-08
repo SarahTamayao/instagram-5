@@ -6,6 +6,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "Post.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentTextLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentTextWidthConstraint;
+@property (copy, nonatomic) void (^didTapProfileImage)(PFUser *targetUser);
+@property (weak, nonatomic) Post *post;
+
+- (void)setCellWithComment:(PFObject *)comment safeAreaWidth:(CGFloat)safeAreaWidth post:(Post *)post didTapProfileImageBlock:(void(^)(PFUser *target))didTapProfileImage;
 
 @end
 

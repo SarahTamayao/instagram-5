@@ -9,6 +9,7 @@
 #import "PostCollectionViewCell.h"
 #import "CommentCollectionViewCell.h"
 #import "ComposeCommentViewController.h"
+#import "ProfileViewController.h"
 
 @interface PostDetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -81,14 +82,13 @@
         return cell;
     } else {
         CommentCollectionViewCell *commentCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CommentCollectionViewCell" forIndexPath:indexPath];
-        commentCell.commentTextLabel.text = self.comments[indexPath.item - 1][@"commentText"];
-        CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
-        commentCell.commentTextWidthConstraint.constant = safeAreaWidth - 80;
         
-         [self.post[@"author"][@"profileImage"] getDataInBackgroundWithBlock:^(NSData *_Nullable data, NSError *_Nullable error) {
-            if (!error) {
-                commentCell.profileImageView.image = [UIImage imageWithData:data];
-            }
+        commentCell.profileImageView.image = nil;
+        
+        PFObject *comment = self.comments[indexPath.item - 1];
+        CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
+        [commentCell setCellWithComment:comment safeAreaWidth:safeAreaWidth post:self.post didTapProfileImageBlock:^(PFUser *user){
+            [self performSegueWithIdentifier:@"detailsToProfile" sender:user];
         }];
         
         return commentCell;
@@ -112,6 +112,10 @@
         ComposeCommentViewController *destinationController = [segue destinationViewController];
         destinationController.postCell = postCell;
         
+    } else if ([segue.identifier isEqualToString:@"detailsToProfile"]) {
+        PFUser *targetUser = (PFUser *) sender;
+        ProfileViewController *profileViewController = [segue destinationViewController];
+        profileViewController.targetUser = targetUser;
     }
 }
 
