@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentTextLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentTextWidthConstraint;
 
 @end
 

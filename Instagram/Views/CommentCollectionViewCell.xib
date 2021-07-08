@@ -31,8 +31,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vz8-SK-BZa">
-                        <rect key="frame" x="76" y="34" width="171" height="183"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="748" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vz8-SK-BZa">
+                        <rect key="frame" x="76" y="34" width="250" height="122"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="250" id="Ulb-q1-NKA"/>
+                        </constraints>
                         <string key="text">LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLLabelLabelLabelLabelLabelLabelLabel</string>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -42,7 +45,6 @@
                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                 <constraints>
                     <constraint firstItem="QWy-3Y-bDz" firstAttribute="top" secondItem="l6o-sn-dHU" secondAttribute="top" id="5CI-ze-N2a"/>
-                    <constraint firstAttribute="trailing" secondItem="vz8-SK-BZa" secondAttribute="trailing" priority="999" constant="8" id="5sG-YX-I29"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QWy-3Y-bDz" secondAttribute="trailing" constant="8" id="8va-nb-0kX"/>
                     <constraint firstItem="vz8-SK-BZa" firstAttribute="leading" secondItem="QWy-3Y-bDz" secondAttribute="leading" priority="999" id="G1j-kY-7Lm"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="l6o-sn-dHU" secondAttribute="bottom" constant="8" id="R3i-y6-A1R"/>
@@ -56,6 +58,7 @@
             <size key="customSize" width="255" height="304"/>
             <connections>
                 <outlet property="commentTextLabel" destination="vz8-SK-BZa" id="Wyz-TH-ywn"/>
+                <outlet property="commentTextWidthConstraint" destination="Ulb-q1-NKA" id="ZEU-vE-ZXE"/>
                 <outlet property="profileImageView" destination="l6o-sn-dHU" id="2RY-3n-AXf"/>
                 <outlet property="usernameLabel" destination="QWy-3Y-bDz" id="IcK-gr-HTo"/>
             </connections>
