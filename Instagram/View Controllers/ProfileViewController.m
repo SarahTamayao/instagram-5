@@ -11,6 +11,7 @@
 #import "UserAuthenticationViewController.h"
 #import "APIManager.h"
 #import "UserProfilePostCollectionViewCell.h"
+#import "PostDetailsViewController.h"
 
 @interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -37,11 +38,11 @@
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query whereKey:@"author" equalTo:[PFUser currentUser]];
+    [query includeKey:@"author"];
     
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
-            NSLog(@"Posts: %@", posts);
             self.posts = posts;
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -71,8 +72,11 @@
 - (nonnull UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     UserProfilePostCollectionViewCell *postCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"userProfilePostCell" forIndexPath:indexPath];
     
-    [postCell setCellWithPost:self.posts[indexPath.item]];
+    [postCell setCellWithPost:self.posts[indexPath.item] didTapPostBlock:^(Post *_Nonnull post){
+        [self performSegueWithIdentifier:@"userProfileToPostDetails" sender:post];
+    }];
     
+ 
     return postCell;
 }
 
@@ -102,6 +106,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"userProfileToPostDetails"]){
+        
+        Post *post = (Post *) sender;
+        PostDetailsViewController *postDetailsViewController = [segue destinationViewController];
+        postDetailsViewController.post = post;
+        
+    }
 }
 
 @end

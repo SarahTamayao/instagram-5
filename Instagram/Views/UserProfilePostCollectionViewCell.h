@@ -11,9 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UserProfilePostCollectionViewCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *postImageView;
 
-- (void)setCellWithPost:(Post *)post;
+@property (weak, nonatomic) Post *post;
+@property (weak, nonatomic) IBOutlet UIImageView *postImageView;
+- (void)setCellWithPost:(Post *)post didTapPostBlock:(void(^)(Post *post))didTapPost;
+@property (nonatomic, copy) void (^didTapPostImage)(Post *postCell);
+
+
 @end
 
 NS_ASSUME_NONNULL_END

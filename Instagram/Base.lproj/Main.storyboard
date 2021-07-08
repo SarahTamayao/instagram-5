@@ -333,11 +333,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="GAR-2p-qLL" id="Bdl-43-XBe"/>
+                        <segue destination="VLY-LM-DA0" kind="show" identifier="userProfileToPostDetails" id="jk8-ra-Dum"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J4M-pv-MPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5090" y="834"/>
+            <point key="canvasLocation" x="1483" y="2762"/>
         </scene>
         <!--Feed-->
         <scene sceneID="iqU-O5-lJ5">
@@ -424,6 +425,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="yTf-hU-Bxj"/>
+        <segue reference="jk8-ra-Dum"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.up.message.fill" catalog="system" width="128" height="113"/>
