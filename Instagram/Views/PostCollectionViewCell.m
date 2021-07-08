@@ -14,6 +14,10 @@
     [super awakeFromNib];
     // Initialization code
     [self setupGestures];
+    
+    //making profile image round
+    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
+    self.profileImage.clipsToBounds = YES;
 }
 
 - (void)setupGestures {
@@ -49,10 +53,6 @@
     [self.likeButton setBackgroundImage: [UIImage systemImageNamed:@"heart"] forState: UIControlStateNormal];
     [self.likeButton setBackgroundImage:[UIImage systemImageNamed:@"heart.fill"] forState: UIControlStateSelected];
     [self.likeButton setSelected:post.isLikedByCurrentUser];
-    
-    //making profile image round
-    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
-    self.profileImage.clipsToBounds = YES;
     
     self.commentMethod = commentCode;
     

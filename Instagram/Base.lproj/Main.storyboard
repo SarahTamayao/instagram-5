@@ -182,6 +182,7 @@
                     <connections>
                         <outlet property="collectionView" destination="iHq-5P-Aj9" id="Kxv-h0-sp7"/>
                         <outlet property="contentView" destination="Mpx-We-kUY" id="Q8K-ah-KIE"/>
+                        <segue destination="1te-Gm-W1R" kind="presentation" identifier="detailsToComposeComment" id="yTf-hU-Bxj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZX-O2-pfK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -385,6 +386,9 @@
             <point key="canvasLocation" x="1514" y="80"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yTf-hU-Bxj"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.up.message.fill" catalog="system" width="128" height="113"/>
         <image name="feed_tab" width="25" height="25"/>

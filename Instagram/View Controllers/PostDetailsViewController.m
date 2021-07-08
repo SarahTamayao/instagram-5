@@ -8,6 +8,7 @@
 #import "PostDetailsViewController.h"
 #import "PostCollectionViewCell.h"
 #import "CommentCollectionViewCell.h"
+#import "ComposeCommentViewController.h"
 
 @interface PostDetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -43,6 +44,7 @@
 
 - (void)fetchComments {
     PFQuery *query = [PFQuery queryWithClassName:@"Comment"];
+    [query whereKey:@"postId" equalTo:self.post.objectId];
     [query includeKey:@"userId"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *_Nullable comments, NSError *_Nullable error){
@@ -65,9 +67,9 @@
         
         CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
         [cell setCellWithPost:self.post screenWidth:safeAreaWidth commentCode:^(PostCollectionViewCell *postCell){
-            //TODO: PERFORM SEGUE
+            [self performSegueWithIdentifier:@"detailsToComposeComment" sender:postCell];
         } didTapPostImage:^(PostCollectionViewCell *postCell){
-            //TODO: PERFORM SEGUE
+
         }];
         
         [cell setNeedsLayout];
@@ -86,6 +88,22 @@
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.comments.count + 1;
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"detailsToComposeComment"]) {
+        
+        PostCollectionViewCell *postCell = (PostCollectionViewCell *) sender;
+        ComposeCommentViewController *destinationController = [segue destinationViewController];
+        destinationController.postCell = postCell;
+        
+    }
 }
 
 @end
