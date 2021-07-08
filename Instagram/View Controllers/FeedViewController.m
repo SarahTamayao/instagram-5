@@ -81,14 +81,12 @@
                         }
                     }
                 }
+                [self.refreshControl endRefreshing];
                 [self.collectionView reloadData];
             }];
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
-        
-        [self.refreshControl endRefreshing];
-        [self.collectionView reloadData];
     }];
 }
 
@@ -172,14 +170,12 @@
                         }
                     }
                 }
+                self.isMoreDataLoading = false;
                 [self.collectionView reloadData];
             }];
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
-        self.isMoreDataLoading = false;
-        [self.refreshControl endRefreshing];
-        [self.collectionView reloadData];
     }];
 }
 
