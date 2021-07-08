@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -271,7 +272,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GAR-2p-qLL">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="318.5" width="414" height="494.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nKg-Uf-hWf">
                                     <size key="itemSize" width="128" height="128"/>
@@ -279,16 +280,33 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ga4-fQ-Hho">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wcn-EP-tQF">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fij-ST-wEa">
+                                <rect key="frame" x="0.0" y="88" width="414" height="230.5"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uwD-Wy-ROS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="uwD-Wy-ROS" firstAttribute="trailing" secondItem="GAR-2p-qLL" secondAttribute="trailing" id="B9b-sr-h3B"/>
-                            <constraint firstItem="GAR-2p-qLL" firstAttribute="top" secondItem="uwD-Wy-ROS" secondAttribute="top" id="Y2n-Hl-C7n"/>
-                            <constraint firstItem="GAR-2p-qLL" firstAttribute="leading" secondItem="uwD-Wy-ROS" secondAttribute="leading" id="lD4-4p-08B"/>
-                            <constraint firstItem="uwD-Wy-ROS" firstAttribute="bottom" secondItem="GAR-2p-qLL" secondAttribute="bottom" id="uG3-cm-wrM"/>
+                            <constraint firstItem="uwD-Wy-ROS" firstAttribute="bottom" secondItem="Fij-ST-wEa" secondAttribute="centerY" multiplier="4" id="3Ku-0K-T0c"/>
+                            <constraint firstItem="uwD-Wy-ROS" firstAttribute="trailing" secondItem="Fij-ST-wEa" secondAttribute="trailing" id="4nL-7P-nnT"/>
+                            <constraint firstItem="Fij-ST-wEa" firstAttribute="leading" secondItem="uwD-Wy-ROS" secondAttribute="leading" id="SmV-gv-cIM"/>
+                            <constraint firstItem="GAR-2p-qLL" firstAttribute="top" secondItem="Fij-ST-wEa" secondAttribute="bottom" id="daa-ak-ZjE"/>
+                            <constraint firstItem="GAR-2p-qLL" firstAttribute="bottom" secondItem="uwD-Wy-ROS" secondAttribute="bottom" id="mSS-df-yM3"/>
+                            <constraint firstItem="GAR-2p-qLL" firstAttribute="trailing" secondItem="uwD-Wy-ROS" secondAttribute="trailing" id="shN-oq-5eZ"/>
+                            <constraint firstItem="Fij-ST-wEa" firstAttribute="top" secondItem="uwD-Wy-ROS" secondAttribute="top" id="skG-m4-isg"/>
+                            <constraint firstItem="GAR-2p-qLL" firstAttribute="leading" secondItem="uwD-Wy-ROS" secondAttribute="leading" id="w4f-tG-GnI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="5dF-5G-gRh">
@@ -399,6 +417,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
