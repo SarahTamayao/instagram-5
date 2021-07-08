@@ -378,6 +378,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="changePictureButton" destination="rI3-PB-Dfh" id="Xwc-Oq-3gx"/>
                         <outlet property="collectionView" destination="GAR-2p-qLL" id="Bdl-43-XBe"/>
                         <outlet property="profileImageView" destination="CnY-XX-0NE" id="oHC-xU-jnu"/>
                         <segue destination="VLY-LM-DA0" kind="show" identifier="userProfileToPostDetails" id="jk8-ra-Dum"/>

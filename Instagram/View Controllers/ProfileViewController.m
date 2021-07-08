@@ -6,7 +6,6 @@
 //
 
 #import "ProfileViewController.h"
-#import <Parse/Parse.h>
 #import "SceneDelegate.h"
 #import "UserAuthenticationViewController.h"
 #import "APIManager.h"
@@ -20,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UIButton *changePictureButton;
 
 @end
 
@@ -27,6 +27,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSLog(@"View did load");
+    
+    if (self.targetUser == nil) {
+        self.targetUser = [PFUser currentUser];
+    } else {
+        //looking at another user's profile
+        self.changePictureButton.alpha = 0;
+
+    }
+    
     [self setupCollectionView];
     [self fetchData];
     
@@ -34,7 +45,6 @@
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
     self.profileImageView.clipsToBounds = YES;
 }
-
 
 - (void)setupCollectionView {
     self.collectionView.delegate = self;
@@ -44,7 +54,7 @@
 - (void)fetchData {
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-    [query whereKey:@"author" equalTo:[PFUser currentUser]];
+    [query whereKey:@"author" equalTo:self.targetUser];
     [query includeKey:@"author"];
     [query orderByDescending:@"createdAt"];
     
@@ -60,7 +70,7 @@
     
     //fetch user profile image    
     PFQuery *userQuery = [PFQuery queryWithClassName:@"_User"];
-    NSString *userId = [PFUser currentUser].objectId;
+    NSString *userId = self.targetUser.objectId;
     [userQuery getObjectInBackgroundWithId:userId
                                  block:^(PFObject *user, NSError *error) {
         [user[@"profileImage"] getDataInBackgroundWithBlock:^(NSData *_Nullable data, NSError *_Nullable error) {
@@ -88,6 +98,10 @@
 }
 
 - (IBAction)didTapChangeProfilePicture:(UIButton *)sender {
+    if (self.targetUser != [PFUser currentUser]) {
+        return; //only allow users to change image on their own profile
+    }
+    
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
