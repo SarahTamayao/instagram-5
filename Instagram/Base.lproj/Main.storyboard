@@ -184,7 +184,7 @@
             <objects>
                 <viewController id="VLY-LM-DA0" customClass="PostDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mpx-We-kUY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iHq-5P-Aj9">
