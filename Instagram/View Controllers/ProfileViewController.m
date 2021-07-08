@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 @property (strong, nonatomic) NSMutableArray *posts;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 
 @end
 
@@ -27,7 +28,12 @@
     [super viewDidLoad];
     [self setupCollectionView];
     [self fetchData];
+    
+    //making profile image round
+    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
+    self.profileImageView.clipsToBounds = YES;
 }
+
 
 - (void)setupCollectionView {
     self.collectionView.delegate = self;
@@ -67,6 +73,11 @@
         }
     }];
 }
+
+- (IBAction)didTapChangeProfilePicture:(UIButton *)sender {
+    NSLog(@"Change profile picture");
+}
+
 
 #pragma mark - Collection View
 
