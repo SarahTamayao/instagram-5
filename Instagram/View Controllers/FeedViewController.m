@@ -13,6 +13,7 @@
 #import  "PostCollectionViewCell.h"
 #import  "ComposeCommentViewController.h"
 #import "PostDetailsViewController.h"
+#import "ProfileViewController.h"
 
 @interface FeedViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -109,6 +110,8 @@
         [self performSegueWithIdentifier:@"feedToComment" sender:postCell];
     } didTapPostImage:^(PostCollectionViewCell *postCell){
         [self performSegueWithIdentifier:@"feedToPostDetails" sender:postCell.post];
+    } didTapProfileImage:^(PostCollectionViewCell *postCell){
+        [self performSegueWithIdentifier:@"feedToUserProfile" sender:postCell.post.author];
     }];
     
     [cell setNeedsLayout];
@@ -136,6 +139,11 @@
         PostDetailsViewController *postDetailsViewController = [segue destinationViewController];
         postDetailsViewController.post = post;
         
+    } else if ([segue.identifier isEqualToString:@"feedToUserProfile"]) {
+        //TODO: prepare segue
+        PFUser *targetUser = (PFUser *) sender;
+        ProfileViewController *profileViewController = [segue destinationViewController];
+        profileViewController.targetUser = targetUser;
     }
 }
 

@@ -386,7 +386,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J4M-pv-MPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1483" y="2762"/>
+            <point key="canvasLocation" x="2820" y="1837"/>
         </scene>
         <!--Feed-->
         <scene sceneID="iqU-O5-lJ5">
@@ -446,6 +446,7 @@
                         <segue destination="LgU-bV-cx2" kind="presentation" identifier="feedToCompose" modalPresentationStyle="fullScreen" id="JiM-RN-z9T"/>
                         <segue destination="1te-Gm-W1R" kind="presentation" identifier="feedToComment" id="a1h-eg-hVa"/>
                         <segue destination="VLY-LM-DA0" kind="show" identifier="feedToPostDetails" id="iZp-Xr-oGt"/>
+                        <segue destination="hPm-cr-ofo" kind="show" identifier="feedToUserProfile" id="br0-5z-FRP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mnm-BW-QTC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -472,8 +473,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yTf-hU-Bxj"/>
-        <segue reference="jk8-ra-Dum"/>
+        <segue reference="br0-5z-FRP"/>
+        <segue reference="a1h-eg-hVa"/>
+        <segue reference="iZp-Xr-oGt"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.up.message.fill" catalog="system" width="128" height="113"/>

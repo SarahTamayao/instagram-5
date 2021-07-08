@@ -32,22 +32,33 @@
 }
 
 - (void)setupGestures {
+    
+    //gesture for post image
     UITapGestureRecognizer *postImageTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapPostImage:)];
     [self.postImage addGestureRecognizer:postImageTapGestureRecognizer];
     [self.postImage setUserInteractionEnabled:YES];
+    
+    //gesture for profile image
+    UITapGestureRecognizer *profileImageTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapProfileImage:)];
+    [self.profileImage addGestureRecognizer:profileImageTapGestureRecognizer];
+    [self.profileImage setUserInteractionEnabled:YES];
+}
+
+- (void)didTapProfileImage:(UITapGestureRecognizer *)sender {
+    self.didTapProfileImage(self);
 }
 
 - (void)didTapPostImage:(UITapGestureRecognizer *)sender {
     self.didTapPostImage(self);
 }
 
-- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth commentCode:(void(^)(PostCollectionViewCell *post))commentCode didTapPostImage:(void(^)(PostCollectionViewCell *postCell))didTapPostImage{
+- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth commentCode:(void(^)(PostCollectionViewCell *post))commentCode didTapPostImage:(void(^)(PostCollectionViewCell *postCell))didTapPostImage didTapProfileImage:(void(^)(PostCollectionViewCell *postCell))didTapProfileImage {
     self.post = post;
-        
+    
     //get username
     PFUser *user= self.post[@"author"];
     self.usernameLabel.text = user[@"username"];
-
+    
     //setting post image
     [post[@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
         if (!error) {
@@ -72,6 +83,8 @@
     } else {
         self.didTapPostImage = ^(PostCollectionViewCell *postCell){};
     }
+    
+    self.didTapProfileImage = didTapProfileImage;
     
     [self fetchProfileImage];
     

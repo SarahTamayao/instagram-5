@@ -71,6 +71,8 @@
             [self performSegueWithIdentifier:@"detailsToComposeComment" sender:postCell];
         } didTapPostImage:^(PostCollectionViewCell *postCell){
 
+        } didTapProfileImage:^(PostCollectionViewCell *postCell){
+            //do nothing because we already came from a user profile
         }];
         
         [cell setNeedsLayout];

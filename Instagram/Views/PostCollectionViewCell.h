@@ -23,9 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) Post *post;
 @property (nonatomic, copy) void (^commentMethod)(PostCollectionViewCell *postCell);
 @property (nonatomic, copy) void (^didTapPostImage)(PostCollectionViewCell *postCell);
+@property (nonatomic, copy) void (^didTapProfileImage)(PostCollectionViewCell *postCell);
 
 //methods
-- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth commentCode:(void(^)(PostCollectionViewCell *post))commentCode didTapPostImage:(void(^)(PostCollectionViewCell *postCell))didTapPostImage;
+- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth commentCode:(void(^)(PostCollectionViewCell *post))commentCode didTapPostImage:(void(^)(PostCollectionViewCell *postCell))didTapPostImage didTapProfileImage:(void(^)(PostCollectionViewCell *postCell))didTapProfileImage;
 - (void)refreshUI;
 
 @end
