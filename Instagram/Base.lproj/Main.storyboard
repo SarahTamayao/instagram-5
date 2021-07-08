@@ -19,11 +19,17 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="746" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lef-Kw-klt">
                                 <rect key="frame" x="60" y="383" width="294" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="2E7-Av-W14"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1hM-jD-Hvn">
                                 <rect key="frame" x="60" y="431" width="294" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="1WI-6x-Fd3"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -41,24 +47,26 @@
                                     <action selector="didTapSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aKz-kk-ldk"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mr4-Rc-mFY">
-                                <rect key="frame" x="151.5" y="283" width="111" height="60"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="50"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="1200px-instagram_logo.svg" translatesAutoresizingMaskIntoConstraints="NO" id="5mq-wf-JDJ">
+                                <rect key="frame" x="30" y="263" width="354" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="cjD-Ex-Dmc"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="lef-Kw-klt" firstAttribute="top" secondItem="mr4-Rc-mFY" secondAttribute="bottom" constant="40" id="49Q-4c-osE"/>
+                            <constraint firstItem="5mq-wf-JDJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="100" id="1Um-Qx-3hq"/>
                             <constraint firstItem="1hM-jD-Hvn" firstAttribute="top" secondItem="lef-Kw-klt" secondAttribute="bottom" constant="14" id="5O0-qs-nmd"/>
+                            <constraint firstItem="5mq-wf-JDJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="654-im-bXe"/>
                             <constraint firstItem="u8G-Or-Rhf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="E8R-ha-0uC"/>
-                            <constraint firstItem="mr4-Rc-mFY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HHA-Qy-XxD"/>
                             <constraint firstItem="Hou-OW-CXg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="u8G-Or-Rhf" secondAttribute="trailing" constant="8" id="HnP-wS-1E4"/>
                             <constraint firstItem="1hM-jD-Hvn" firstAttribute="trailing" secondItem="lef-Kw-klt" secondAttribute="trailing" id="HpN-da-ndL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hou-OW-CXg" secondAttribute="trailing" constant="60" id="K7b-Zj-Vhr"/>
+                            <constraint firstAttribute="trailing" secondItem="5mq-wf-JDJ" secondAttribute="trailing" constant="30" id="Rcf-cR-uJB"/>
                             <constraint firstItem="u8G-Or-Rhf" firstAttribute="top" secondItem="1hM-jD-Hvn" secondAttribute="bottom" constant="30" id="ZdU-Ca-uyZ"/>
+                            <constraint firstItem="lef-Kw-klt" firstAttribute="top" secondItem="5mq-wf-JDJ" secondAttribute="bottom" constant="20" id="lXA-SA-GKm"/>
                             <constraint firstItem="lef-Kw-klt" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="ns7-In-h93"/>
                             <constraint firstItem="1hM-jD-Hvn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qjj-6s-Smr"/>
                             <constraint firstItem="1hM-jD-Hvn" firstAttribute="leading" secondItem="lef-Kw-klt" secondAttribute="leading" id="r0O-c2-mvW"/>
@@ -176,7 +184,7 @@
             <objects>
                 <viewController id="VLY-LM-DA0" customClass="PostDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mpx-We-kUY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iHq-5P-Aj9">
@@ -479,6 +487,7 @@
         <segue reference="jk8-ra-Dum"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="1200px-instagram_logo.svg" width="1200" height="429"/>
         <image name="arrow.up.message.fill" catalog="system" width="128" height="113"/>
         <image name="feed_tab" width="25" height="25"/>
         <image name="insta_camera_btn" width="25" height="25"/>
