@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
+@property (strong, nonatomic) NSMutableArray *posts;
 
 @end
 
@@ -24,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupCollectionView];
+    [self fetchData];
 }
 
 - (void)setupCollectionView {
@@ -35,21 +37,22 @@
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query whereKey:@"author" equalTo:[PFUser currentUser]];
-    query.limit = 20;
-
+    
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
-            // do something with the array of object returned by the call
+            NSLog(@"Posts: %@", posts);
+            self.posts = posts;
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
+        [self.collectionView reloadData];
     }];
 }
 
 - (IBAction)didTapLogout:(UIBarButtonItem *)sender {
     SceneDelegate *sceneDelegate = (SceneDelegate *)[UIApplication sharedApplication].connectedScenes.allObjects[0].delegate;
-
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UserAuthenticationViewController *userAuthenticationViewController = [storyboard instantiateViewControllerWithIdentifier:@"UserAuthenticationViewController"];
     sceneDelegate.window.rootViewController = userAuthenticationViewController;
@@ -68,17 +71,19 @@
 - (nonnull UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     UserProfilePostCollectionViewCell *postCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"userProfilePostCell" forIndexPath:indexPath];
     
+    [postCell setCellWithPost:self.posts[indexPath.item]];
+    
     return postCell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return self.posts.count;
 }
 
 - (void)viewDidLayoutSubviews {
-   [super viewDidLayoutSubviews];
-
-//    self.flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;//UICollectionViewScrollDirectionHorizontal;
+    [super viewDidLayoutSubviews];
+    
+    //    self.flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;//UICollectionViewScrollDirectionHorizontal;
     self.flowLayout.minimumLineSpacing = 0;
     self.flowLayout.minimumInteritemSpacing = 0;
     self.flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 10);

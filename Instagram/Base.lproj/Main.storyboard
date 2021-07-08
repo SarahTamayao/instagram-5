@@ -272,7 +272,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GAR-2p-qLL">
-                                <rect key="frame" x="0.0" y="318.5" width="414" height="494.5"/>
+                                <rect key="frame" x="0.0" y="326.5" width="414" height="486.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" sectionInsetReference="safeArea" id="nKg-Uf-hWf">
                                     <size key="itemSize" width="128" height="128"/>
@@ -288,19 +288,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fh2-ux-HM1">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3h1-Tg-myM">
                                                     <rect key="frame" x="2" y="2" width="124" height="124"/>
                                                     <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                                </view>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="fh2-ux-HM1" firstAttribute="leading" secondItem="wcn-EP-tQF" secondAttribute="leading" constant="2" id="NmK-pJ-uEE"/>
-                                                <constraint firstItem="fh2-ux-HM1" firstAttribute="top" secondItem="wcn-EP-tQF" secondAttribute="top" constant="2" id="hhx-VR-VSd"/>
-                                                <constraint firstAttribute="trailing" secondItem="fh2-ux-HM1" secondAttribute="trailing" constant="2" id="n7D-nl-4f2"/>
-                                                <constraint firstAttribute="bottom" secondItem="fh2-ux-HM1" secondAttribute="bottom" constant="2" id="rf3-W9-dII"/>
+                                                <constraint firstItem="3h1-Tg-myM" firstAttribute="leading" secondItem="wcn-EP-tQF" secondAttribute="leading" constant="2" id="ANU-qi-gXK"/>
+                                                <constraint firstAttribute="bottom" secondItem="3h1-Tg-myM" secondAttribute="bottom" constant="2" id="O8h-tH-ZM0"/>
+                                                <constraint firstAttribute="trailing" secondItem="3h1-Tg-myM" secondAttribute="trailing" constant="2" id="OeU-HG-5DA"/>
+                                                <constraint firstItem="3h1-Tg-myM" firstAttribute="top" secondItem="wcn-EP-tQF" secondAttribute="top" constant="2" id="yIX-VL-C4p"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.930317222" blue="0.02777995137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="postImageView" destination="3h1-Tg-myM" id="a4a-b3-TrV"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -315,7 +317,7 @@
                             <constraint firstItem="uwD-Wy-ROS" firstAttribute="bottom" secondItem="Fij-ST-wEa" secondAttribute="centerY" multiplier="4" id="3Ku-0K-T0c"/>
                             <constraint firstItem="uwD-Wy-ROS" firstAttribute="trailing" secondItem="Fij-ST-wEa" secondAttribute="trailing" id="4nL-7P-nnT"/>
                             <constraint firstItem="Fij-ST-wEa" firstAttribute="leading" secondItem="uwD-Wy-ROS" secondAttribute="leading" id="SmV-gv-cIM"/>
-                            <constraint firstItem="GAR-2p-qLL" firstAttribute="top" secondItem="Fij-ST-wEa" secondAttribute="bottom" id="daa-ak-ZjE"/>
+                            <constraint firstItem="GAR-2p-qLL" firstAttribute="top" secondItem="Fij-ST-wEa" secondAttribute="bottom" constant="8" id="daa-ak-ZjE"/>
                             <constraint firstItem="GAR-2p-qLL" firstAttribute="bottom" secondItem="uwD-Wy-ROS" secondAttribute="bottom" id="mSS-df-yM3"/>
                             <constraint firstItem="GAR-2p-qLL" firstAttribute="trailing" secondItem="uwD-Wy-ROS" secondAttribute="trailing" id="shN-oq-5eZ"/>
                             <constraint firstItem="Fij-ST-wEa" firstAttribute="top" secondItem="uwD-Wy-ROS" secondAttribute="top" id="skG-m4-isg"/>
