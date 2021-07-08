@@ -83,6 +83,12 @@
         CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
         commentCell.commentTextWidthConstraint.constant = safeAreaWidth - 80;
         
+         [self.post[@"author"][@"profileImage"] getDataInBackgroundWithBlock:^(NSData *_Nullable data, NSError *_Nullable error) {
+            if (!error) {
+                commentCell.profileImageView.image = [UIImage imageWithData:data];
+            }
+        }];
+        
         return commentCell;
     }
 }
