@@ -39,6 +39,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query whereKey:@"author" equalTo:[PFUser currentUser]];
     [query includeKey:@"author"];
+    [query orderByDescending:@"createdAt"];
     
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {

@@ -46,6 +46,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Comment"];
     [query whereKey:@"postId" equalTo:self.post.objectId];
     [query includeKey:@"userId"];
+    [query orderByDescending:@"createdAt"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *_Nullable comments, NSError *_Nullable error){
         if (!error) {
