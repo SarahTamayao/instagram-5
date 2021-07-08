@@ -78,7 +78,7 @@
         CommentCollectionViewCell *commentCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CommentCollectionViewCell" forIndexPath:indexPath];
         commentCell.commentTextLabel.text = self.comments[indexPath.item - 1][@"commentText"];
         CGFloat safeAreaWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
-        commentCell.commentTextWidthConstraint.constant = safeAreaWidth;
+        commentCell.commentTextWidthConstraint.constant = safeAreaWidth - 80;
         
         return commentCell;
     }
