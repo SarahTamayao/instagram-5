@@ -371,7 +371,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="5dF-5G-gRh">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="uz9-pL-2Dk">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="uz9-pL-2Dk">
                             <connections>
                                 <action selector="didTapLogout:" destination="hPm-cr-ofo" id="HWH-P5-FOK"/>
                             </connections>
@@ -475,7 +475,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="br0-5z-FRP"/>
         <segue reference="a1h-eg-hVa"/>
-        <segue reference="iZp-Xr-oGt"/>
+        <segue reference="jk8-ra-Dum"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.up.message.fill" catalog="system" width="128" height="113"/>
