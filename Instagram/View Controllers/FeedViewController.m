@@ -26,8 +26,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
@@ -88,8 +86,6 @@
         
         [self.refreshControl endRefreshing];
         [self.collectionView reloadData];
-        
-        NSLog(@"done loading posts");
     }];
 }
 
