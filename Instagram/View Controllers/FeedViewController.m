@@ -150,13 +150,18 @@
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query includeKey:@"author"];
-    [query orderByDescending:@"createdAt"];
-    query.limit = 3; //TODO: CHANGE TO A BIGGER NUMBER
+    [query orderByAscending:@"createdAt"];
+    query.limit = 7;
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
-            [self.posts addObjectsFromArray:posts];
+            
+            self.collectionView.alpha = 0;
+            [UIView animateWithDuration:.5 animations:^{
+                [self.posts addObjectsFromArray:posts];
+                self.collectionView.alpha = 1;
+            }];
             
             //resetting isLikedByCurrentUser
             for (Post *post in posts) {
