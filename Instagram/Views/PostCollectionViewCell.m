@@ -20,6 +20,17 @@
     self.profileImage.clipsToBounds = YES;
 }
 
+- (void)fetchProfileImage {
+    PFUser *user = self.post[@"author"];
+    
+    [user[@"profileImage"] getDataInBackgroundWithBlock:^(NSData *_Nullable data, NSError *_Nullable error) {
+        if (!error) {
+            self.profileImage.image = [UIImage imageWithData:data];
+        }
+    }];
+    
+}
+
 - (void)setupGestures {
     UITapGestureRecognizer *postImageTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapPostImage:)];
     [self.postImage addGestureRecognizer:postImageTapGestureRecognizer];
@@ -32,7 +43,7 @@
 
 - (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth commentCode:(void(^)(PostCollectionViewCell *post))commentCode didTapPostImage:(void(^)(PostCollectionViewCell *postCell))didTapPostImage{
     self.post = post;
-    
+        
     //get username
     PFUser *user= self.post[@"author"];
     self.usernameLabel.text = user[@"username"];
@@ -61,6 +72,8 @@
     } else {
         self.didTapPostImage = ^(PostCollectionViewCell *postCell){};
     }
+    
+    [self fetchProfileImage];
     
     [self refreshUI];
 }
