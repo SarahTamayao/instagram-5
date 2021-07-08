@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) PostCollectionViewCell *postCell;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSMutableArray *comments;
 
 @end
 
@@ -23,6 +24,7 @@
     [super viewDidLoad];
     [self.collectionView setAlpha:0.0];
     [self setupCollectionView];
+    [self fetchComments];
 }
 
 - (void)setupCollectionView {
@@ -37,6 +39,18 @@
 //    layout.estimatedItemSize = CGSizeZero;
     layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize;
     
+}
+
+- (void)fetchComments {
+    PFQuery *query = [PFQuery queryWithClassName:@"Comment"];
+    [query includeKey:@"userId"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *_Nullable comments, NSError *_Nullable error){
+        if (!error) {
+            self.comments = comments;
+        }
+        [self.collectionView reloadData];
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -62,13 +76,14 @@
         return cell;
     } else {
         CommentCollectionViewCell *commentCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CommentCollectionViewCell" forIndexPath:indexPath];
+        commentCell.commentTextLabel.text = self.comments[indexPath.item - 1][@"commentText"];
         
         return commentCell;
     }
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return self.comments.count + 1;
 }
 
 @end
