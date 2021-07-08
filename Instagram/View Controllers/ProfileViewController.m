@@ -12,8 +12,9 @@
 #import "APIManager.h"
 #import "UserProfilePostCollectionViewCell.h"
 #import "PostDetailsViewController.h"
+#import "Post.h"
 
-@interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
@@ -75,8 +76,56 @@
 }
 
 - (IBAction)didTapChangeProfilePicture:(UIButton *)sender {
-    NSLog(@"Change profile picture");
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+
+    // The Xcode simulator does not support taking pictures, so let's first check that the camera is indeed supported on the device before trying to present it.
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    else {
+        NSLog(@"Camera 🚫 available so we will use photo library instead");
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+    
 }
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    
+    // Get the image captured by the UIImagePickerController
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+
+    // Do something with the images (based on your use case)
+    self.profileImageView.image = editedImage;
+    
+    // Dismiss UIImagePickerController to go back to your original view controller
+    [self dismissViewControllerAnimated:YES completion:^(){
+        
+    }];
+    
+    //save the new image
+    UIImage *resizedImage = [[APIManager shared] resizeImage:editedImage withSize:CGSizeMake(500, 500)];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+    NSString *userId = [PFUser currentUser].objectId;
+    [query getObjectInBackgroundWithId:userId
+                                 block:^(PFObject *user, NSError *error) {
+        // Now let's update it with some new data. In this case, only cheatMode and score
+        // will get sent to the cloud. playerName hasn't changed.
+        
+        NSLog(@"%@", user);
+        PFFileObject *pfImage = [Post getPFFileFromImage:resizedImage];
+
+        user[@"profileImage"] = pfImage;
+        [user saveInBackground];
+    }];
+}
+
 
 
 #pragma mark - Collection View
