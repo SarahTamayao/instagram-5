@@ -57,6 +57,18 @@
         }
         [self.collectionView reloadData];
     }];
+    
+    //fetch user profile image    
+    PFQuery *userQuery = [PFQuery queryWithClassName:@"_User"];
+    NSString *userId = [PFUser currentUser].objectId;
+    [userQuery getObjectInBackgroundWithId:userId
+                                 block:^(PFObject *user, NSError *error) {
+        [user[@"profileImage"] getDataInBackgroundWithBlock:^(NSData *_Nullable data, NSError *_Nullable error) {
+            if (!error) {
+                self.profileImageView.image = [UIImage imageWithData:data];
+            }
+        }];
+    }];
 }
 
 - (IBAction)didTapLogout:(UIBarButtonItem *)sender {
@@ -101,7 +113,6 @@
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
     // Do something with the images (based on your use case)
-    self.profileImageView.image = editedImage;
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:^(){
@@ -110,15 +121,12 @@
     
     //save the new image
     UIImage *resizedImage = [[APIManager shared] resizeImage:editedImage withSize:CGSizeMake(500, 500)];
+    self.profileImageView.image = resizedImage;
     
     PFQuery *query = [PFQuery queryWithClassName:@"_User"];
     NSString *userId = [PFUser currentUser].objectId;
     [query getObjectInBackgroundWithId:userId
                                  block:^(PFObject *user, NSError *error) {
-        // Now let's update it with some new data. In this case, only cheatMode and score
-        // will get sent to the cloud. playerName hasn't changed.
-        
-        NSLog(@"%@", user);
         PFFileObject *pfImage = [Post getPFFileFromImage:resizedImage];
 
         user[@"profileImage"] = pfImage;
