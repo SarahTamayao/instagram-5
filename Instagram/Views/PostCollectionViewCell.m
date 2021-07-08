@@ -65,7 +65,6 @@
     self.usernameLabel.text = user[@"username"];
     
     //setting timestamp
-    NSLog(@"%@", self.post.createdAt);
     NSDate *createdAtDate = self.post.createdAt;
     NSString *timePassed = [createdAtDate shortTimeAgoSinceNow];
     self.timeStampLabel.text = [NSString stringWithFormat:@"%@ ago", timePassed];

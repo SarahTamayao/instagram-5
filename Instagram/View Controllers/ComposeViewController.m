@@ -30,6 +30,10 @@
     UITapGestureRecognizer *imageTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapImage:)];
     [self.imagePlaceHolderView addGestureRecognizer:imageTapGestureRecognizer];
     [self.imagePlaceHolderView setUserInteractionEnabled:YES];
+    
+    UITapGestureRecognizer *selectedImageTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapImage:)];
+    [self.imagePreview addGestureRecognizer:selectedImageTapGestureRecognizer];
+    [self.imagePreview setUserInteractionEnabled:YES];
 }
 
 - (void)didTapImage: (UITapGestureRecognizer *)sender {
