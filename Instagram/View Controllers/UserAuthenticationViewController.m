@@ -12,7 +12,7 @@
 @interface UserAuthenticationViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
-@property (strong, nonatomic) UIAlertController *emptyFieldAlert;
+@property (strong, nonatomic) UIAlertController *alert;
 
 @end
 
@@ -24,7 +24,7 @@
 }
 
 - (void)setupAlert {
-    UIAlertController *emptyFieldAlert = [UIAlertController alertControllerWithTitle:@"Error"
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
                                                                    message:@"Empty fields"
                                                             preferredStyle:(UIAlertControllerStyleAlert)];
     // create an OK action
@@ -34,9 +34,15 @@
     // handle response here.
     }];
     // add the OK action to the alert controller
-    [emptyFieldAlert addAction:okAction];
+    [alert addAction:okAction];
     
-    self.emptyFieldAlert = emptyFieldAlert;
+    self.alert = alert;
+}
+
+- (void)presentAlertWithTitle:(NSString *)title andMessage:(NSString *)message {
+    self.alert.title = title;
+    self.alert.message = message;
+    [self presentViewController:self.alert animated:YES completion:^{}];
 }
 
 - (IBAction)didTapSignUp:(UIButton *)sender {
@@ -44,6 +50,7 @@
         [[APIManager shared] registerUser:self.usernameField.text password:self.passwordField.text completion:^(BOOL succeeded, NSError *error){
             if (error != nil) {
                 NSLog(@"Error: %@", error.localizedDescription);
+                [self presentAlertWithTitle:@"Error" andMessage:[NSString stringWithFormat:@"%@",error.localizedDescription]];
             } else {
                 NSLog(@"User registered successfully");
                 
@@ -53,7 +60,7 @@
         }];
     }
     else {
-        [self presentViewController:self.emptyFieldAlert animated:YES completion:^{}];
+        [self presentAlertWithTitle:@"Error" andMessage:@"Empty fields"];
     }
 }
 
@@ -62,6 +69,7 @@
         [[APIManager shared] loginUser:self.usernameField.text password:self.passwordField.text completion:^(PFUser *user, NSError *error){
             if (error != nil) {
                 NSLog(@"Error: %@", error.localizedDescription);
+                [self presentAlertWithTitle:@"Error" andMessage:[NSString stringWithFormat:@"%@",error.localizedDescription]];
             } else {
                 NSLog(@"User logged in successfully");
                 
@@ -70,7 +78,7 @@
             }
         }];
     } else {
-        [self presentViewController:self.emptyFieldAlert animated:YES completion:^{}];
+        [self presentAlertWithTitle:@"Error" andMessage:@"Empty fields"];
     }
 }
 
