@@ -6,6 +6,7 @@
 //
 
 #import "CommentCollectionViewCell.h"
+#import <Parse/Parse.h>
 
 @implementation CommentCollectionViewCell
 
@@ -14,6 +15,21 @@
     //making profile image round
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
     self.profileImageView.clipsToBounds = YES;
+    [self fetchProfileImage];
+}
+
+- (void)fetchProfileImage {
+    //fetch user profile image
+    PFQuery *userQuery = [PFQuery queryWithClassName:@"_User"];
+    NSString *userId = [PFUser currentUser].objectId;
+    [userQuery getObjectInBackgroundWithId:userId
+                                 block:^(PFObject *user, NSError *error) {
+        [user[@"profileImage"] getDataInBackgroundWithBlock:^(NSData *_Nullable data, NSError *_Nullable error) {
+            if (!error) {
+                self.profileImageView.image = [UIImage imageWithData:data];
+            }
+        }];
+    }];
 }
 
 @end
