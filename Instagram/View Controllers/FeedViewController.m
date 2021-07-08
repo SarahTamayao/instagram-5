@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (assign, nonatomic) BOOL isMoreDataLoading;
+@property (assign, nonatomic) BOOL isDragging;
 
 @end
 
@@ -28,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.isDragging = false;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
@@ -53,7 +55,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query includeKey:@"author"];
     [query orderByDescending:@"createdAt"];
-    query.limit = 3; //TODO: CHANGE TO A BIGGER NUMBER
+    query.limit = 7; //TODO: CHANGE TO A BIGGER NUMBER
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -122,16 +124,23 @@
     if(!self.isMoreDataLoading){
          // Calculate the position of one screen length before the bottom of the results
          int scrollViewContentHeight = self.collectionView.contentSize.height;
-         int scrollOffsetThreshold = scrollViewContentHeight - self.collectionView.bounds.size.height;
+        int scrollOffsetThreshold = scrollViewContentHeight * 0.75;//scrollViewContentHeight - self.collectionView.bounds.size.height;
          
          // When the user has scrolled past the threshold, start requesting
-         if(scrollView.contentOffset.y > scrollOffsetThreshold && self.collectionView.isDragging) {
+         if(scrollView.contentOffset.y > scrollOffsetThreshold && self.collectionView.isDragging && !self.isDragging) {
              self.isMoreDataLoading = true;
              
              // ... Code to load more results ...
              [self loadMoreData];
          }
      }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    self.isDragging = false;
+}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    self.isDragging = true;
 }
 
 - (void)loadMoreData {
