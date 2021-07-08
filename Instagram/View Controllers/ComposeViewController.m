@@ -13,6 +13,7 @@
 @interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imagePreview;
 @property (weak, nonatomic) IBOutlet UITextView *captionTextView;
+@property (weak, nonatomic) IBOutlet UIView *imagePlaceHolderView;
 
 @end
 
@@ -21,6 +22,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self launchImagePicker];
+    [self setupGestures];
+}
+
+- (void)setupGestures {
+    UITapGestureRecognizer *imageTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapImage:)];
+    [self.imagePlaceHolderView addGestureRecognizer:imageTapGestureRecognizer];
+    [self.imagePlaceHolderView setUserInteractionEnabled:YES];
+}
+
+- (void)didTapImage: (UITapGestureRecognizer *)sender {
+    NSLog(@"tapped on image");
     [self launchImagePicker];
 }
 
@@ -42,6 +55,8 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    self.imagePlaceHolderView.hidden = true;
     
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
