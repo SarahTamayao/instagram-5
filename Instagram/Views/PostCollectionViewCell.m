@@ -7,6 +7,7 @@
 
 #import "PostCollectionViewCell.h"
 #import "APIManager.h"
+#import "DateTools.h"
 
 @implementation PostCollectionViewCell
 
@@ -56,11 +57,18 @@
 }
 
 - (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth commentCode:(void(^)(PostCollectionViewCell *post))commentCode didTapPostImage:(void(^)(PostCollectionViewCell *postCell))didTapPostImage didTapProfileImage:(void(^)(PostCollectionViewCell *postCell))didTapProfileImage {
-    self.post = post;
+    
+    _post = post;
     
     //get username
     PFUser *user= self.post[@"author"];
     self.usernameLabel.text = user[@"username"];
+    
+    //setting timestamp
+    NSLog(@"%@", self.post.createdAt);
+    NSDate *createdAtDate = self.post.createdAt;
+    NSString *timePassed = [createdAtDate shortTimeAgoSinceNow];
+    self.timeStampLabel.text = [NSString stringWithFormat:@"%@ ago", timePassed];
     
     //setting post image
     [post[@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error){

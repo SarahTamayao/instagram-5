@@ -74,7 +74,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPB-pV-Rkr">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPB-pV-Rkr">
                         <rect key="frame" x="16" y="724" width="532" height="304.5"/>
                         <string key="text">Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Label dfjsjfsjd gjsdfljgnsfjlnsfjbnsdkjfbnsdkjfbnskjfbnsjkfbnsjklfnb vnsdvjsdnvjlsdnvjlsnvljsnvsljnvjlsdvnljsdnvljsdnbljsdbnjlsbnsjlbnlsjfbnldfjnbflsjbnfjlsbnsljfbnlsjfbnsljnbf Rigre</string>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -82,7 +82,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 hours ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehQ-qc-eaI">
-                        <rect key="frame" x="16" y="1081" width="76.5" height="17"/>
+                        <rect key="frame" x="16" y="1081" width="76.5" height="48"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -108,7 +108,7 @@
                     <constraint firstItem="xwq-Oc-XqS" firstAttribute="leading" secondItem="owf-bc-2qy" secondAttribute="leading" id="ShH-XL-c5h"/>
                     <constraint firstItem="tKc-5K-SDa" firstAttribute="centerY" secondItem="egx-JY-hhu" secondAttribute="centerY" id="Y2y-2B-zRo"/>
                     <constraint firstItem="BYn-fR-NlC" firstAttribute="centerY" secondItem="xwq-Oc-XqS" secondAttribute="centerY" id="aLg-Ug-1Hy"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ehQ-qc-eaI" secondAttribute="bottom" constant="8" id="dmI-Va-h1H"/>
+                    <constraint firstAttribute="bottom" secondItem="ehQ-qc-eaI" secondAttribute="bottom" priority="999" constant="8" id="dmI-Va-h1H"/>
                     <constraint firstItem="LPB-pV-Rkr" firstAttribute="top" secondItem="xwq-Oc-XqS" secondAttribute="bottom" constant="14" id="dr0-Eb-CLU"/>
                     <constraint firstAttribute="trailing" secondItem="cVU-a0-Nga" secondAttribute="trailing" id="dv0-nw-ike"/>
                     <constraint firstItem="egx-JY-hhu" firstAttribute="centerY" secondItem="xwq-Oc-XqS" secondAttribute="centerY" id="eSJ-iy-Qul"/>
