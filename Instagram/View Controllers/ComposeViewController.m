@@ -9,6 +9,7 @@
 #import "SceneDelegate.h"
 #import "Post.h"
 #import "APIManager.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imagePreview;
@@ -80,6 +81,8 @@
 }
 
 - (IBAction)didTapShare:(UIBarButtonItem *)sender {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     UIImage *resizedImage = [[APIManager shared] resizeImage:self.imagePreview.image withSize:CGSizeMake(500, 500)];
     [Post postUserImage:resizedImage withCaption:self.captionTextView.text withCompletion:^(BOOL succeeded, NSError *_Nullable error){
         if(succeeded) {
@@ -89,6 +92,7 @@
         else {
             NSLog(@"Error uploading post: %@", error.localizedDescription);
         }
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
 
