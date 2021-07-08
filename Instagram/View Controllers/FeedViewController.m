@@ -15,11 +15,12 @@
 #import "PostDetailsViewController.h"
 #import "ProfileViewController.h"
 
-@interface FeedViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface FeedViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (assign, nonatomic) BOOL isMoreDataLoading;
 
 @end
 
@@ -52,6 +53,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query includeKey:@"author"];
     [query orderByDescending:@"createdAt"];
+    query.limit = 3; //TODO: CHANGE TO A BIGGER NUMBER
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -94,8 +96,6 @@
     [self performSegueWithIdentifier:@"feedToCompose" sender:self];
 }
 
-
-
 #pragma mark - CollectionView methods
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -118,6 +118,69 @@
     [cell layoutIfNeeded];
     
     return cell;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if(!self.isMoreDataLoading){
+         // Calculate the position of one screen length before the bottom of the results
+         int scrollViewContentHeight = self.collectionView.contentSize.height;
+         int scrollOffsetThreshold = scrollViewContentHeight - self.collectionView.bounds.size.height;
+         
+         // When the user has scrolled past the threshold, start requesting
+         if(scrollView.contentOffset.y > scrollOffsetThreshold && self.collectionView.isDragging) {
+             self.isMoreDataLoading = true;
+             
+             // ... Code to load more results ...
+             [self loadMoreData];
+         }
+     }
+}
+
+- (void)loadMoreData {
+    NSLog(@"Load more data");
+    
+    
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query includeKey:@"author"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 3; //TODO: CHANGE TO A BIGGER NUMBER
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            [self.posts addObjectsFromArray:posts];
+            
+            //resetting isLikedByCurrentUser
+            for (Post *post in posts) {
+                post.isLikedByCurrentUser = NO;
+            }
+            
+            //set isLikedByCurrentUser for each post received
+            PFQuery *likesQuery = [PFQuery queryWithClassName:@"Like"];
+            [likesQuery whereKey:@"userId" equalTo:[PFUser currentUser]];
+
+            [likesQuery findObjectsInBackgroundWithBlock:^(NSArray *likes, NSError *error){
+                if (error) {
+                    NSLog(@"Error fetching likes");
+                } else {
+                    for (Post *post in self.posts) {
+                        for(PFObject *like in likes) {
+                            if([post.objectId isEqualToString: like[@"postId"]]){
+                                post.isLikedByCurrentUser = YES;
+                            }
+                        }
+                    }
+                }
+                [self.collectionView reloadData];
+            }];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        self.isMoreDataLoading = false;
+        [self.refreshControl endRefreshing];
+        [self.collectionView reloadData];
+    }];
 }
 
 #pragma mark - Navigation
