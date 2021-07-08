@@ -12,6 +12,7 @@
 @interface UserAuthenticationViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (strong, nonatomic) UIAlertController *emptyFieldAlert;
 
 @end
 
@@ -19,7 +20,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setupAlert];
+}
+
+- (void)setupAlert {
+    UIAlertController *emptyFieldAlert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                   message:@"Empty fields"
+                                                            preferredStyle:(UIAlertControllerStyleAlert)];
+    // create an OK action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+    // handle response here.
+    }];
+    // add the OK action to the alert controller
+    [emptyFieldAlert addAction:okAction];
+    
+    self.emptyFieldAlert = emptyFieldAlert;
 }
 
 - (IBAction)didTapSignUp:(UIButton *)sender {
@@ -29,14 +46,14 @@
                 NSLog(@"Error: %@", error.localizedDescription);
             } else {
                 NSLog(@"User registered successfully");
-            
+                
                 // manually segue to logged in view
                 [self performSegueWithIdentifier:@"login" sender:self];
             }
         }];
     }
     else {
-        // TODO: Display Empty Field Error Message
+        [self presentViewController:self.emptyFieldAlert animated:YES completion:^{}];
     }
 }
 
@@ -47,25 +64,24 @@
                 NSLog(@"Error: %@", error.localizedDescription);
             } else {
                 NSLog(@"User logged in successfully");
-            
+                
                 // manually segue to logged in view
                 [self performSegueWithIdentifier:@"login" sender:self];
             }
         }];
-    }
-    else {
-        // TODO: Display Empty Field Error Message
+    } else {
+        [self presentViewController:self.emptyFieldAlert animated:YES completion:^{}];
     }
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
