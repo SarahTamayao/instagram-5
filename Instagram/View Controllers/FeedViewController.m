@@ -51,6 +51,8 @@
 }
 
 - (void)fetchData {
+    self.collectionView.alpha = 0;
+    
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query includeKey:@"author"];
@@ -85,6 +87,9 @@
                 }
                 [self.refreshControl endRefreshing];
                 [self.collectionView reloadData];
+                [UIView animateWithDuration:.5 animations:^{
+                    self.collectionView.alpha = 1;
+                }];
             }];
         } else {
             NSLog(@"%@", error.localizedDescription);
