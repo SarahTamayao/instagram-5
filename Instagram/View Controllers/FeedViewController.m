@@ -138,7 +138,7 @@
     if(!self.isMoreDataLoading){
          // Calculate the position of one screen length before the bottom of the results
          int scrollViewContentHeight = self.collectionView.contentSize.height;
-        int scrollOffsetThreshold = scrollViewContentHeight - self.collectionView.bounds.size.height - 100;
+         int scrollOffsetThreshold = scrollViewContentHeight * 0.9;
          
          // When the user has scrolled past the threshold, start requesting
          if(scrollView.contentOffset.y > scrollOffsetThreshold && self.collectionView.isDragging && !self.isDragging) {
