@@ -10,6 +10,7 @@
 #import "Post.h"
 #import "Utility.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "CustomCameraViewController.h"
 
 @interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imagePreview;
@@ -23,7 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self launchImagePicker];
+//    [self launchImagePicker];
+    
+    [self performSegueWithIdentifier:@"cameraSegue" sender:self];
     [self setupGestures];
     [self styleCaptionTextView];
 }

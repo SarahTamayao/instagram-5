@@ -157,6 +157,7 @@
                         <outlet property="captionTextView" destination="iVr-zc-YiJ" id="l2i-Av-3de"/>
                         <outlet property="imagePlaceHolderView" destination="Suq-ah-a7w" id="VIY-ZB-siy"/>
                         <outlet property="imagePreview" destination="241-Z0-hM6" id="AIQ-dd-ECk"/>
+                        <segue destination="yzD-sn-9Vl" kind="presentation" identifier="cameraSegue" id="8cs-Dg-xOH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLh-yo-FTt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -281,18 +282,23 @@
             <objects>
                 <viewController id="yzD-sn-9Vl" customClass="CustomCameraViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x2w-BV-nSc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HSG-W5-KBf">
-                                <rect key="frame" x="34" y="80" width="347" height="538"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray2Color"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNF-i2-ivZ">
-                                <rect key="frame" x="34" y="656" width="108" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WzI-pR-BUe">
+                                <rect key="frame" x="107" y="488" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WzI-pR-BUe" secondAttribute="height" id="P3i-ii-QcO"/>
+                                    <constraint firstAttribute="height" constant="200" id="dzq-LL-3Zu"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNF-i2-ivZ">
+                                <rect key="frame" x="182" y="738" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6u1-Aw-CZ6"/>
+                                    <constraint firstAttribute="width" constant="50" id="yM7-Cb-Azd"/>
+                                </constraints>
                                 <state key="normal" title="Take Photo">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -300,17 +306,28 @@
                                     <action selector="didTakePhoto:" destination="yzD-sn-9Vl" eventType="touchUpInside" id="kxi-TD-KXh"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WzI-pR-BUe">
-                                <rect key="frame" x="150" y="656" width="231" height="206"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSG-W5-KBf">
+                                <rect key="frame" x="0.0" y="20" width="414" height="618"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nKD-5E-l9h"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nKD-5E-l9h" firstAttribute="trailing" secondItem="HSG-W5-KBf" secondAttribute="trailing" id="4M4-IG-0Z6"/>
+                            <constraint firstItem="SNF-i2-ivZ" firstAttribute="top" secondItem="HSG-W5-KBf" secondAttribute="bottom" constant="100" id="8w4-5z-fjv"/>
+                            <constraint firstItem="SNF-i2-ivZ" firstAttribute="centerX" secondItem="x2w-BV-nSc" secondAttribute="centerX" id="FKq-Mh-S39"/>
+                            <constraint firstItem="WzI-pR-BUe" firstAttribute="centerX" secondItem="x2w-BV-nSc" secondAttribute="centerX" id="FLe-yY-Kvj"/>
+                            <constraint firstItem="HSG-W5-KBf" firstAttribute="top" secondItem="nKD-5E-l9h" secondAttribute="top" constant="20" id="Gf2-Er-3nc"/>
+                            <constraint firstItem="HSG-W5-KBf" firstAttribute="leading" secondItem="nKD-5E-l9h" secondAttribute="leading" id="JjH-rV-qMT"/>
+                            <constraint firstItem="SNF-i2-ivZ" firstAttribute="top" secondItem="WzI-pR-BUe" secondAttribute="bottom" constant="50" id="RGo-PP-NKM"/>
+                            <constraint firstItem="nKD-5E-l9h" firstAttribute="bottom" secondItem="SNF-i2-ivZ" secondAttribute="bottom" constant="20" id="kOH-xx-16p"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ciG-sk-VM8"/>
                     <connections>
                         <outlet property="captureImageView" destination="WzI-pR-BUe" id="3aP-rR-Mr9"/>
                         <outlet property="previewView" destination="HSG-W5-KBf" id="mPf-xL-GJI"/>
+                        <outlet property="takePhotoButton" destination="SNF-i2-ivZ" id="la9-5U-WkY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="029-X9-xW3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -537,12 +554,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

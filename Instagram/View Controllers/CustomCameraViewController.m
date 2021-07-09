@@ -7,10 +7,12 @@
 
 #import "CustomCameraViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "Utility.h"
 
 @interface CustomCameraViewController () <AVCapturePhotoCaptureDelegate>
 @property (weak, nonatomic) IBOutlet UIView *previewView;
 @property (weak, nonatomic) IBOutlet UIImageView *captureImageView;
+@property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 
 @property (nonatomic) AVCaptureSession *captureSession;
 @property (nonatomic) AVCapturePhotoOutput *stillImageOutput;
@@ -19,6 +21,24 @@
 @end
 
 @implementation CustomCameraViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self styleComponents];
+}
+
+- (void)styleComponents {
+    
+    //styling button
+    self.takePhotoButton.layer.cornerRadius = 5;
+    self.takePhotoButton.layer.masksToBounds = true;
+    
+    //styling image capture view
+    self.captureImageView.layer.zPosition = 1;
+    self.captureImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.captureImageView.layer.borderWidth = 1;
+    self.captureImageView.layer.cornerRadius = 10.0f;
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -93,6 +113,7 @@
     NSData *imageData = photo.fileDataRepresentation;
     if (imageData) {
         UIImage *image = [UIImage imageWithData:imageData];
+        image = [Utility resizeImage:image withSize:CGSizeMake(200, 200)];
         // Add the image to captureImageView here...
         self.captureImageView.image = image;
     }
