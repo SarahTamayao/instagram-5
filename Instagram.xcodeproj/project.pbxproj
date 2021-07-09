@@ -25,6 +25,7 @@
 		3B573699268FAEAE00A2C143 /* InstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B573698268FAEAE00A2C143 /* InstagramTests.m */; };
 		3B5736A4268FAEAE00A2C143 /* InstagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5736A3268FAEAE00A2C143 /* InstagramUITests.m */; };
 		3B6080BD26912CD000833A45 /* UserAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6080BC26912CD000833A45 /* UserAuthenticationViewController.m */; };
+		3B7B115B2698DB1D00F8FA76 /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B115A2698DB1D00F8FA76 /* CustomCameraViewController.m */; };
 		3B80B8C12692688200E73E46 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B80B8C02692688200E73E46 /* Utility.m */; };
 		3B80B8C4269276E900E73E46 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B80B8C3269276E900E73E46 /* FeedViewController.m */; };
 		3B874F97269697C80072A0C6 /* UserProfilePostCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B874F96269697C80072A0C6 /* UserProfilePostCollectionViewCell.m */; };
@@ -84,6 +85,8 @@
 		3B5736A5268FAEAE00A2C143 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B6080BB26912CD000833A45 /* UserAuthenticationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserAuthenticationViewController.h; sourceTree = "<group>"; };
 		3B6080BC26912CD000833A45 /* UserAuthenticationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAuthenticationViewController.m; sourceTree = "<group>"; };
+		3B7B11592698DB1D00F8FA76 /* CustomCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCameraViewController.h; sourceTree = "<group>"; };
+		3B7B115A2698DB1D00F8FA76 /* CustomCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCameraViewController.m; sourceTree = "<group>"; };
 		3B80B8BF2692688200E73E46 /* Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		3B80B8C02692688200E73E46 /* Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		3B80B8C2269276E900E73E46 /* FeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
@@ -220,6 +223,8 @@
 				3B9016332695259B0008BE5E /* ComposeCommentViewController.m */,
 				3B5587F726961636000BAE40 /* PostDetailsViewController.h */,
 				3B5587F826961636000BAE40 /* PostDetailsViewController.m */,
+				3B7B11592698DB1D00F8FA76 /* CustomCameraViewController.h */,
+				3B7B115A2698DB1D00F8FA76 /* CustomCameraViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -509,6 +514,7 @@
 				3B51DF492693DC520098073C /* PostCollectionViewCell.m in Sources */,
 				3B5587FD26966156000BAE40 /* CommentCollectionViewCell.m in Sources */,
 				3B414F3326930C2600E4F49C /* ProfileViewController.m in Sources */,
+				3B7B115B2698DB1D00F8FA76 /* CustomCameraViewController.m in Sources */,
 				3B57368F268FAEAE00A2C143 /* main.m in Sources */,
 				3B5587F926961636000BAE40 /* PostDetailsViewController.m in Sources */,
 				3B874F97269697C80072A0C6 /* UserProfilePostCollectionViewCell.m in Sources */,
