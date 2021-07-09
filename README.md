@@ -12,9 +12,9 @@ The following **required** functionality is completed:
 - [x] User can log in and log out of his or her account
 - [x] The current signed in user is persisted across app restarts
 - [x] User can take a photo, add a caption, and post it to "Instagram"
-- [ ] User can view the last 20 posts submitted to "Instagram"
+- [x] User can view the last 20 posts submitted to "Instagram"
 - [x] User can pull to refresh the last 20 posts submitted to "Instagram"
-- [ ] User can tap a post to view post details, including timestamp and caption.
+- [x] User can tap a post to view post details, including timestamp and caption.
 
 The following **optional** features are implemented:
 
@@ -23,8 +23,8 @@ The following **optional** features are implemented:
 - [x] Style the feed to look like the real Instagram feed.
 - [x] User can use a tab bar to switch between all "Instagram" posts and posts published only by the user. AKA, tabs for Home Feed and Profile
 - [ ] User can load more posts once he or she reaches the bottom of the feed using infinite scrolling.
-- [ ] Show the username and creation time for each post
-- [x] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse
+- [x] Show the username and creation time for each post
+- [ ] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse
 - User Profiles:
   - [x] Allow the logged in user to add a profile photo
   - [x] Display the profile photo with each post
@@ -58,9 +58,12 @@ sign up, login, user persistence
  -  User can use a tab bar to switch between all "Instagram" posts and posts published only by the user. AKA, tabs for Home Feed and Profile
  -  Style the login page to look like the real Instagram login page.
  -  Style the feed to look like the real Instagram feed.
+ -  User can view the last 20 posts submitted to "Instagram"
 
 
 <img src='https://github.com/rigrergl/instagram/blob/main/ezgif.com-video-to-gif-3.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
+ - User can tap a post to view post details, including timestamp and caption.
+
 <img src='https://github.com/rigrergl/instagram/blob/main/ezgif.com-video-to-gif.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
  - User can like a post and see number of likes for each post in the post details screen.
  - Run your app on your phone and use the camera to take the photo
