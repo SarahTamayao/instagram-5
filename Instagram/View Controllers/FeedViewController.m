@@ -14,6 +14,7 @@
 #import  "ComposeCommentViewController.h"
 #import "PostDetailsViewController.h"
 #import "ProfileViewController.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface FeedViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate>
 
@@ -52,6 +53,7 @@
 }
 
 - (void)fetchData {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.collectionView.alpha = 0;
     
     // construct query
@@ -91,6 +93,7 @@
                 }
                 [self.refreshControl endRefreshing];
                 [self.collectionView reloadData];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
                 [UIView animateWithDuration:.5 animations:^{
                     self.collectionView.alpha = 1;
                 }];
