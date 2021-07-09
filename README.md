@@ -46,7 +46,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/rigrergl/instagram/blob/main/ezgif.com-video-to-gif-2.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
+<img src='https://github.com/rigrergl/instagram/blob/main/ezgif.com-video-to-gif-2.gif' title='Video Walkthrough' width='600' alt='Video Walkthrough' />
 <img src='https://github.com/rigrergl/instagram/blob/main/ezgif.com-video-to-gif-3.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
 <img src='https://github.com/rigrergl/instagram/blob/main/ezgif.com-video-to-gif.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
 <img src='https://github.com/rigrergl/instagram/blob/main/refresh.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
