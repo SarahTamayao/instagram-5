@@ -25,6 +25,13 @@
     // Do any additional setup after loading the view.
     [self launchImagePicker];
     [self setupGestures];
+    [self styleCaptionTextView];
+}
+
+- (void)styleCaptionTextView {
+    self.captionTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.captionTextView.layer.borderWidth = 1;
+    self.captionTextView.layer.cornerRadius = 10.0f;
 }
 
 - (void)setupGestures {
