@@ -24,6 +24,17 @@
     [super viewDidLoad];
     [self setupAlert];
     [self styleComponents];
+    [self setupGestures];
+}
+
+- (void)setupGestures {
+    UITapGestureRecognizer *screenTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapScreen:)];
+    [self.view addGestureRecognizer:screenTapGestureRecognizer];
+    [self.view setUserInteractionEnabled:YES];
+}
+
+- (void)didTapScreen:(UIGestureRecognizer *)sender {
+    [self.view endEditing:YES];
 }
 
 - (void)styleComponents {
