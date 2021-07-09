@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIView *previewView;
 @property (weak, nonatomic) IBOutlet UIImageView *captureImageView;
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
+@property (weak, nonatomic) IBOutlet UIButton *usePhotoButton;
 
 @property (nonatomic) AVCaptureSession *captureSession;
 @property (nonatomic) AVCapturePhotoOutput *stillImageOutput;
@@ -38,6 +39,10 @@
     self.captureImageView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.captureImageView.layer.borderWidth = 1;
     self.captureImageView.layer.cornerRadius = 10.0f;
+    self.captureImageView.alpha = 0;
+    
+    //hiding use photo button
+    self.usePhotoButton.alpha = 0;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -47,6 +52,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
     self.captureSession = [AVCaptureSession new];
     self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
     
@@ -107,15 +113,33 @@
      [self.stillImageOutput capturePhotoWithSettings:settings delegate:self];
 }
 
+- (IBAction)didTapUsePhoto:(UIButton *)sender {
+    
+    if (self.didFinishPickingMediaWithImage != nil) {
+        self.didFinishPickingMediaWithImage(self.captureImageView.image);
+        [self dismissViewControllerAnimated:YES completion:^{}];
+    } else {
+        NSLog(@"Nil didFinishPickingMediaWithImage property in CustomViewController");
+    }
+}
+
+- (IBAction)didTapCancel:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:^{}];
+}
+
 //AVCapturePhotoCaptureDelegate delegate method
 - (void)captureOutput:(AVCapturePhotoOutput *)output didFinishProcessingPhoto:(AVCapturePhoto *)photo error:(nullable NSError *)error {
     
     NSData *imageData = photo.fileDataRepresentation;
     if (imageData) {
         UIImage *image = [UIImage imageWithData:imageData];
-        image = [Utility resizeImage:image withSize:CGSizeMake(200, 200)];
+        image = [Utility resizeImage:image withSize:CGSizeMake(500, 500)];
         // Add the image to captureImageView here...
         self.captureImageView.image = image;
+        [UIView animateWithDuration:.2 animations:^{
+            self.captureImageView.alpha = 1;
+            self.usePhotoButton.alpha = 1;
+        }];
     }
 }
 

@@ -9,5 +9,7 @@
 
 @interface CustomCameraViewController : UIViewController
 
+@property (nonatomic, copy) void (^didFinishPickingMediaWithImage)(UIImage *image);
+
 @end
 

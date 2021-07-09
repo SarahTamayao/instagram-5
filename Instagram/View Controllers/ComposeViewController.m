@@ -86,6 +86,10 @@
     }];
 }
 
+- (void)didFinishPickingMediaWithImage:(UIImage *)image {
+    self.imagePreview.image = image;
+}
+
 - (IBAction)didTapCancel:(UIBarButtonItem *)sender {
     [self returnToFeed];
 }
@@ -112,6 +116,23 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *feedNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
     sceneDelegate.window.rootViewController = feedNavigationController;
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"cameraSegue"]) {
+        
+        CustomCameraViewController *customCameraViewController = [segue destinationViewController];
+        customCameraViewController.didFinishPickingMediaWithImage = ^(UIImage *image) {
+            [self didFinishPickingMediaWithImage:image];
+        };
+        
+    }
 }
 
 @end
