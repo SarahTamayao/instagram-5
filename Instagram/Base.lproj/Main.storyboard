@@ -465,7 +465,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rI3-PB-Dfh">
-                                        <rect key="frame" x="154" y="127.5" width="106" height="30"/>
+                                        <rect key="frame" x="154" y="157" width="106" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Syf-Rj-dAS"/>
                                         </constraints>
@@ -474,11 +474,19 @@
                                             <action selector="didTapChangeProfilePicture:" destination="hPm-cr-ofo" eventType="touchUpInside" id="2q3-gE-TUE"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZ4-et-wdr">
+                                        <rect key="frame" x="168" y="128" width="78" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="CnY-XX-0NE" firstAttribute="top" secondItem="Fij-ST-wEa" secondAttribute="top" constant="20" id="8ZW-FS-Xuc"/>
+                                    <constraint firstItem="rI3-PB-Dfh" firstAttribute="top" secondItem="rZ4-et-wdr" secondAttribute="bottom" constant="8" symbolic="YES" id="M8b-Ec-utE"/>
+                                    <constraint firstItem="rZ4-et-wdr" firstAttribute="centerX" secondItem="CnY-XX-0NE" secondAttribute="centerX" id="WUg-4a-WLj"/>
                                     <constraint firstItem="rI3-PB-Dfh" firstAttribute="centerX" secondItem="CnY-XX-0NE" secondAttribute="centerX" id="chX-zB-UgI"/>
-                                    <constraint firstItem="rI3-PB-Dfh" firstAttribute="top" secondItem="CnY-XX-0NE" secondAttribute="bottom" constant="7.5" id="cpd-Ov-kBj"/>
+                                    <constraint firstItem="rZ4-et-wdr" firstAttribute="top" secondItem="CnY-XX-0NE" secondAttribute="bottom" constant="8" id="fzT-g9-Eab"/>
                                     <constraint firstItem="CnY-XX-0NE" firstAttribute="centerX" secondItem="Fij-ST-wEa" secondAttribute="centerX" id="liN-Fk-oMH"/>
                                 </constraints>
                             </view>
@@ -507,6 +515,7 @@
                         <outlet property="changePictureButton" destination="rI3-PB-Dfh" id="Xwc-Oq-3gx"/>
                         <outlet property="collectionView" destination="GAR-2p-qLL" id="Bdl-43-XBe"/>
                         <outlet property="profileImageView" destination="CnY-XX-0NE" id="oHC-xU-jnu"/>
+                        <outlet property="usernameLabel" destination="rZ4-et-wdr" id="iEn-ZG-mcO"/>
                         <segue destination="VLY-LM-DA0" kind="show" identifier="userProfileToPostDetails" id="jk8-ra-Dum"/>
                     </connections>
                 </viewController>

@@ -37,9 +37,11 @@
                             <action selector="didTapComment:" destination="yHn-wb-y73" eventType="touchUpInside" id="i2v-X8-vCv"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEx-6S-Qzh">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEx-6S-Qzh">
                         <rect key="frame" x="76" y="51.5" width="42.5" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="69o-pK-VLJ"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -100,6 +102,7 @@
                     <constraint firstItem="tKc-5K-SDa" firstAttribute="centerY" secondItem="xwq-Oc-XqS" secondAttribute="centerY" id="4QD-og-AoO"/>
                     <constraint firstItem="LPB-pV-Rkr" firstAttribute="top" secondItem="xwq-Oc-XqS" secondAttribute="bottom" constant="8" id="9KA-Ij-Cyb"/>
                     <constraint firstItem="cVU-a0-Nga" firstAttribute="leading" secondItem="YWR-uB-u61" secondAttribute="leading" id="9L3-Ld-1w2"/>
+                    <constraint firstItem="dEx-6S-Qzh" firstAttribute="centerY" secondItem="owf-bc-2qy" secondAttribute="centerY" id="A48-33-wXa"/>
                     <constraint firstItem="dYm-gg-Ht0" firstAttribute="top" secondItem="LPB-pV-Rkr" secondAttribute="bottom" constant="8" id="AKg-KC-LWw"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cVU-a0-Nga" secondAttribute="bottom" constant="8" id="C0q-ZA-Gfh"/>
                     <constraint firstItem="BYn-fR-NlC" firstAttribute="leading" secondItem="xwq-Oc-XqS" secondAttribute="trailing" constant="4" id="HGK-Nt-Asw"/>
@@ -111,6 +114,7 @@
                     <constraint firstItem="ehQ-qc-eaI" firstAttribute="top" secondItem="dYm-gg-Ht0" secondAttribute="bottom" constant="4" id="aEb-XB-XSQ"/>
                     <constraint firstAttribute="trailing" secondItem="cVU-a0-Nga" secondAttribute="trailing" id="cbD-rh-dJ8"/>
                     <constraint firstAttribute="trailing" secondItem="LPB-pV-Rkr" secondAttribute="trailing" constant="8" id="dkq-Wf-WpO"/>
+                    <constraint firstItem="dEx-6S-Qzh" firstAttribute="leading" secondItem="owf-bc-2qy" secondAttribute="trailing" constant="8" symbolic="YES" id="hXi-wo-6tm"/>
                     <constraint firstItem="dYm-gg-Ht0" firstAttribute="leading" secondItem="LPB-pV-Rkr" secondAttribute="leading" id="jrJ-O6-nJm"/>
                     <constraint firstAttribute="bottom" secondItem="LPB-pV-Rkr" secondAttribute="bottom" constant="114" id="jtu-35-jmn"/>
                     <constraint firstItem="xwq-Oc-XqS" firstAttribute="top" secondItem="cVU-a0-Nga" secondAttribute="bottom" constant="8" id="lQb-Cn-Xia"/>
