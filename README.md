@@ -8,10 +8,10 @@ Time spent: **25** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] User can sign up to create a new account using Parse authentication
-- [ ] User can log in and log out of his or her account
-- [ ] The current signed in user is persisted across app restarts
-- [ ] User can take a photo, add a caption, and post it to "Instagram"
+- [x] User can sign up to create a new account using Parse authentication
+- [x] User can log in and log out of his or her account
+- [x] The current signed in user is persisted across app restarts
+- [x] User can take a photo, add a caption, and post it to "Instagram"
 - [ ] User can view the last 20 posts submitted to "Instagram"
 - [ ] User can pull to refresh the last 20 posts submitted to "Instagram"
 - [ ] User can tap a post to view post details, including timestamp and caption.
@@ -19,19 +19,19 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 - [ ] Run your app on your phone and use the camera to take the photo
-- [ ] Style the login page to look like the real Instagram login page.
-- [ ] Style the feed to look like the real Instagram feed.
-- [ ] User can use a tab bar to switch between all "Instagram" posts and posts published only by the user. AKA, tabs for Home Feed and Profile
+- [x] Style the login page to look like the real Instagram login page.
+- [x] Style the feed to look like the real Instagram feed.
+- [x] User can use a tab bar to switch between all "Instagram" posts and posts published only by the user. AKA, tabs for Home Feed and Profile
 - [ ] User can load more posts once he or she reaches the bottom of the feed using infinite scrolling.
 - [ ] Show the username and creation time for each post
-- [ ] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse
+- [x] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse
 - User Profiles:
-  - [ ] Allow the logged in user to add a profile photo
-  - [ ] Display the profile photo with each post
+  - [x] Allow the logged in user to add a profile photo
+  - [x] Display the profile photo with each post
   - [ ] Tapping on a post's username or profile photo goes to that user's profile page
 - [ ] User can comment on a post and see all comments for each post in the post details screen.
 - [ ] User can like a post and see number of likes for each post in the post details screen.
-- [ ] Implement a custom camera view.
+- [x] Implement a custom camera view.
 
 The following **additional** features are implemented:
 
@@ -46,7 +46,22 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
+
 <img src='https://github.com/rigrergl/instagram/blob/main/ezgif.com-video-to-gif-2.gif' title='Video Walkthrough' width='600' alt='Video Walkthrough' />
+### This image includes:
+ - sign up
+ - login
+ - user persistence
+ - User can take a photo, add a caption, and post it to "Instagram"
+ - Custom camera view
+ - Allow the logged in user to add a profile photo
+ - Display the profile photo with each post
+ - After the user submits a new post, show a progress HUD while the post is being uploaded to Parse
+ -  Show the username and creation time for each post
+ -  User can use a tab bar to switch between all "Instagram" posts and posts published only by the user. AKA, tabs for Home Feed and Profile
+ -  Style the login page to look like the real Instagram login page.
+ -  Style the feed to look like the real Instagram feed.
+
 <img src='https://github.com/rigrergl/instagram/blob/main/ezgif.com-video-to-gif-3.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
 <img src='https://github.com/rigrergl/instagram/blob/main/ezgif.com-video-to-gif.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
 <img src='https://github.com/rigrergl/instagram/blob/main/refresh.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
