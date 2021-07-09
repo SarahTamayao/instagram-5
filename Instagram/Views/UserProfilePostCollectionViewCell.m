@@ -6,7 +6,7 @@
 //
 
 #import "UserProfilePostCollectionViewCell.h"
-#import "APIManager.h"
+#import "Utility.h"
 
 @implementation UserProfilePostCollectionViewCell
 
@@ -36,7 +36,7 @@
     [post[@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
         if (!error) {
             self.postImageView.alpha = 0;
-            self.postImageView.image = [[APIManager shared] resizeImage:[UIImage imageWithData:data] withSize:CGSizeMake(itemDimensions - 5, itemDimensions - 5)];
+            self.postImageView.image = [Utility resizeImage:[UIImage imageWithData:data] withSize:CGSizeMake(itemDimensions - 5, itemDimensions - 5)];
             [UIView animateWithDuration:.5 animations:^{
                 self.postImageView.alpha = 1;
             }];

@@ -8,7 +8,7 @@
 #import "ProfileViewController.h"
 #import "SceneDelegate.h"
 #import "UserAuthenticationViewController.h"
-#import "APIManager.h"
+#import "Utility.h"
 #import "UserProfilePostCollectionViewCell.h"
 #import "PostDetailsViewController.h"
 #import "Post.h"
@@ -89,7 +89,7 @@
     UserAuthenticationViewController *userAuthenticationViewController = [storyboard instantiateViewControllerWithIdentifier:@"UserAuthenticationViewController"];
     sceneDelegate.window.rootViewController = userAuthenticationViewController;
     
-    [[APIManager shared] logout:^(NSError *error){
+    [Utility logout:^(NSError *error){
         if (error){
             NSLog(@"Error logging out");
         } else {
@@ -135,7 +135,7 @@
     }];
     
     //save the new image
-    UIImage *resizedImage = [[APIManager shared] resizeImage:editedImage withSize:CGSizeMake(500, 500)];
+    UIImage *resizedImage = [Utility resizeImage:editedImage withSize:CGSizeMake(500, 500)];
     self.profileImageView.image = resizedImage;
     
     PFQuery *query = [PFQuery queryWithClassName:@"_User"];

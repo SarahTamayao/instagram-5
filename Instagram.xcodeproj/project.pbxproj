@@ -25,7 +25,7 @@
 		3B573699268FAEAE00A2C143 /* InstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B573698268FAEAE00A2C143 /* InstagramTests.m */; };
 		3B5736A4268FAEAE00A2C143 /* InstagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5736A3268FAEAE00A2C143 /* InstagramUITests.m */; };
 		3B6080BD26912CD000833A45 /* UserAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6080BC26912CD000833A45 /* UserAuthenticationViewController.m */; };
-		3B80B8C12692688200E73E46 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B80B8C02692688200E73E46 /* APIManager.m */; };
+		3B80B8C12692688200E73E46 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B80B8C02692688200E73E46 /* Utility.m */; };
 		3B80B8C4269276E900E73E46 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B80B8C3269276E900E73E46 /* FeedViewController.m */; };
 		3B874F97269697C80072A0C6 /* UserProfilePostCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B874F96269697C80072A0C6 /* UserProfilePostCollectionViewCell.m */; };
 		3B9016342695259B0008BE5E /* ComposeCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9016332695259B0008BE5E /* ComposeCommentViewController.m */; };
@@ -84,8 +84,8 @@
 		3B5736A5268FAEAE00A2C143 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B6080BB26912CD000833A45 /* UserAuthenticationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserAuthenticationViewController.h; sourceTree = "<group>"; };
 		3B6080BC26912CD000833A45 /* UserAuthenticationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAuthenticationViewController.m; sourceTree = "<group>"; };
-		3B80B8BF2692688200E73E46 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
-		3B80B8C02692688200E73E46 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		3B80B8BF2692688200E73E46 /* Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		3B80B8C02692688200E73E46 /* Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		3B80B8C2269276E900E73E46 /* FeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
 		3B80B8C3269276E900E73E46 /* FeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		3B874F95269697C80072A0C6 /* UserProfilePostCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfilePostCollectionViewCell.h; sourceTree = "<group>"; };
@@ -236,8 +236,8 @@
 		3B80B8BE2692685A00E73E46 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				3B80B8BF2692688200E73E46 /* APIManager.h */,
-				3B80B8C02692688200E73E46 /* APIManager.m */,
+				3B80B8BF2692688200E73E46 /* Utility.h */,
+				3B80B8C02692688200E73E46 /* Utility.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -516,7 +516,7 @@
 				3B6080BD26912CD000833A45 /* UserAuthenticationViewController.m in Sources */,
 				3B414F2D2692F7C700E4F49C /* ComposeViewController.m in Sources */,
 				3B80B8C4269276E900E73E46 /* FeedViewController.m in Sources */,
-				3B80B8C12692688200E73E46 /* APIManager.m in Sources */,
+				3B80B8C12692688200E73E46 /* Utility.m in Sources */,
 				3B414F302693039C00E4F49C /* Post.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

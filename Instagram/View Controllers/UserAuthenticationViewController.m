@@ -7,7 +7,7 @@
 
 #import "UserAuthenticationViewController.h"
 #import <Parse/Parse.h>
-#import "APIManager.h"
+#import "Utility.h"
 
 @interface UserAuthenticationViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -47,7 +47,7 @@
 
 - (IBAction)didTapSignUp:(UIButton *)sender {
     if(self.usernameField.text.length > 0 && self.passwordField.text.length > 0){
-        [[APIManager shared] registerUser:self.usernameField.text password:self.passwordField.text completion:^(BOOL succeeded, NSError *error){
+        [Utility registerUser:self.usernameField.text password:self.passwordField.text completion:^(BOOL succeeded, NSError *error){
             if (error != nil) {
                 NSLog(@"Error: %@", error.localizedDescription);
                 [self presentAlertWithTitle:@"Error" andMessage:[NSString stringWithFormat:@"%@",error.localizedDescription]];
@@ -66,7 +66,7 @@
 
 - (IBAction)didTapLogin:(UIButton *)sender {
     if(self.usernameField.text.length > 0 && self.passwordField.text.length > 0){
-        [[APIManager shared] loginUser:self.usernameField.text password:self.passwordField.text completion:^(PFUser *user, NSError *error){
+        [Utility loginUser:self.usernameField.text password:self.passwordField.text completion:^(PFUser *user, NSError *error){
             if (error != nil) {
                 NSLog(@"Error: %@", error.localizedDescription);
                 [self presentAlertWithTitle:@"Error" andMessage:[NSString stringWithFormat:@"%@",error.localizedDescription]];

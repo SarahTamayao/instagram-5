@@ -6,7 +6,7 @@
 //
 
 #import "PostCollectionViewCell.h"
-#import "APIManager.h"
+#import "Utility.h"
 #import "DateTools.h"
 
 @implementation PostCollectionViewCell
@@ -76,7 +76,7 @@
     //setting post image
     [post[@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
         if (!error) {
-            self.postImage.image = [[APIManager shared] resizeImage:[UIImage imageWithData:data] withSize:CGSizeMake(screenWidth, screenWidth)];
+            self.postImage.image = [Utility resizeImage:[UIImage imageWithData:data] withSize:CGSizeMake(screenWidth, screenWidth)];
         } else {
             NSLog(@"Error loading image");
         }
@@ -112,7 +112,7 @@
         [self.post saveInBackground];
         
         
-        [[APIManager shared] createLike:self.post completion:^(BOOL succeeded, BOOL likeExisted, NSError *error) {
+        [Utility createLike:self.post completion:^(BOOL succeeded, BOOL likeExisted, NSError *error) {
             if (error) {
                 NSLog(@"Error saving like: %@", error.localizedDescription);
             } else if (likeExisted) {
@@ -130,7 +130,7 @@
         self.post.likeCount = [ex expressionValueWithObject:nil context:nil];
         [self.post saveInBackground];
         
-        [[APIManager shared] deleteLike:self.post completion:^(BOOL succeeded, NSError *error){
+        [Utility deleteLike:self.post completion:^(BOOL succeeded, NSError *error){
             if (error){
                 NSLog(@"Error deleting like: %@", error.localizedDescription);
             } else {

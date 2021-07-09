@@ -6,7 +6,7 @@
 //
 
 #import "FeedViewController.h"
-#import "APIManager.h"
+#import "Utility.h"
 #import "AppDelegate.h"
 #import "SceneDelegate.h"
 #import "UserAuthenticationViewController.h"
@@ -44,7 +44,7 @@
     layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize;
     
     //setting navbar image
-    UIImage *instagramLetterLogo = [[APIManager shared] resizeImage:[UIImage imageNamed:@"1200px-instagram_logo.svg"] withSize:CGSizeMake(150, 50)];
+    UIImage *instagramLetterLogo = [Utility resizeImage:[UIImage imageNamed:@"1200px-instagram_logo.svg"] withSize:CGSizeMake(150, 50)];
     UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:instagramLetterLogo]];
     self.navigationItem.leftBarButtonItem = item;
     
