@@ -20,6 +20,7 @@
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UIButton *changePictureButton;
+@property (assign, nonatomic) int collectionViewItemDimensions;
 
 @end
 
@@ -157,7 +158,7 @@
     
     [postCell setCellWithPost:self.posts[indexPath.item] didTapPostBlock:^(Post *_Nonnull post){
         [self performSegueWithIdentifier:@"userProfileToPostDetails" sender:post];
-    }];
+    } itemDimensions:self.collectionViewItemDimensions];
     
  
     return postCell;
@@ -181,6 +182,8 @@
     int totalwidth = self.collectionView.bounds.size.width;
     int numberOfCellsPerRow = 3;
     int dimensions = (CGFloat)(totalwidth / numberOfCellsPerRow);
+
+    self.collectionViewItemDimensions = dimensions;
     return CGSizeMake(dimensions, dimensions);
 }
 #pragma mark - Navigation

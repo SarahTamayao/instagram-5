@@ -29,13 +29,18 @@
     }
 }
 
-- (void)setCellWithPost:(Post *)post didTapPostBlock:(void(^)(Post *post))didTapPost {
+- (void)setCellWithPost:(Post *)post didTapPostBlock:(void(^)(Post *post))didTapPost itemDimensions:(int)itemDimensions {
     self.post = post;
     self.didTapPostImage = didTapPost;
     //setting post image
     [post[@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
         if (!error) {
-            self.postImageView.image = [[APIManager shared] resizeImage:[UIImage imageWithData:data] withSize:CGSizeMake(500, 500)];
+            self.postImageView.alpha = 0;
+            self.postImageView.image = [[APIManager shared] resizeImage:[UIImage imageWithData:data] withSize:CGSizeMake(itemDimensions - 5, itemDimensions - 5)];
+            [UIView animateWithDuration:.5 animations:^{
+                self.postImageView.alpha = 1;
+            }];
+            
         } else {
             NSLog(@"Error loading image");
         }
