@@ -16,6 +16,10 @@
     // Initialization code
     [self setupGestures];
     
+    //set button states
+    [self.likeButton setBackgroundImage: [UIImage systemImageNamed:@"heart"] forState: UIControlStateNormal];
+    [self.likeButton setBackgroundImage:[UIImage systemImageNamed:@"heart.fill"] forState: UIControlStateSelected];
+    
     //making profile image round
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
     self.profileImage.clipsToBounds = YES;
@@ -80,10 +84,7 @@
     
     self.captionLabel.text = post[@"caption"];
     
-    //setting buttons
     //set cell buttons
-    [self.likeButton setBackgroundImage: [UIImage systemImageNamed:@"heart"] forState: UIControlStateNormal];
-    [self.likeButton setBackgroundImage:[UIImage systemImageNamed:@"heart.fill"] forState: UIControlStateSelected];
     [self.likeButton setSelected:post.isLikedByCurrentUser];
     
     self.commentMethod = commentCode;

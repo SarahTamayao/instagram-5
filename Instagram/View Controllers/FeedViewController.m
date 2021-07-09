@@ -22,6 +22,7 @@
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (assign, nonatomic) BOOL isMoreDataLoading;
 @property (assign, nonatomic) BOOL isDragging;
+@property (strong, nonatomic) NSDate *dateOfLastLoadedPost;
 
 @end
 
@@ -57,12 +58,15 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query includeKey:@"author"];
     [query orderByDescending:@"createdAt"];
-    query.limit = 7; //TODO: CHANGE TO A BIGGER NUMBER
+    query.limit = 20;
 
+    
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             self.posts = posts;
+            
+            self.dateOfLastLoadedPost = ((Post*) posts[posts.count - 1]).createdAt;
             
             //resetting isLikedByCurrentUser
             for (Post *post in posts) {
@@ -129,7 +133,7 @@
     if(!self.isMoreDataLoading){
          // Calculate the position of one screen length before the bottom of the results
          int scrollViewContentHeight = self.collectionView.contentSize.height;
-        int scrollOffsetThreshold = scrollViewContentHeight * 0.75;//scrollViewContentHeight - self.collectionView.bounds.size.height;
+        int scrollOffsetThreshold = scrollViewContentHeight - self.collectionView.bounds.size.height - 100;
          
          // When the user has scrolled past the threshold, start requesting
          if(scrollView.contentOffset.y > scrollOffsetThreshold && self.collectionView.isDragging && !self.isDragging) {
@@ -155,8 +159,11 @@
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query includeKey:@"author"];
-    [query orderByAscending:@"createdAt"];
-    query.limit = 7;
+    
+    NSDate *now = [NSDate now];
+    [query whereKey:@"createdAt" greaterThan:self.dateOfLastLoadedPost];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 20;
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
