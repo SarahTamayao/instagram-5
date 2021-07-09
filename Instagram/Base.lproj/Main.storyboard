@@ -33,15 +33,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8G-Or-Rhf">
-                                <rect key="frame" x="60" y="495" width="38" height="30"/>
-                                <state key="normal" title="Login"/>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8G-Or-Rhf">
+                                <rect key="frame" x="60" y="515" width="294" height="30"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="didTapLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nXk-TT-FJV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hou-OW-CXg">
-                                <rect key="frame" x="300" y="495" width="54" height="30"/>
+                                <rect key="frame" x="60" y="626" width="294" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <action selector="didTapSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aKz-kk-ldk"/>
@@ -53,29 +57,60 @@
                                     <constraint firstAttribute="height" constant="100" id="cjD-Ex-Dmc"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sis-jS-815">
+                                <rect key="frame" x="195" y="575" width="24" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8P-1e-qtG">
+                                <rect key="frame" x="233" y="585" width="121" height="1"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="3kT-bN-Pa2"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJB-Y0-ydO">
+                                <rect key="frame" x="60" y="585" width="121" height="1"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="AFU-f4-WSY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="D8P-1e-qtG" firstAttribute="trailing" secondItem="u8G-Or-Rhf" secondAttribute="trailing" id="0pn-By-X8k"/>
+                            <constraint firstItem="NJB-Y0-ydO" firstAttribute="leading" secondItem="u8G-Or-Rhf" secondAttribute="leading" id="0xy-qy-gQH"/>
                             <constraint firstItem="5mq-wf-JDJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="100" id="1Um-Qx-3hq"/>
                             <constraint firstItem="1hM-jD-Hvn" firstAttribute="top" secondItem="lef-Kw-klt" secondAttribute="bottom" constant="14" id="5O0-qs-nmd"/>
                             <constraint firstItem="5mq-wf-JDJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="654-im-bXe"/>
-                            <constraint firstItem="u8G-Or-Rhf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="E8R-ha-0uC"/>
-                            <constraint firstItem="Hou-OW-CXg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="u8G-Or-Rhf" secondAttribute="trailing" constant="8" id="HnP-wS-1E4"/>
+                            <constraint firstItem="Sis-jS-815" firstAttribute="leading" secondItem="NJB-Y0-ydO" secondAttribute="trailing" constant="14" id="739-xh-K5e"/>
+                            <constraint firstItem="Sis-jS-815" firstAttribute="top" secondItem="u8G-Or-Rhf" secondAttribute="bottom" constant="30" id="B1A-OE-AUA"/>
+                            <constraint firstItem="u8G-Or-Rhf" firstAttribute="leading" secondItem="1hM-jD-Hvn" secondAttribute="leading" id="F6M-Oq-eWE"/>
+                            <constraint firstItem="u8G-Or-Rhf" firstAttribute="trailing" secondItem="1hM-jD-Hvn" secondAttribute="trailing" id="FOf-Zh-PtW"/>
                             <constraint firstItem="1hM-jD-Hvn" firstAttribute="trailing" secondItem="lef-Kw-klt" secondAttribute="trailing" id="HpN-da-ndL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hou-OW-CXg" secondAttribute="trailing" constant="60" id="K7b-Zj-Vhr"/>
+                            <constraint firstItem="Sis-jS-815" firstAttribute="centerY" secondItem="NJB-Y0-ydO" secondAttribute="centerY" id="LGK-5a-fOa"/>
+                            <constraint firstItem="Sis-jS-815" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PhH-k1-GXV"/>
                             <constraint firstAttribute="trailing" secondItem="5mq-wf-JDJ" secondAttribute="trailing" constant="30" id="Rcf-cR-uJB"/>
-                            <constraint firstItem="u8G-Or-Rhf" firstAttribute="top" secondItem="1hM-jD-Hvn" secondAttribute="bottom" constant="30" id="ZdU-Ca-uyZ"/>
+                            <constraint firstItem="D8P-1e-qtG" firstAttribute="leading" secondItem="Sis-jS-815" secondAttribute="trailing" constant="14" id="Tp7-jo-yMg"/>
+                            <constraint firstItem="D8P-1e-qtG" firstAttribute="centerY" secondItem="Sis-jS-815" secondAttribute="centerY" id="Xn1-LB-arq"/>
+                            <constraint firstItem="u8G-Or-Rhf" firstAttribute="top" secondItem="1hM-jD-Hvn" secondAttribute="bottom" constant="50" id="ZdU-Ca-uyZ"/>
+                            <constraint firstItem="Hou-OW-CXg" firstAttribute="top" secondItem="Sis-jS-815" secondAttribute="bottom" constant="30" id="gLj-WG-EEz"/>
+                            <constraint firstItem="Hou-OW-CXg" firstAttribute="trailing" secondItem="u8G-Or-Rhf" secondAttribute="trailing" id="gT6-77-rKu"/>
+                            <constraint firstItem="Hou-OW-CXg" firstAttribute="leading" secondItem="u8G-Or-Rhf" secondAttribute="leading" id="iLC-Lu-ejd"/>
                             <constraint firstItem="lef-Kw-klt" firstAttribute="top" secondItem="5mq-wf-JDJ" secondAttribute="bottom" constant="20" id="lXA-SA-GKm"/>
                             <constraint firstItem="lef-Kw-klt" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="ns7-In-h93"/>
                             <constraint firstItem="1hM-jD-Hvn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qjj-6s-Smr"/>
                             <constraint firstItem="1hM-jD-Hvn" firstAttribute="leading" secondItem="lef-Kw-klt" secondAttribute="leading" id="r0O-c2-mvW"/>
-                            <constraint firstItem="Hou-OW-CXg" firstAttribute="centerY" secondItem="u8G-Or-Rhf" secondAttribute="centerY" id="rLU-yH-f4m"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="lef-Kw-klt" secondAttribute="trailing" constant="60" id="vP4-uc-aqZ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="u8G-Or-Rhf" id="TEP-y4-YOn"/>
                         <outlet property="passwordField" destination="1hM-jD-Hvn" id="8ur-l3-vLJ"/>
+                        <outlet property="signUpButton" destination="Hou-OW-CXg" id="gKb-eK-w4H"/>
                         <outlet property="usernameField" destination="lef-Kw-klt" id="Y47-PD-D0V"/>
                         <segue destination="fBy-Pt-naK" kind="presentation" identifier="login" modalPresentationStyle="fullScreen" id="KCc-C3-VRy"/>
                     </connections>
@@ -577,8 +612,17 @@
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -68,7 +68,9 @@
         if (posts != nil) {
             self.posts = posts;
             
-            self.dateOfLastLoadedPost = ((Post*) posts[posts.count - 1]).createdAt;
+            if (self.posts.count > 0) {
+                self.dateOfLastLoadedPost = ((Post*) posts[posts.count - 1]).createdAt;
+            }
             
             //resetting isLikedByCurrentUser
             for (Post *post in posts) {
@@ -164,7 +166,10 @@
     [query includeKey:@"author"];
     
     NSDate *now = [NSDate now];
-    [query whereKey:@"createdAt" greaterThan:self.dateOfLastLoadedPost];
+    
+    if (self.dateOfLastLoadedPost != nil) {
+        [query whereKey:@"createdAt" greaterThan:self.dateOfLastLoadedPost];
+    }
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
 

@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) UIAlertController *alert;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 
 @end
 
@@ -21,6 +23,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupAlert];
+    [self styleComponents];
+}
+
+- (void)styleComponents {
+    //styling buttons
+    self.loginButton.layer.cornerRadius = 5;
+    self.loginButton.layer.masksToBounds = true;
+    
+    self.signUpButton.layer.cornerRadius = 5;
+    self.signUpButton.layer.masksToBounds = true;
 }
 
 - (void)setupAlert {
