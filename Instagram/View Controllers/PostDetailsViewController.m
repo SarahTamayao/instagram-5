@@ -79,6 +79,8 @@
         [cell setNeedsLayout];
         [cell layoutIfNeeded];
         
+        cell.viewCommentsLabel.alpha = 0;
+        
         return cell;
     } else {
         CommentCollectionViewCell *commentCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CommentCollectionViewCell" forIndexPath:indexPath];

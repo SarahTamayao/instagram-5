@@ -84,14 +84,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 hours ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehQ-qc-eaI">
-                        <rect key="frame" x="8" y="1048" width="76.5" height="17"/>
+                        <rect key="frame" x="8" y="1055.5" width="76.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYm-gg-Ht0">
-                        <rect key="frame" x="8" y="1027" width="105" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="8" y="1031" width="124.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -100,7 +100,7 @@
                     <constraint firstItem="tKc-5K-SDa" firstAttribute="centerY" secondItem="xwq-Oc-XqS" secondAttribute="centerY" id="4QD-og-AoO"/>
                     <constraint firstItem="LPB-pV-Rkr" firstAttribute="top" secondItem="xwq-Oc-XqS" secondAttribute="bottom" constant="8" id="9KA-Ij-Cyb"/>
                     <constraint firstItem="cVU-a0-Nga" firstAttribute="leading" secondItem="YWR-uB-u61" secondAttribute="leading" id="9L3-Ld-1w2"/>
-                    <constraint firstItem="dYm-gg-Ht0" firstAttribute="top" secondItem="LPB-pV-Rkr" secondAttribute="bottom" constant="4" id="AKg-KC-LWw"/>
+                    <constraint firstItem="dYm-gg-Ht0" firstAttribute="top" secondItem="LPB-pV-Rkr" secondAttribute="bottom" constant="8" id="AKg-KC-LWw"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cVU-a0-Nga" secondAttribute="bottom" constant="8" id="C0q-ZA-Gfh"/>
                     <constraint firstItem="BYn-fR-NlC" firstAttribute="leading" secondItem="xwq-Oc-XqS" secondAttribute="trailing" constant="4" id="HGK-Nt-Asw"/>
                     <constraint firstItem="owf-bc-2qy" firstAttribute="top" secondItem="YWR-uB-u61" secondAttribute="top" constant="32" id="IUQ-HG-wtb"/>
