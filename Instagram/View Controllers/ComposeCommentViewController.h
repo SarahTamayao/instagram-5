@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ComposeCommentViewController : UIViewController
 
-@property (nonatomic, weak) PostCollectionViewCell *postCell;
+@property (weak, nonatomic) PostCollectionViewCell *postCell;
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 
 @end

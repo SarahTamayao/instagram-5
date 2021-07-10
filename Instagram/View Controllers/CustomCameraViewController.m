@@ -15,9 +15,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 @property (weak, nonatomic) IBOutlet UIButton *usePhotoButton;
 
-@property (nonatomic) AVCaptureSession *captureSession;
-@property (nonatomic) AVCapturePhotoOutput *stillImageOutput;
-@property (nonatomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;
+@property (nonatomic, strong) AVCaptureSession *captureSession;
+@property (nonatomic, strong) AVCapturePhotoOutput *stillImageOutput;
+@property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 
 @end
 

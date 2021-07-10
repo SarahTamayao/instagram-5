@@ -34,11 +34,11 @@
 }
 
 - (void)setCellWithComment:(nonnull PFObject *)comment safeAreaWidth:(CGFloat)safeAreaWidth post:(nonnull Post *)post didTapProfileImageBlock:(void(^)(PFUser *target))didTapProfileImage {
-    self.usernameLabel.text = post[@"author"][@"username"];
+    self.usernameLabel.text = comment[@"userId"][@"username"];
     self.commentTextLabel.text = comment[@"commentText"];
     self.commentTextWidthConstraint.constant = safeAreaWidth - 80;
     
-    [post[@"author"][@"profileImage"] getDataInBackgroundWithBlock:^(NSData *_Nullable data, NSError *_Nullable error) {
+    [comment[@"userId"][@"profileImage"] getDataInBackgroundWithBlock:^(NSData *_Nullable data, NSError *_Nullable error) {
         if (!error) {
             self.profileImageView.image = [UIImage imageWithData:data];
         }

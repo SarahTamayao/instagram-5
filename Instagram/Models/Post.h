@@ -16,7 +16,7 @@
 @property (nonatomic, strong) PFFileObject *image;
 @property (nonatomic, strong) NSNumber *likeCount;
 @property (nonatomic, strong) NSNumber *commentCount;
-@property (nonatomic) BOOL isLikedByCurrentUser;
+@property (nonatomic, assign) BOOL isLikedByCurrentUser;
 
 + (void) postUserImage:(UIImage * _Nullable)image withCaption:(NSString * _Nullable)caption withCompletion:(PFBooleanResultBlock  _Nullable)completion;
 + (PFFileObject *_Nullable)getPFFileFromImage:(UIImage * _Nullable)image;
