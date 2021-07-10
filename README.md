@@ -70,11 +70,11 @@ sign up, login, user persistence
  - Run your app on your phone and use the camera to take the photo
 <img src='https://github.com/rigrergl/instagram/blob/main/refresh.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
  - Pull to refresh
- - User can load more posts once he or she reaches the bottom of the feed using infinite scrolling.
 
 
 <img src='https://github.com/rigrergl/instagram/blob/main/infinite_scroll_and_profile_image_tap.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
  - Tapping on a post's username or profile photo goes to that user's profile page
+ - User can load more posts once he or she reaches the bottom of the feed using infinite scrolling.
 
 
 GIF created with [Kap](https://getkap.co/).
