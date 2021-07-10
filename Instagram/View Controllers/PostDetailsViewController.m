@@ -37,7 +37,6 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"CommentCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"CommentCollectionViewCell"];
     
     UICollectionViewFlowLayout *layout = self.collectionView.collectionViewLayout;
-//    layout.estimatedItemSize = CGSizeZero;
     layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize;
     
 }
