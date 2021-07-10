@@ -10,7 +10,8 @@
 @implementation Utility
 
 
-+ (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
++ (UIImage *)resizeImage:(UIImage *)image
+                withSize:(CGSize)size {
     UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     
     resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -25,7 +26,8 @@
 }
 
 #pragma  mark - Feed
-+ (void)createLike:(Post *)post completion:(void(^)(BOOL succeeded, BOOL likeExisted, NSError *error))completion {
++ (void)createLike:(Post *)post
+        completion:(void(^)(BOOL succeeded, BOOL likeExisted, NSError *error))completion {
     //make sure that like does not already exist (same user and post id)
     PFQuery *query = [PFQuery queryWithClassName:@"Like"];
     [query whereKey:@"postId" equalTo:post.objectId];
@@ -53,7 +55,8 @@
     }];
 }
 
-+ (void)deleteLike:(Post *)post completion:(void(^)(BOOL succeeded, NSError *error))completion {
++ (void)deleteLike:(Post *)post
+        completion:(void(^)(BOOL succeeded, NSError *error))completion {
     //getting the like object
     PFQuery *query = [PFQuery queryWithClassName:@"Like"];
     [query whereKey:@"postId" equalTo:post.objectId];
@@ -74,7 +77,9 @@
 }
 
 #pragma mark - User Authentication
-+ (void)registerUser:(NSString *)username password:(NSString *)password completion:(void(^)(BOOL succeeded, NSError *error))completion{
++ (void)registerUser:(NSString *)username
+            password:(NSString *)password
+          completion:(void(^)(BOOL succeeded, NSError *error))completion{
     // initialize a user object
     PFUser *newUser = [PFUser user];
     
@@ -92,7 +97,9 @@
     }];
 }
 
-+ (void)loginUser:(NSString *)username password:(NSString *)password completion:(void(^)(PFUser *user, NSError *error))completion {
++ (void)loginUser:(NSString *)username
+         password:(NSString *)password
+       completion:(void(^)(PFUser *user, NSError *error))completion {
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
         if (error != nil) {
             completion(nil, error);

@@ -128,7 +128,9 @@
 }
 
 //AVCapturePhotoCaptureDelegate delegate method
-- (void)captureOutput:(AVCapturePhotoOutput *)output didFinishProcessingPhoto:(AVCapturePhoto *)photo error:(nullable NSError *)error {
+- (void)captureOutput:(AVCapturePhotoOutput *)output
+didFinishProcessingPhoto:(AVCapturePhoto *)photo
+                error:(nullable NSError *)error {
     
     NSData *imageData = photo.fileDataRepresentation;
     if (imageData) {

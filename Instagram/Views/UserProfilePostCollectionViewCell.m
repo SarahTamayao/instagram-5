@@ -29,7 +29,9 @@
     }
 }
 
-- (void)setCellWithPost:(Post *)post didTapPostBlock:(void(^)(Post *post))didTapPost itemDimensions:(int)itemDimensions {
+- (void)setCellWithPost:(Post *)post
+        didTapPostBlock:(void(^)(Post *post))didTapPost
+         itemDimensions:(int)itemDimensions {
     self.post = post;
     self.didTapPostImage = didTapPost;
     //setting post image

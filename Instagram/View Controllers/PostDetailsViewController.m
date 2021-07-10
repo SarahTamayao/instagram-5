@@ -61,7 +61,8 @@
     [self.collectionView setAlpha:1.0];
 }
 
-- (nonnull UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+- (nonnull UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView
+                          cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     if (indexPath.item == 0) {
         PostCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionViewCell" forIndexPath:indexPath];
         
@@ -95,14 +96,16 @@
     }
 }
 
-- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView
+     numberOfItemsInSection:(NSInteger)section {
     return self.comments.count + 1;
 }
 
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     

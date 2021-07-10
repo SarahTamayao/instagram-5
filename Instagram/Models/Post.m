@@ -21,7 +21,9 @@
     return @"Post";
 }
 
-+ (void)postUserImage:(UIImage * _Nullable)image withCaption:(NSString * _Nullable)caption withCompletion:(PFBooleanResultBlock  _Nullable)completion {
++ (void)postUserImage:(UIImage * _Nullable)image
+          withCaption:(NSString * _Nullable)caption
+       withCompletion:(PFBooleanResultBlock  _Nullable)completion {
     Post *newPost = [Post new];
     newPost.image = [self getPFFileFromImage:image];
     newPost.author = [PFUser currentUser];

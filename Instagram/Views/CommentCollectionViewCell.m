@@ -33,7 +33,10 @@
     }
 }
 
-- (void)setCellWithComment:(nonnull PFObject *)comment safeAreaWidth:(CGFloat)safeAreaWidth post:(nonnull Post *)post didTapProfileImageBlock:(void(^)(PFUser *target))didTapProfileImage {
+- (void)setCellWithComment:(nonnull PFObject *)comment
+             safeAreaWidth:(CGFloat)safeAreaWidth
+                      post:(nonnull Post *)post
+   didTapProfileImageBlock:(void(^)(PFUser *target))didTapProfileImage {
     self.usernameLabel.text = comment[@"userId"][@"username"];
     self.commentTextLabel.text = comment[@"commentText"];
     self.commentTextWidthConstraint.constant = safeAreaWidth - 80;

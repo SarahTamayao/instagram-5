@@ -19,7 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) void (^didTapProfileImage)(PFUser *targetUser);
 @property (strong, nonatomic) Post *_Nonnull post;
 
-- (void)setCellWithComment:(PFObject *)comment safeAreaWidth:(CGFloat)safeAreaWidth post:(Post *)post didTapProfileImageBlock:(void(^)(PFUser *target))didTapProfileImage;
+- (void)setCellWithComment:(PFObject *)comment
+             safeAreaWidth:(CGFloat)safeAreaWidth
+                      post:(Post *)post
+   didTapProfileImageBlock:(void(^)(PFUser *target))didTapProfileImage;
 
 @end
 

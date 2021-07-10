@@ -28,7 +28,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) void (^didTapProfileImage)(PostCollectionViewCell *postCell);
 
 //methods
-- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth commentCode:(void(^)(PostCollectionViewCell *post))commentCode didTapPostImage:(void(^)(PostCollectionViewCell *postCell))didTapPostImage didTapProfileImage:(void(^)(PostCollectionViewCell *postCell))didTapProfileImage;
+- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth
+            commentCode:(void(^)(PostCollectionViewCell *post))commentCode
+        didTapPostImage:(void(^)(PostCollectionViewCell *postCell))didTapPostImage
+     didTapProfileImage:(void(^)(PostCollectionViewCell *postCell))didTapProfileImage;
 - (void)refreshUI;
 
 @end

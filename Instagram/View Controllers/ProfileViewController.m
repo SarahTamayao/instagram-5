@@ -115,7 +115,8 @@
     
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     
     // Get the image captured by the UIImagePickerController
@@ -148,7 +149,8 @@
 
 #pragma mark - Collection View
 
-- (nonnull UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+- (nonnull UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView
+                          cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     UserProfilePostCollectionViewCell *postCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"userProfilePostCell" forIndexPath:indexPath];
     
     [postCell setCellWithPost:self.posts[indexPath.item] didTapPostBlock:^(Post *_Nonnull post){
@@ -159,12 +161,15 @@
     return postCell;
 }
 
-- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView
+     numberOfItemsInSection:(NSInteger)section {
     return self.posts.count;
 }
 
 // MARK: UICollectionViewDelegateFlowLayout methods
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     int totalwidth = self.collectionView.bounds.size.width;
     int numberOfCellsPerRow = 3;
     int dimensions = (CGFloat)(totalwidth / numberOfCellsPerRow);

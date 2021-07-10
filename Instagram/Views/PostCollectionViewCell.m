@@ -60,7 +60,11 @@
     self.didTapPostImage(self);
 }
 
-- (void)setCellWithPost:(Post *)post screenWidth:(CGFloat)screenWidth commentCode:(void(^)(PostCollectionViewCell *post))commentCode didTapPostImage:(void(^)(PostCollectionViewCell *postCell))didTapPostImage didTapProfileImage:(void(^)(PostCollectionViewCell *postCell))didTapProfileImage {
+- (void)setCellWithPost:(Post *)post
+            screenWidth:(CGFloat)screenWidth
+            commentCode:(void(^)(PostCollectionViewCell *post))commentCode
+        didTapPostImage:(void(^)(PostCollectionViewCell *postCell))didTapPostImage
+     didTapProfileImage:(void(^)(PostCollectionViewCell *postCell))didTapProfileImage {
     
     _post = post;
     

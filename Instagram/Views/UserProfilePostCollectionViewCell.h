@@ -14,9 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) Post *_Nonnull post;
 @property (strong, nonatomic) IBOutlet UIImageView *_Nonnull postImageView;
-- (void)setCellWithPost:(Post *)post didTapPostBlock:(void(^)(Post *post))didTapPost itemDimensions:(int)itemDimensions;
 @property (nonatomic, copy) void (^didTapPostImage)(Post *postCell);
 
+- (void)setCellWithPost:(Post *)post
+        didTapPostBlock:(void(^)(Post *post))didTapPost
+         itemDimensions:(int)itemDimensions;
 
 @end
 
