@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PostDetailsViewController : UIViewController
 
-@property (weak, nonatomic) Post *post;
+@property (strong, nonatomic) Post *_Nonnull post;
 
 @end
 

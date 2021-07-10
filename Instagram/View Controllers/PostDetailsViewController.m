@@ -13,10 +13,9 @@
 
 @interface PostDetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UIView *contentView;
-@property (strong, nonatomic) PostCollectionViewCell *postCell;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) NSMutableArray *comments;
+@property (strong, nonatomic) PostCollectionViewCell *_Nonnull postCell;
+@property (strong, nonatomic) IBOutlet UICollectionView *_Nonnull collectionView;
+@property (strong, nonatomic) NSMutableArray *_Nullable comments;
 
 @end
 

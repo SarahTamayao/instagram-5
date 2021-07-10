@@ -13,16 +13,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PostCollectionViewCell : UICollectionViewCell
 
 //properties
-@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
-@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeStampLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *postImage;
-@property (weak, nonatomic) IBOutlet UILabel *captionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *commentCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *viewCommentsLabel;
-@property (weak, nonatomic) IBOutlet UIButton *likeButton;
-@property (weak, nonatomic) Post *post;
+@property (strong, nonatomic) IBOutlet UIImageView *_Nonnull profileImage;
+@property (strong, nonatomic) IBOutlet UILabel *_Nonnull usernameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *_Nonnull timeStampLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *_Nonnull postImage;
+@property (strong, nonatomic) IBOutlet UILabel *_Nonnull captionLabel;
+@property (strong, nonatomic) IBOutlet UILabel *_Nonnull likeCountLabel;
+@property (strong, nonatomic) IBOutlet UILabel *_Nonnull commentCountLabel;
+@property (strong, nonatomic) IBOutlet UILabel *_Nonnull viewCommentsLabel;
+@property (strong, nonatomic) IBOutlet UIButton *_Nonnull likeButton;
+@property (strong, nonatomic) Post *_Nonnull post;
 @property (nonatomic, copy) void (^commentMethod)(PostCollectionViewCell *postCell);
 @property (nonatomic, copy) void (^didTapPostImage)(PostCollectionViewCell *postCell);
 @property (nonatomic, copy) void (^didTapProfileImage)(PostCollectionViewCell *postCell);

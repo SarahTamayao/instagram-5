@@ -12,12 +12,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CommentCollectionViewCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
-@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *commentTextLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentTextWidthConstraint;
-@property (copy, nonatomic) void (^didTapProfileImage)(PFUser *targetUser);
-@property (weak, nonatomic) Post *post;
+@property (strong, nonatomic) IBOutlet UIImageView *_Nonnull profileImageView;
+@property (strong, nonatomic) IBOutlet UILabel *_Nonnull usernameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *_Nonnull commentTextLabel;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *_Nonnull commentTextWidthConstraint;
+@property (strong, nonatomic) void (^didTapProfileImage)(PFUser *targetUser);
+@property (strong, nonatomic) Post *_Nonnull post;
 
 - (void)setCellWithComment:(PFObject *)comment safeAreaWidth:(CGFloat)safeAreaWidth post:(Post *)post didTapProfileImageBlock:(void(^)(PFUser *target))didTapProfileImage;
 

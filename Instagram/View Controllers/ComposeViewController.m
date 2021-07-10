@@ -13,9 +13,9 @@
 #import "CustomCameraViewController.h"
 
 @interface ComposeViewController () <UINavigationControllerDelegate>
-@property (weak, nonatomic) IBOutlet UIImageView *imagePreview;
-@property (weak, nonatomic) IBOutlet UITextView *captionTextView;
-@property (weak, nonatomic) IBOutlet UIView *imagePlaceHolderView;
+@property (strong, nonatomic) IBOutlet UIImageView *_Nonnull imagePreview;
+@property (strong, nonatomic) IBOutlet UITextView *_Nonnull captionTextView;
+@property (strong, nonatomic) IBOutlet UIView *_Nonnull imagePlaceHolderView;
 
 @end
 

@@ -10,11 +10,11 @@
 #import "Utility.h"
 
 @interface UserAuthenticationViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *usernameField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordField;
-@property (strong, nonatomic) UIAlertController *alert;
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
-@property (weak, nonatomic) IBOutlet UIButton *signUpButton;
+@property (strong, nonatomic) IBOutlet UITextField *_Nonnull usernameField;
+@property (strong, nonatomic) IBOutlet UITextField *_Nonnull passwordField;
+@property (strong, nonatomic) UIAlertController *_Nonnull alert;
+@property (strong, nonatomic) IBOutlet UIButton *_Nonnull loginButton;
+@property (strong, nonatomic) IBOutlet UIButton *_Nonnull signUpButton;
 
 @end
 

@@ -10,14 +10,14 @@
 #import "Utility.h"
 
 @interface CustomCameraViewController () <AVCapturePhotoCaptureDelegate>
-@property (weak, nonatomic) IBOutlet UIView *previewView;
-@property (weak, nonatomic) IBOutlet UIImageView *captureImageView;
-@property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
-@property (weak, nonatomic) IBOutlet UIButton *usePhotoButton;
+@property (strong, nonatomic) IBOutlet UIView *_Nonnull previewView;
+@property (strong, nonatomic) IBOutlet UIImageView *_Nonnull captureImageView;
+@property (strong, nonatomic) IBOutlet UIButton *_Nonnull takePhotoButton;
+@property (strong, nonatomic) IBOutlet UIButton *_Nonnull usePhotoButton;
 
-@property (nonatomic, strong) AVCaptureSession *captureSession;
-@property (nonatomic, strong) AVCapturePhotoOutput *stillImageOutput;
-@property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
+@property (nonatomic, strong) AVCaptureSession *_Nonnull captureSession;
+@property (nonatomic, strong) AVCapturePhotoOutput *_Nonnull stillImageOutput;
+@property (nonatomic, strong) AVCaptureVideoPreviewLayer *_Nonnull videoPreviewLayer;
 
 @end
 

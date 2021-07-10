@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UserProfilePostCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) Post *post;
-@property (weak, nonatomic) IBOutlet UIImageView *postImageView;
+@property (strong, nonatomic) Post *_Nonnull post;
+@property (strong, nonatomic) IBOutlet UIImageView *_Nonnull postImageView;
 - (void)setCellWithPost:(Post *)post didTapPostBlock:(void(^)(Post *post))didTapPost itemDimensions:(int)itemDimensions;
 @property (nonatomic, copy) void (^didTapPostImage)(Post *postCell);
 

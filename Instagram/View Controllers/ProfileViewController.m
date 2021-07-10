@@ -15,12 +15,11 @@
 
 @interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
-@property (strong, nonatomic) NSMutableArray *posts;
-@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
-@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UIButton *changePictureButton;
+@property (strong, nonatomic) IBOutlet UICollectionView *_Nonnull collectionView;
+@property (strong, nonatomic) NSMutableArray *_Nullable posts;
+@property (strong, nonatomic) IBOutlet UIImageView *_Nonnull profileImageView;
+@property (strong, nonatomic) IBOutlet UILabel *_Nonnull usernameLabel;
+@property (strong, nonatomic) IBOutlet UIButton *_Nonnull changePictureButton;
 @property (assign, nonatomic) int collectionViewItemDimensions;
 
 @end
@@ -162,15 +161,6 @@
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.posts.count;
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    
-    //    self.flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;//UICollectionViewScrollDirectionHorizontal;
-    self.flowLayout.minimumLineSpacing = 0;
-    self.flowLayout.minimumInteritemSpacing = 0;
-    self.flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 10);
 }
 
 // MARK: UICollectionViewDelegateFlowLayout methods

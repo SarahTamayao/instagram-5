@@ -11,7 +11,7 @@
 
 @interface ProfileViewController : UIViewController
 
-@property (strong, nonatomic) PFUser *targetUser;
+@property (strong, nonatomic) PFUser *_Nonnull targetUser;
 
 @end
 

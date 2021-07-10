@@ -18,12 +18,12 @@
 
 @interface FeedViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate>
 
-@property (strong, nonatomic) NSMutableArray *posts;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) NSMutableArray *_Nullable posts;
+@property (strong, nonatomic) IBOutlet UICollectionView *_Nonnull collectionView;
+@property (nonatomic, strong) UIRefreshControl *_Nonnull refreshControl;
 @property (assign, nonatomic) BOOL isMoreDataLoading;
 @property (assign, nonatomic) BOOL isDragging;
-@property (strong, nonatomic) NSDate *dateOfLastLoadedPost;
+@property (strong, nonatomic) NSDate *_Nullable dateOfLastLoadedPost;
 
 @end
 
